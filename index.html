@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheerApp V1 – Firehouse Cheerleading</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Config CheerApp -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cheer: {
+                            red: "#C51515",
+                            orange: "#FF6A00",
+                            yellow: "#FFC400",
+                            black: "#0A0A0A",
+                            gray: "#2A2A2A",
+                            white: "#FFFFFF",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        title: ["Montserrat", "sans-serif"],
+                    },
+                    boxShadow: {
+                        hard: "0 0 24px rgba(0,0,0,0.65)",
+                        card: "0 0 12px rgba(0,0,0,0.50)",
+                    },
+                    borderRadius: {
+                        base: "6px",
+                        card: "10px",
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="assets/css/cheer.css" />
+</head>
+
+<body class="bg-cheer-black text-cheer-white font-sans">
+
+    <!-- HEADER -->
+    <!-- HEADER FIREHOUSE -->
+<header class="w-full">
+
+    <!-- BARRA SUPERIOR COMERCIAL -->
+	<div class="w-full bg-[#0A0A0A] text-white text-xs border-b border-red-700">
+	<div class="max-w-screen-xl mx-auto px-6 py-2 flex justify-between items-center">
+
+        <p class="tracking-wide">
+            Temporada 2025 – Inscripciones abiertas
+        </p>
+        <a href="https://wa.me/+569XXXXXXXX"
+           class="font-semibold text-red-500 hover:text-white transition">
+            WhatsApp →
+        </a>
+		</div>
+    </div>
+
+    <!-- NAV FIREHOUSE -->
+    <nav class="w-full bg-[#0A0A0A] text-white sticky top-0 z-50 border-b border-red-900/70">
+
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- LOGO + NOMBRE -->
+            <div class="flex items-center gap-3">
+                <img src="assets/img/logo.png" 
+                     alt="Firehouse Cheer"
+                     class="h-20 w-auto select-none pointer-events-none">
+					 
+                
+            </div>
+
+            <!-- MENÚ DESKTOP -->
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+
+                <a href="#familia" class="hover:text-red-500 transition">Familia Firehouse</a>
+                <a href="#sellos" class="hover:text-red-500 transition">Sellos de Identidad</a>
+                <a href="#categorias" class="hover:text-red-500 transition">Categorías</a>
+                <a href="#coachs" class="hover:text-red-500 transition">Coachs</a>
+                <a href="#testimonios" class="hover:text-red-500 transition">Testimonios</a>
+                <a href="#trayectoria" class="hover:text-red-500 transition">Trayectoria</a>
+                <a href="#galeria" class="hover:text-red-500 transition">Galería</a>
+                <a href="#contacto" class="hover:text-red-500 transition">Contacto</a>
+
+            </div>
+
+            <!-- CTA -->
+            <a href="#contacto"
+               class="hidden md:inline-block bg-red-600 text-white px-5 py-2 rounded-md font-semibold border border-black shadow-[0_0_12px_#ff0000] hover:bg-black hover:text-red-500 transition">
+                Únete
+            </a>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="mobile-btn" class="md:hidden text-white text-2xl">
+                ☰
+            </button>
+        </div>
+
+        <!-- MENÚ MOBILE -->
+        <div id="mobile-menu" class="md:hidden bg-black text-white hidden px-6 pb-6 space-y-4 text-sm">
+
+            <a href="#familia" class="block hover:text-red-500 transition">Familia Firehouse</a>
+            <a href="#sellos" class="block hover:text-red-500 transition">Sellos de Identidad</a>
+            <a href="#categorias" class="block hover:text-red-500 transition">Categorías</a>
+            <a href="#coachs" class="block hover:text-red-500 transition">Coachs</a>
+            <a href="#testimonios" class="block hover:text-red-500 transition">Testimonios</a>
+            <a href="#trayectoria" class="block hover:text-red-500 transition">Trayectoria</a>
+            <a href="#galeria" class="block hover:text-red-500 transition">Galería</a>
+            <a href="#contacto" class="block hover:text-red-500 transition">Contacto</a>
+
+            <a href="#contacto"
+               class="inline-block bg-red-600 text-white px-5 py-2 rounded-md font-semibold border border-black shadow-[0_0_12px_#ff0000] hover:bg-black hover:text-red-500 transition">
+                Únete
+            </a>
+
+        </div>
+    </nav>
+
+</header>
+
+
+
+
+    <!-- HERO -->
+    <!-- HERO STACK PRO -->
+<section id="hero" class="w-full py-24 md:py-32 fade-in bg-cheer-black">
+    <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        
+        <!-- COLUMNA TEXTO -->
+        <div class="space-y-8">
+            <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                Entrena como un<br>
+                verdadero equipo de<br>
+                <span class="text-cheer-red">competición.</span>
+            </h1>
+
+            <p class="text-lg text-cheer-white/80 max-w-md">
+                Stunts, pirámides y rutinas de alto rendimiento. Firehouse entrena
+                con mentalidad competitiva y disciplina real de equipo.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#contacto" class="btn-primary">Quiero unirme</a>
+                <a href="#categorias" class="btn-secondary">Ver categorías</a>
+            </div>
+
+            <p class="text-xs text-cheer-white/60 uppercase tracking-[0.2em]">
+                All Stars • Disciplina • Fuego competitivo
+            </p>
+        </div>
+
+        <!-- COLUMNA STACK DE FOTOS -->
+        <div class="hero-stack hidden md:block">
+            <!-- CARD 1 -->
+            <div class="hero-card hero-card-1">
+                 <img src="assets/img/hero4.jpg"
+                     alt="Stunt Firehouse"
+                     class="hero-card-img">
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="hero-card hero-card-2 hero-card-active">
+                 <img src="assets/img/hero3.jpg"
+                     alt="Rutina Firehouse"
+                     class="hero-card-img">
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="hero-card hero-card-3">
+                 <img src="assets/img/hero2.jpg"
+                     alt="Equipo Firehouse"
+                     class="hero-card-img">
+            </div>
+        </div>
+
+        <!-- VERSIÓN MOBILE: SLIDER SIMPLE -->
+        <div class="md:hidden">
+            <div class="relative overflow-hidden rounded-card border-2 border-cheer-red shadow-card">
+                <div class="hero-mobile-track flex transition-transform duration-500 ease-out">
+                    <img src="assets/img/hero1.jpg"
+                         class="w-full h-64 object-cover flex-shrink-0"
+                         alt="Stunt Firehouse">
+                    <img src="assets/img/hero3.jpg"
+                         class="w-full h-64 object-cover flex-shrink-0"
+                         alt="Rutina Firehouse">
+                    <img src="assets/img/hero2.jpg"
+                         class="w-full h-64 object-cover flex-shrink-0"
+                         alt="Equipo Firehouse">
+                </div>
+            </div>
+            <div class="flex justify-center gap-2 mt-4">
+                <button class="hero-dot hero-dot-active"></button>
+                <button class="hero-dot"></button>
+                <button class="hero-dot"></button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="quienes" class="w-full py-32 fade-in">
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+            <div>
+                <img src="assets/img/team.jpg" class="rounded-card shadow-card w-full h-[360px] object-cover" />
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="font-title text-4xl font-extrabold">Quiénes somos</h2>
+
+                <p class="text-cheer-white/80 text-lg leading-relaxed">
+                    Firehouse es un equipo dedicado al Cheerleading competitivo con un enfoque
+                    en técnica, disciplina y crecimiento deportivo real.
+                </p>
+
+                <ul class="space-y-3 text-cheer-white/90">
+                    <li>• Entrenamiento físico y técnico completo</li>
+                    <li>• Staff certificado y con experiencia internacional</li>
+                    <li>• Equipo y comunidad con mentalidad de alto rendimiento</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="w-full py-32 fade-in bg-cheer-gray/20">
+        <div class="max-w-screen-xl mx-auto px-6 text-center mb-16">
+            <h2 class="font-title text-4xl font-extrabold">Beneficios</h2>
+            <p class="text-cheer-white/70 mt-3">
+                Entrena con una metodología moderna orientada al rendimiento y la seguridad.
+            </p>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+            <div class="card-cheer text-center space-y-4">
+                <h3 class="font-title text-xl font-bold">Técnica Profesional</h3>
+                <p class="text-cheer-white/70">Desarrolla habilidades reales de stunt, salto y pirámide.</p>
+            </div>
+
+            <div class="card-cheer text-center space-y-4">
+                <h3 class="font-title text-xl font-bold">Fuerza & Resistencia</h3>
+                <p class="text-cheer-white/70">Programas físicos orientados al rendimiento competitivo.</p>
+            </div>
+
+            <div class="card-cheer text-center space-y-4">
+                <h3 class="font-title text-xl font-bold">Ambiente de Equipo</h3>
+                <p class="text-cheer-white/70">Comunidad unida, disciplina y mentalidad ganadora.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- SERVICIOS / PROGRAMAS -->
+    <section id="servicios" class="w-full py-32 fade-in">
+        <div class="max-w-screen-xl mx-auto px-6 text-center mb-16">
+            <h2 class="font-title text-4xl font-extrabold">Programas</h2>
+            <p class="text-cheer-white/70 mt-3">Elige el nivel que más se ajuste a tu experiencia.</p>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
+            <div class="card-cheer space-y-4">
+                <h3 class="font-title text-xl font-bold">Iniciación</h3>
+                <p class="text-cheer-white/70">Fundamentos técnicos y físicos. Ideal para principiantes.</p>
+            </div>
+
+            <div class="card-cheer space-y-4">
+                <h3 class="font-title text-xl font-bold">Intermedio</h3>
+                <p class="text-cheer-white/70">Progresión técnica y rutinas básicas de competencia.</p>
+            </div>
+
+            <div class="card-cheer space-y-4">
+                <h3 class="font-title text-xl font-bold">Avanzado</h3>
+                <p class="text-cheer-white/70">Entrenamiento completo y rutinas de competición.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="w-full py-32 fade-in bg-cheer-gray/20">
+        <div class="max-w-screen-xl mx-auto px-6 text-center mb-16">
+            <h2 class="font-title text-4xl font-extrabold">Galería</h2>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+            <img src="assets/img/gallery1.jpg" class="rounded-card h-64 object-cover">
+            <img src="assets/img/gallery2.jpg" class="rounded-card h-64 object-cover">
+            <img src="assets/img/gallery3.jpg" class="rounded-card h-64 object-cover">
+        </div>
+    </section>
+
+
+
+    <!-- CTA FINAL -->
+    <section id="cta" class="w-full py-32 fade-in">
+        <div class="text-center max-w-3xl mx-auto px-6">
+
+            <h2 class="font-title text-4xl font-extrabold">
+                ¿Listo para entrenar en Firehouse?
+            </h2>
+
+            <p class="text-cheer-white/70 mt-4 text-lg">
+                Cupos limitados. Únete al equipo y entrena con disciplina y energía.
+            </p>
+
+            <a href="#contacto" class="btn-primary mt-10 inline-block">Quiero inscribirme</a>
+        </div>
+    </section>
+
+
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="w-full py-32 fade-in bg-cheer-gray/20">
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+
+            <div class="space-y-6">
+                <h2 class="font-title text-4xl font-extrabold">Contacto</h2>
+
+                <p class="text-cheer-white/80">
+                    Escríbenos y te responderemos rápido.
+                </p>
+
+                <ul class="space-y-2">
+                    <li><strong>Correo:</strong> contacto@firehouse.cl</li>
+                    <li><strong>WhatsApp:</strong> +56 9 XXXX XXXX</li>
+                </ul>
+            </div>
+
+            <iframe
+                class="rounded-card border-2 border-cheer-red shadow-card w-full h-80"
+                src="https://maps.google.com/maps?q=Santiago%20de%20Chile&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="w-full py-12 border-t border-cheer-red text-center text-cheer-white/60">
+        <p>© 2025 Firehouse Cheerleading. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="assets/js/cheer.js"></script>
+</body>
+</html>

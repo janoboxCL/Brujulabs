@@ -1,0 +1,184 @@
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botón primario SIN @apply */
+.btn-primary {
+    background-color: #C51515; /* cheer-red */
+    color: #FFFFFF;
+    border: 2px solid #000;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.50);
+    transition: 0.25s ease;
+}
+.btn-primary:hover {
+    background-color: #000;
+    color: #C51515;
+}
+
+/* Botón secundario SIN @apply */
+.btn-secondary {
+    background-color: #000;
+    color: #C51515;
+    border: 2px solid #C51515;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+.btn-secondary:hover {
+    background-color: #C51515;
+    color: #FFF;
+}
+
+/* Tarjetas */
+.card-cheer {
+    background-color: #0A0A0A;
+    border: 2px solid #C51515;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 12px rgba(0,0,0,0.50);
+    color: #FFF;
+}
+
+/* ------------------------------------ */
+/* HERO STACK PRO – BASE                */
+/* ------------------------------------ */
+
+.hero-stack {
+    position: relative;
+    height: 420px;
+}
+
+/* Tarjetas base */
+.hero-card {
+    position: absolute;
+    width: 58%;
+    max-width: 300px;
+	height: 280px;         /* controla alto */
+    border-radius: 10px;
+    border: 2px solid #C51515;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);    
+    opacity: 0.85;
+     transform: perspective(900px) scale(0.94) rotateX(0deg);
+    transition:
+        transform .55s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity .45s ease,
+        box-shadow .45s ease,
+        border-color .35s ease;
+}
+
+/* Imagen interna */
+.hero-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ------------------------------------ */
+/* POSICIONES                           */
+/* ------------------------------------ */
+
+.hero-card-1 {
+    left: 0;
+    top: 8%;
+    z-index: 10;
+}
+
+.hero-card-2 {
+    right: 0;
+    top: -4%;
+    z-index: 20;
+}
+
+.hero-card-3 {
+    left: 12%;
+    bottom: -4%;
+    z-index: 15;
+}
+
+/* ------------------------------------ */
+/* ESTILO DE HOVER (principal)          */
+/* ------------------------------------ */
+
+.hero-card:hover,
+.hero-card-active {
+    transform: perspective(900px) 
+               translateY(-10px) 
+               rotateX(6deg) 
+               rotateY(2deg) 
+               scale(1.55);
+    opacity: 1;
+    box-shadow:
+        0 12px 32px rgba(0,0,0,0.65),
+        0 0 48px rgba(255,40,40,0.75);
+    border-color: #FF4D4D;
+    z-index: 999;
+    transition:
+        transform .55s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow .55s ease,
+        border-color .35s ease;
+}
+
+
+/* ------------------------------------ */
+/* MOBILE (<768px)                      */
+/* ------------------------------------ */
+
+@media (max-width: 768px) {
+
+    .hero-stack {
+        height: auto;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .hero-stack::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-card {
+        position: relative;
+        min-width: 75%;
+        max-width: 75%;
+        height: 260px;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        box-shadow: 0 0 14px rgba(0,0,0,0.5);
+        border-color: #C51515;
+        scroll-snap-align: center;
+        z-index: 1 !important;
+    }
+
+    /* Sin hover en mobile */
+    .hero-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Activa = solo un borde más fuerte en mobile */
+    .hero-card-active {
+        border-color: #FF4D4D !important;
+        box-shadow: 0 0 18px rgba(255, 40, 40, 0.5) !important;
+    }
+
+    /* Dots */
+    .hero-dots-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 12px;
+    }
+}
