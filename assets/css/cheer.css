@@ -170,28 +170,5 @@
     object-position: top;
 }
 
-@media (max-width: 768px) {
 
-    .hero-mobile-card {
-        position: relative;
-        min-width: 260px;
-        height: 400px;
-        flex-shrink: 0;
-        scroll-snap-align: center;
 
-        border: 2px solid #C51515;
-        border-radius: 10px;
-        overflow: hidden;
-
-        box-shadow: 0 0 22px rgba(0,0,0,0.45);
-        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    /* Estado táctil (equivalente al hover desktop) */
-    .hero-mobile-card.touch-active {
-        transform: scale(1.08);
-        border-color: #FF4D4D;
-        box-shadow: 0 0 32px rgba(255,20,20,0.65);
-        z-index: 20;
-    }
-}
