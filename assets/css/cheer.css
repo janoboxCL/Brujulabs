@@ -49,136 +49,92 @@
     color: #FFF;
 }
 
-/* ------------------------------------ */
-/* HERO STACK PRO – BASE                */
-/* ------------------------------------ */
-
-.hero-stack {
+/* ----------------------------------------- */
+/* HERO STACK PRO — VERTICAL                 */
+/* ----------------------------------------- */
+/* CONTENEDOR */
+.hero-stack-carousel {
     position: relative;
-    height: 420px;
+    width: 100%;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Tarjetas base */
+/* CARD BASE */
 .hero-card {
     position: absolute;
-    width: 58%;
-    max-width: 300px;
-	height: 280px;         /* controla alto */
-    border-radius: 10px;
+    width: 260px;
+    height: 420px;
     border: 2px solid #C51515;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.7);    
-    opacity: 0.85;
-     transform: perspective(900px) scale(0.94) rotateX(0deg);
+	transform: perspective(900px) scale(0.94) rotateX(0deg);
     transition:
-        transform .55s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity .45s ease,
-        box-shadow .45s ease,
-        border-color .35s ease;
+        transform .7s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity .5s ease,
+        z-index .5s ease,
+        box-shadow .5s ease,
+        border-color .4s ease;
 }
 
-/* Imagen interna */
 .hero-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
 }
 
-/* ------------------------------------ */
-/* POSICIONES                           */
-/* ------------------------------------ */
+/* POSICIONES FIJAS */
+.hero-pos-center {
+    transform:
+        perspective(900px)
+        translateY(-14px)
+        scale(1.32)        /* antes 1.20 */
+        rotateX(0deg);
 
-.hero-card-1 {
-    left: 0;
-    top: 8%;
-    z-index: 10;
-}
-
-.hero-card-2 {
-    right: 0;
-    top: -4%;
-    z-index: 20;
-}
-
-.hero-card-3 {
-    left: 12%;
-    bottom: -4%;
-    z-index: 15;
-}
-
-/* ------------------------------------ */
-/* ESTILO DE HOVER (principal)          */
-/* ------------------------------------ */
-
-.hero-card:hover,
-.hero-card-active {
-    transform: perspective(900px) 
-               translateY(-10px) 
-               rotateX(6deg) 
-               rotateY(2deg) 
-               scale(1.55);
+    z-index: 40;
     opacity: 1;
-    box-shadow:
-        0 12px 32px rgba(0,0,0,0.65),
-        0 0 48px rgba(255,40,40,0.75);
-    border-color: #FF4D4D;
+    box-shadow: 0 0 48px rgba(255, 40, 40, 0.55);
+}
+
+
+.hero-pos-left {
+    transform:
+        perspective(900px)
+        translateX(-200px)    /* antes -260px */
+        translateY(60px)
+        scale(0.78);          /* antes 0.85 */
+
+    z-index: 20;
+    opacity: 0.82;
+}
+
+
+.hero-pos-right {
+    transform:
+        perspective(900px)
+        translateX(200px)     /* antes 260px */
+        translateY(60px)
+        scale(0.78);          /* antes 0.85 */
+
+    z-index: 20;
+    opacity: 0.82;
+}
+
+
+.hero-card:hover {
+    transform:
+        perspective(900px)
+        scale(1.42)
+        translateY(-26px)
+        rotateX(6deg);
+
     z-index: 999;
-    transition:
-        transform .55s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow .55s ease,
-        border-color .35s ease;
+    border-color: #FF4D4D;
+    box-shadow:
+        0 12px 45px rgba(255,40,40,0.75),
+        0 0 68px rgba(255,20,20,0.75);
 }
 
-
-/* ------------------------------------ */
-/* MOBILE (<768px)                      */
-/* ------------------------------------ */
-
-@media (max-width: 768px) {
-
-    .hero-stack {
-        height: auto;
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding-bottom: 1rem;
-    }
-
-    .hero-stack::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hero-card {
-        position: relative;
-        min-width: 75%;
-        max-width: 75%;
-        height: 260px;
-        transform: scale(1) !important;
-        opacity: 1 !important;
-        box-shadow: 0 0 14px rgba(0,0,0,0.5);
-        border-color: #C51515;
-        scroll-snap-align: center;
-        z-index: 1 !important;
-    }
-
-    /* Sin hover en mobile */
-    .hero-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    /* Activa = solo un borde más fuerte en mobile */
-    .hero-card-active {
-        border-color: #FF4D4D !important;
-        box-shadow: 0 0 18px rgba(255, 40, 40, 0.5) !important;
-    }
-
-    /* Dots */
-    .hero-dots-wrapper {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 12px;
-    }
-}

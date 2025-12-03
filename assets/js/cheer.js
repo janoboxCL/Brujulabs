@@ -24,63 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ---------------------------------------- */
 /* HERO STACK PRO – AUTO HOVER SECUENCIAL   */
 /* ---------------------------------------- */
-
 document.addEventListener("DOMContentLoaded", () => {
-
     const cards = document.querySelectorAll(".hero-card");
-    const isMobile = window.innerWidth <= 768;
-    let current = 0;
 
-    /* ---------------------------------------- */
-    /* DESKTOP MODE — AUTO HOVER                */
-    /* ---------------------------------------- */
+    function rotateCarousel() {
 
-    function desktopAutoHover() {
-        cards.forEach(card => card.classList.remove("hero-card-active"));
-        cards[current].classList.add("hero-card-active");
-        current = (current + 1) % cards.length;
+        const center = document.querySelector(".hero-pos-center");
+        const left = document.querySelector(".hero-pos-left");
+        const right = document.querySelector(".hero-pos-right");
+
+        // Rotación circular de clases
+        center.classList.remove("hero-pos-center");
+        center.classList.add("hero-pos-right");
+
+        right.classList.remove("hero-pos-right");
+        right.classList.add("hero-pos-left");
+
+        left.classList.remove("hero-pos-left");
+        left.classList.add("hero-pos-center");
     }
 
-    /* ---------------------------------------- */
-    /* MOBILE MODE — SLIDER AUTO ROTATION       */
-    /* ---------------------------------------- */
-
-    function mobileAutoSlide() {
-        const container = document.querySelector(".hero-stack");
-        const cardWidth = cards[0].offsetWidth + 16; // tarjeta + gap
-        container.scrollTo({
-            left: current * cardWidth,
-            behavior: "smooth"
-        });
-
-        cards.forEach(card => card.classList.remove("hero-card-active"));
-        cards[current].classList.add("hero-card-active");
-
-        current = (current + 1) % cards.length;
-    }
-
-    /* ---------------------------------------- */
-    /* INIT                                     */
-    /* ---------------------------------------- */
-
-    if (!isMobile) {
-        // Desktop: efecto hover + auto-rotación
-        desktopAutoHover();
-
-        setInterval(desktopAutoHover, 3000);
-
-        cards.forEach(card => {
-            card.addEventListener("mouseenter", () => {
-                cards.forEach(c => c.classList.remove("hero-card-active"));
-                card.classList.add("hero-card-active");
-            });
-        });
-
-    } else {
-        // Mobile: slider táctil + auto slide
-        mobileAutoSlide();
-
-        setInterval(mobileAutoSlide, 3000);
-    }
-
+    // Iniciar carrusel
+    setInterval(rotateCarousel, 3000);
 });
