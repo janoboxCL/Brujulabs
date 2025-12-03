@@ -47,3 +47,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // Iniciar carrusel
     setInterval(rotateCarousel, 3000);
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const container = document.querySelector(".hero-stack-carousel");
+    const cards = document.querySelectorAll(".hero-card");
+
+    if (window.innerWidth <= 768) {
+
+        // Crear dots
+        const dotContainer = document.createElement("div");
+        dotContainer.classList.add("hero-mobile-dots");
+
+        cards.forEach((c, i) => {
+            const dot = document.createElement("div");
+            dot.classList.add("hero-dot");
+            if (i === 0) dot.classList.add("hero-dot-active");
+            dotContainer.appendChild(dot);
+
+            dot.addEventListener("click", () => {
+                container.scrollTo({
+                    left: c.offsetLeft - 20,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        container.after(dotContainer);
+
+        // Activar dots según scroll
+        container.addEventListener("scroll", () => {
+            const index = Math.round(container.scrollLeft / 260);
+            const dots = document.querySelectorAll(".hero-dot");
+            dots.forEach(d => d.classList.remove("hero-dot-active"));
+            if (dots[index]) dots[index].classList.add("hero-dot-active");
+        });
+    }
+
+});
+

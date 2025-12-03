@@ -138,3 +138,71 @@
         0 0 68px rgba(255,20,20,0.75);
 }
 
+/* ----------------------------------------- */
+/* MOBILE VERSION: HERO STACK → SLIDER       */
+/* ----------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .hero-stack-carousel {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        gap: 24px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-card {
+        position: relative;
+        min-width: 260px;
+        height: 420px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        transform: none !important;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .hero-pos-center,
+    .hero-pos-left,
+    .hero-pos-right {
+        transform: none !important;
+    }
+
+    .hero-card:hover {
+        transform: scale(1.05) !important;
+        z-index: 99 !important;
+    }
+
+    /* Ocultar sombras demasiado intensas para evitar saturación visual */
+    .hero-card {
+        box-shadow: 0 0 22px rgba(255, 40, 40, 0.35);
+    }
+
+    /* Dots de navegación */
+    .hero-mobile-dots {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        gap: 10px;
+    }
+
+    .hero-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        border: 2px solid #C51515;
+        background: transparent;
+        transition: 0.25s;
+    }
+
+    .hero-dot-active {
+        background: #C51515;
+    }
+}
+
