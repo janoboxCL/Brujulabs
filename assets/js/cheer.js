@@ -22,31 +22,51 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const cards = document.querySelectorAll(".hero-card");
 
     let interval = null;
     let isPaused = false;
 
-    function rotateCarousel() {
+    function rotateOnceLeftToCenter() {
 
-        if (isPaused) return;  // ← Si está pausado, no hace nada
-        
         const center = document.querySelector(".hero-pos-center");
-        const left = document.querySelector(".hero-pos-left");
-        const right = document.querySelector(".hero-pos-right");
+        const left   = document.querySelector(".hero-pos-left");
+        const right  = document.querySelector(".hero-pos-right");
 
-        center.classList.remove("hero-pos-center");
-        center.classList.add("hero-pos-right");
+        // Reemplazo en orden correcto
+        center.classList.replace("hero-pos-center", "hero-pos-right");
+        left.classList.replace("hero-pos-left", "hero-pos-center");
+        right.classList.replace("hero-pos-right", "hero-pos-left");
+    }
 
-        right.classList.remove("hero-pos-right");
-        right.classList.add("hero-pos-left");
+    function rotateOnceRightToCenter() {
 
-        left.classList.remove("hero-pos-left");
-        left.classList.add("hero-pos-center");
+        const center = document.querySelector(".hero-pos-center");
+        const left   = document.querySelector(".hero-pos-left");
+        const right  = document.querySelector(".hero-pos-right");
+
+        center.classList.replace("hero-pos-center", "hero-pos-left");
+        right.classList.replace("hero-pos-right", "hero-pos-center");
+        left.classList.replace("hero-pos-left", "hero-pos-right");
+    }
+
+    function autoRoll() {
+
+        if (isPaused) return;
+
+        const center = document.querySelector(".hero-pos-center");
+        const left   = document.querySelector(".hero-pos-left");
+        const right  = document.querySelector(".hero-pos-right");
+
+        // orden de rotación normal
+        center.classList.replace("hero-pos-center", "hero-pos-right");
+        right.classList.replace("hero-pos-right", "hero-pos-left");
+        left.classList.replace("hero-pos-left", "hero-pos-center");
     }
 
     function startAutoRoll() {
-        interval = setInterval(rotateCarousel, 3500);
+        interval = setInterval(autoRoll, 4500);
         isPaused = false;
     }
 
@@ -55,74 +75,40 @@ document.addEventListener("DOMContentLoaded", () => {
         isPaused = true;
     }
 
-    // Iniciar autoroll
     startAutoRoll();
 
 
-    /* ----------------------------------------- */
-    /* PAUSAR EN MOUSEOVER Y CLICK               */
-    /* ----------------------------------------- */
+    /* ------------------------------------------------------ */
+    /*  PAUSAR EN HOVER Y CLICK                               */
+    /* ------------------------------------------------------ */
 
     cards.forEach(card => {
 
-        // Pausar al entrar hover
-        card.addEventListener("mouseenter", () => {
-            stopAutoRoll();
-        });
-
-        // Pausar si se hace click
-        card.addEventListener("click", () => {
-            stopAutoRoll();
-        });
+        // Pausar en hover
+        card.addEventListener("mouseenter", stopAutoRoll);
 
         // Reanudar al salir
         card.addEventListener("mouseleave", () => {
-            // solo reanudar si no se ha hecho click recientemente
             if (isPaused) startAutoRoll();
+        });
+
+        // Manejo del click sin superposición
+        card.addEventListener("click", () => {
+
+            stopAutoRoll(); // siempre pausa
+
+            if (card.classList.contains("hero-pos-left")) {
+                rotateOnceLeftToCenter();   // mover izquierda → centro
+            }
+            else if (card.classList.contains("hero-pos-right")) {
+                rotateOnceRightToCenter();  // mover derecha → centro
+            }
+
         });
 
     });
 
 });
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const container = document.querySelector(".hero-stack-carousel");
-    const cards = document.querySelectorAll(".hero-card");
-
-    if (window.innerWidth <= 768) {
-
-        // Crear dots
-        const dotContainer = document.createElement("div");
-        dotContainer.classList.add("hero-mobile-dots");
-
-        cards.forEach((c, i) => {
-            const dot = document.createElement("div");
-            dot.classList.add("hero-dot");
-            if (i === 0) dot.classList.add("hero-dot-active");
-            dotContainer.appendChild(dot);
-
-            dot.addEventListener("click", () => {
-                container.scrollTo({
-                    left: c.offsetLeft - 20,
-                    behavior: "smooth"
-                });
-            });
-        });
-
-        container.after(dotContainer);
-
-        // Activar dots según scroll
-        container.addEventListener("scroll", () => {
-            const index = Math.round(container.scrollLeft / 260);
-            const dots = document.querySelectorAll(".hero-dot");
-            dots.forEach(d => d.classList.remove("hero-dot-active"));
-            if (dots[index]) dots[index].classList.add("hero-dot-active");
-        });
-    }
-
-});
 
 
