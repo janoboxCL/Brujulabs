@@ -112,40 +112,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
+const coachData = {
+    1: {
+        name: "Coach Nombre 1",
+        role: "Tumbling • Técnica",
+        description: "Trayectoria destacada con enfoque en técnica, acrobacia y progresiones seguras.",
+        specialties: ["Tumbling", "Acrobacia", "Flexibilidad", "Progresiones"]
+    },
+    2: {
+        name: "Coach Nombre 2",
+        role: "Stunts • Liderazgo",
+        description: "Amplia experiencia en stunts, pirámides y disciplina competitiva.",
+        specialties: ["Stunts", "Piramides", "Transiciones", "Liderazgo"]
+    },
+    3: {
+        name: "Coach Nombre 3",
+        role: "Jumps • Coreografía",
+        description: "Especialista en saltos, técnica y armado de rutinas de alto impacto visual.",
+        specialties: ["Jumps", "Coreografía", "Marcación", "Ritmo"]
+    }
+};
 
-    const coachCards   = document.querySelectorAll("[data-coach-card]");
-    const coachToggles = document.querySelectorAll("[data-coach-toggle]");
+const cards = document.querySelectorAll("[data-coach]");
+const panel = document.getElementById("coach-panel");
+const closeBtn = document.getElementById("coach-close");
 
-    coachToggles.forEach((btn) => {
-        btn.addEventListener("click", () => {
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        const id = card.getAttribute("data-coach");
+        const data = coachData[id];
 
-            const card = btn.closest("[data-coach-card]");
-            const isExpanded = card.classList.contains("is-expanded");
+        document.getElementById("panel-name").textContent = data.name;
+        document.getElementById("panel-role").textContent = data.role;
+        document.getElementById("panel-description").textContent = data.description;
 
-            // cerrar todos primero
-            coachCards.forEach(c => c.classList.remove("is-expanded"));
-
-            // si el que clickeaste no estaba expandido, expandirlo
-            if (!isExpanded) {
-                card.classList.add("is-expanded");
-                btn.textContent = "Cerrar";
-            } else {
-                btn.textContent = "Ver más";
-            }
-
-            // actualizar texto de los otros botones
-            coachToggles.forEach(otherBtn => {
-                const otherCard = otherBtn.closest("[data-coach-card]");
-                if (!otherCard.classList.contains("is-expanded")) {
-                    otherBtn.textContent = "Ver más";
-                }
-            });
-
+        const list = document.getElementById("panel-specialties");
+        list.innerHTML = "";
+        data.specialties.forEach(s => {
+            const li = document.createElement("li");
+            li.textContent = s;
+            list.appendChild(li);
         });
-    });
 
+        panel.classList.remove("hidden");
+        panel.scrollIntoView({ behavior: "smooth" });
+    });
 });
+
+closeBtn.addEventListener("click", () => {
+    panel.classList.add("hidden");
+});
+
 
 
 
