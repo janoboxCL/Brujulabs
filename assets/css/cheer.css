@@ -171,4 +171,241 @@
 }
 
 
+/* ----------------------------------------- */
+/* COACHS FIREHOUSE                          */
+/* ----------------------------------------- */
+
+.coach-card {
+    background: #0A0A0A;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1.25rem;
+    box-shadow: 0 0 18px rgba(0,0,0,0.7);
+    color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform .35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow .35s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.coach-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 16px 42px rgba(0,0,0,0.9),
+        0 0 32px rgba(255, 40, 40, 0.55);
+    border-color: #C51515;
+}
+
+/* MARCO Y FOTO */
+
+.coach-frame {
+    position: relative;
+    border-radius: 12px;
+    border: 3px solid #C51515;
+    overflow: hidden;
+    box-shadow: 0 0 22px rgba(255, 40, 40, 0.35);
+    background: radial-gradient(circle at top, rgba(255,40,40,0.25), transparent 55%);
+}
+
+.coach-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+/* Esquinas deportivas */
+.coach-frame-accent {
+    position: absolute;
+    width: 38px;
+    height: 12px;
+    background: #C51515;
+}
+
+.coach-frame-accent--tl {
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+}
+
+.coach-frame-accent--br {
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* OVERLAY INFERIOR EN LA FOTO */
+
+.coach-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.0));
+}
+
+.coach-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+.coach-role {
+    font-size: 0.8rem;
+    color: rgba(245,245,245,0.7);
+}
+
+.coach-icon-tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.coach-tag-label {
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: 1px solid #FF4D4D;
+    background: rgba(10,10,10,0.85);
+    color: #FF4D4D;
+}
+
+/* CUERPO */
+
+.coach-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.coach-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(245,245,245,0.8);
+}
+
+/* DETALLES EXPANDIBLES */
+
+.coach-details {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: none; /* se muestra en modo expandido */
+}
+
+.coach-details-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #C51515;
+    margin-bottom: 0.35rem;
+}
+
+.coach-details-text {
+    font-size: 0.9rem;
+    color: rgba(245,245,245,0.78);
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+}
+
+.coach-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.coach-chip {
+    font-size: 0.75rem;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.03);
+}
+
+/* BOTÓN TOGGLE */
+
+.coach-toggle {
+    margin-top: 0.35rem;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    border: none;
+    background: transparent;
+    color: rgba(245,245,245,0.75);
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 0.2rem;
+}
+
+.coach-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(to right, #C51515, transparent);
+    transition: width .25s ease;
+}
+
+.coach-toggle:hover::after {
+    width: 100%;
+}
+
+/* ESTADO EXPANDIDO */
+
+.coach-card.is-expanded {
+    background: #111111;
+    border-color: #FF4D4D;
+    box-shadow:
+        0 18px 48px rgba(0,0,0,0.95),
+        0 0 40px rgba(255, 40, 40, 0.6);
+    transform: translateY(-10px) scale(1.01);
+}
+
+.coach-card.is-expanded .coach-details {
+    display: block;
+}
+
+.coach-card.is-expanded .coach-toggle {
+    color: #FF4D4D;
+}
+
+.coach-card.is-expanded .coach-toggle::after {
+    width: 100%;
+    background: linear-gradient(to right, #FF4D4D, transparent);
+}
+
+/* MOBILE: ajustes de tamaño */
+
+@media (max-width: 768px) {
+    .coach-img {
+        height: 320px;
+    }
+
+    .coach-card {
+        padding: 1rem;
+    }
+}
+
+
+
 
