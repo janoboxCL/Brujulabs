@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-<script>
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const coachCards   = document.querySelectorAll("[data-coach-card]");
@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-</script>
+
+
 
 
