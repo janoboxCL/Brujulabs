@@ -1,279 +1,15 @@
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: .6s ease;
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* ================================================
+   FIX modal Firehouse – estructura correcta
+   ================================================ */
 
-/* Botón primario SIN @apply */
-.btn-primary {
-    background-color: #C51515; /* cheer-red */
-    color: #FFFFFF;
-    border: 2px solid #000;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.50);
-    transition: 0.25s ease;
-}
-.btn-primary:hover {
-    background-color: #000;
-    color: #C51515;
-}
-
-/* Botón secundario SIN @apply */
-.btn-secondary {
-    background-color: #000;
-    color: #C51515;
-    border: 2px solid #C51515;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    transition: 0.25s ease;
-}
-.btn-secondary:hover {
-    background-color: #C51515;
-    color: #FFF;
-}
-
-/* Tarjetas */
-.card-cheer {
-    background-color: #0A0A0A;
-    border: 2px solid #C51515;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 0 12px rgba(0,0,0,0.50);
-    color: #FFF;
-}
-
-/* ----------------------------------------- */
-/* HERO STACK PRO — VERTICAL                 */
-/* ----------------------------------------- */
-/* CONTENEDOR */
-.hero-stack-carousel {
-    position: relative;
-    width: 100%;
-    height: 520px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* CARD BASE */
-.hero-card {
-    position: absolute;
-    width: 260px;
-    height: 420px;
-    border: 2px solid #C51515;
-    border-radius: 14px;
-    overflow: hidden;
-	transform: perspective(900px) scale(0.94) rotateX(0deg);
-    transition:
-        transform .7s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity .5s ease,
-        z-index .5s ease,
-        box-shadow .5s ease,
-        border-color .4s ease;
-}
-
-.hero-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-}
-
-/* POSICIONES FIJAS */
-.hero-pos-center {
-    transform:
-        perspective(900px)
-        translateY(-14px)
-        scale(1.32)        /* antes 1.20 */
-        rotateX(0deg);
-
-    z-index: 40;
-    opacity: 1;
-    box-shadow: 0 0 48px rgba(255, 40, 40, 0.55);
-}
-
-
-.hero-pos-left {
-    transform:
-        perspective(900px)
-        translateX(-200px)    /* antes -260px */
-        translateY(60px)
-        scale(0.78);          /* antes 0.85 */
-
-    z-index: 20;
-    opacity: 0.82;
-}
-
-
-.hero-pos-right {
-    transform:
-        perspective(900px)
-        translateX(200px)     /* antes 260px */
-        translateY(60px)
-        scale(0.78);          /* antes 0.85 */
-
-    z-index: 20;
-    opacity: 0.82;
-}
-
-
-.hero-card:hover {
-    transform:
-        perspective(900px)
-        scale(1.42)
-        translateY(-26px)
-        rotateX(6deg);
-
-    z-index: 999;
-    border-color: #FF4D4D;
-    box-shadow:
-        0 12px 45px rgba(255,40,40,0.75),
-        0 0 68px rgba(255,20,20,0.75);
-}
-
-
-/* MOBILE: carrusel simple horizontal */
-.hero-stack-mobile {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    padding: 12px 16px 20px;
-    -webkit-overflow-scrolling: touch;
-}
-
-.hero-mobile-card {
-    min-width: 80%;
-    max-width: 80%;
-    height: 380px;
-    border: 2px solid #C51515;
-    border-radius: 14px;
-    overflow: hidden;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    box-shadow: 0 0 22px rgba(0,0,0,0.6);
-}
-
-/* Reutilizamos el estilo de imagen que ya tienes */
-.hero-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-}
-
-
-/* ============================================================
-   FIREHOUSE COACHES – VISUAL UPGRADE V2
-   ============================================================ */
-
-/* TARJETA BASE (DESKTOP) */
-.coach-card {
-    position: relative;
-    width: 400px;
-    height: 600px;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 18px;
-    background: #0A0A0A;
-    transition: transform .35s ease, box-shadow .35s ease;
-}
-
-/* Hover agresivo */
-.coach-card:hover {
-    transform: scale(1.05) rotate(-1deg);
-    box-shadow: 0 0 40px rgba(255, 40, 40, 0.55);
-}
-
+/* Forzar a que el modal oculto realmente no exista */
 #coach-modal.hidden {
     display: none !important;
 }
 
-
-/* MARCO DOBLE + ESQUINAS GEOMÉTRICAS */
-.coach-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 18px;
-    padding: 3px;
-    background: linear-gradient(135deg, #C51515 0%, #FF6A00 50%, #FFC400 100%);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-.coach-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 18px;
-    background:
-        linear-gradient(135deg, #C51515 0%, transparent 35%) top left no-repeat,
-        linear-gradient(-135deg, #FF6A00 0%, transparent 35%) top right no-repeat,
-        linear-gradient(45deg, #FFC400 0%, transparent 35%) bottom left no-repeat,
-        linear-gradient(-45deg, #C51515 0%, transparent 35%) bottom right no-repeat;
-    background-size: 70px 70px;
-    opacity: .4;
-    pointer-events: none;
-}
-
-/* FOTO */
-.coach-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* OVERLAY */
-.coach-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 26px;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(4px);
-    z-index: 5;
-}
-
-.coach-name {
-    font-size: 2rem;
-    font-weight: 800;
-}
-
-.coach-role {
-    margin-top: 4px;
-    font-size: 1rem;
-    color: #FFC400;
-}
-
-/* ============================================================
-   MODAL EXPANDIDO FIREHOUSE PRO
-   ============================================================ */
-
-#coach-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.72);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-#coach-modal-content {
+/* Contenedor interno del modal */
+.coach-modal-content {
+    position: relative;
     width: 88%;
     max-width: 1200px;
     background: radial-gradient(circle at top left, rgba(255,50,50,0.20), rgba(0,0,0,0.95) 60%);
@@ -286,39 +22,50 @@
     animation: modalFade .35s ease;
 }
 
-@keyframes modalFade {
-    from { opacity: 0; transform: scale(.92); }
-    to   { opacity: 1; transform: scale(1); }
+/* Estructura interna: imagen + texto */
+.coach-modal-inner {
+    display: flex;
+    width: 100%;
+    gap: 32px;
 }
 
-#coach-modal-content img {
-    width: 42%;
-    height: 100%;
+/* Imagen izquierda */
+.coach-modal-img {
+    width: 40%;
+    height: auto;
+    border-radius: 16px;
     object-fit: cover;
-    border-radius: 14px;
     border: 2px solid #FF6A00;
 }
 
-/* TEXTO */
-.expanded-name {
+/* Contenido a la derecha */
+.coach-modal-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Títulos */
+.coach-modal-name {
     font-size: 2.4rem;
     font-weight: 800;
 }
 
-.expanded-role {
+.coach-modal-role {
     margin-top: 4px;
     font-size: 1.1rem;
     color: #FFC400;
 }
 
-.expanded-desc {
+.coach-modal-desc {
     margin-top: 16px;
-    line-height: 1.55;
     color: #ddd;
+    line-height: 1.55;
 }
 
-/* TAGS */
-.expanded-specialties div {
+/* Tags */
+.coach-modal-specialties div {
     display: inline-block;
     background: #C51515;
     padding: 6px 14px;
@@ -329,8 +76,8 @@
     font-size: .85rem;
 }
 
-/* BOTÓN CERRAR */
-#coach-modal-close {
+/* Cerrar */
+.coach-modal-close {
     position: absolute;
     top: -16px;
     right: -16px;
@@ -348,11 +95,8 @@
     border: 2px solid black;
     box-shadow: 0 0 14px rgba(255,0,0,0.7);
 }
-#coach-modal-close:hover {
+
+.coach-modal-close:hover {
     background: black;
     color: #FF3A3A;
 }
-
-
-
-
