@@ -115,25 +115,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const coachData = {
     1: {
-        img: "assets/coach1.jpg",
-        name: "Coach Nombre 1",
-        role: "Tumbling • Técnica",
-        desc: "Trayectoria destacada con enfoque en técnica, acrobacia y progresiones seguras.",
-        specialties: ["Tumbling", "Acrobacia", "Flexibilidad", "Progresiones"]
+        img: "assets/img/coach_benja.jpeg",
+        name: "Coach Ben",       
+        role: "Coreografía • Técnica",
+        desc: "Entrenador y coreógrafo con 24 años de experiencia, formador de atletas y entrenadores, juez IASF y líder de procesos competitivos de alto rendimiento.",
+        specialties: ["Coreografía", "Técnica", "Acrobacia", "Liderazgo"]
+
+
     },
     2: {
-        img: "assets/coach2.jpg",
-        name: "Coach Nombre 2",
-        role: "Stunts • Liderazgo",
-        desc: "Amplia experiencia en stunts, pirámides y disciplina competitiva.",
-        specialties: ["Stunts", "Piramides", "Transiciones", "Liderazgo"]
+       img: "assets/img/coach_jc.jpeg",
+        name: "Coach JC",
+        role: "Preparación Física • Técnica",
+        desc: "Masoterapeuta y entrenador con foco en técnica individual, preparación física y desarrollo progresivo de atletas competitivos.",
+        specialties: ["Técnica", "Preparación Física", "Movilidad", "Progresiones"]
     },
     3: {
-        img: "assets/coach3.jpg",
-        name: "Coach Nombre 3",
-        role: "Jumps • Coreografía",
-        desc: "Especialista en saltos, técnica y armado de rutinas de alto impacto visual.",
-        specialties: ["Jumps", "Coreografía", "Marcación", "Ritmo"]
+        img: "assets/img/coach_jona.jpeg",
+        name: "Coach Jona",
+       role: "Preparación Física • Cheer Dance",
+    desc: "Entrenador y profesor de Educación Física, campeón nacional y panamericano, con enfoque en técnica, preparación física y ejecución coreográfica.",
+    specialties: ["Técnica", "Cheer Dance", "Preparación Física", "Disciplina Competitiva"]
+}
     }
 };
 
@@ -179,5 +182,6 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
