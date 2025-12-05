@@ -256,6 +256,10 @@
 /* ============================================================
    MODAL EXPANDIDO FIREHOUSE PRO
    ============================================================ */
+/* Permite que Tailwind oculte el modal realmente */
+#coach-modal.hidden {
+    display: none !important;
+}
 
 #coach-modal {
     position: fixed;
@@ -347,5 +351,6 @@
     background: black;
     color: #FF3A3A;
 }
+
 
 
