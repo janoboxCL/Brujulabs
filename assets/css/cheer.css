@@ -171,288 +171,182 @@
 }
 
 
-/* ======================== */
-/* TARJETA BASE COACH       */
-/* ======================== */
+/* ============================================================
+   FIREHOUSE COACHES – VISUAL UPGRADE V2
+   ============================================================ */
 
-.coach-card,
-.coach-card-mobile {
+/* TARJETA BASE (DESKTOP) */
+.coach-card {
     position: relative;
-    width: 380px;
-    height: 580px;
-    border-radius: 14px;
+    width: 400px;
+    height: 600px;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 18px;
+    background: #0A0A0A;
     transition: transform .35s ease, box-shadow .35s ease;
 }
 
-/* Mobile */
-.coach-card-mobile {
-    width: 100%;
-    height: 520px;
+/* Hover agresivo */
+.coach-card:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 40px rgba(255, 40, 40, 0.55);
 }
 
-/* Foto */
+/* MARCO DOBLE + ESQUINAS GEOMÉTRICAS */
+.coach-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 3px;
+    background: linear-gradient(135deg, #C51515 0%, #FF6A00 50%, #FFC400 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.coach-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, #C51515 0%, transparent 35%) top left no-repeat,
+        linear-gradient(-135deg, #FF6A00 0%, transparent 35%) top right no-repeat,
+        linear-gradient(45deg, #FFC400 0%, transparent 35%) bottom left no-repeat,
+        linear-gradient(-45deg, #C51515 0%, transparent 35%) bottom right no-repeat;
+    background-size: 70px 70px;
+    opacity: .4;
+    pointer-events: none;
+}
+
+/* FOTO */
 .coach-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
 }
 
-/* ======================== */
-/* MARCO NUEVO FIREHOUSE    */
-/* ======================== */
-
-.coach-frame {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 3;
-    border-radius: 14px;
-
-    background:
-        /* barras steel */
-        linear-gradient(90deg, #A7A9AC 0 2px, transparent 2px),
-        linear-gradient(180deg, #A7A9AC 0 2px, transparent 2px),
-
-        /* borde rojo exterior */
-        linear-gradient(#C51515, #C51515),
-        linear-gradient(#C51515, #C51515),
-        linear-gradient(#C51515, #C51515),
-        linear-gradient(#C51515, #C51515);
-    
-    background-size:
-        100% 2px,
-        2px 100%,
-        3px 100%,
-        3px 100%,
-        100% 3px,
-        100% 3px;
-
-    background-position:
-        top left,
-        top left,
-        top left,
-        top right,
-        top left,
-        bottom left;
-
-    background-repeat: no-repeat;
-}
-
-/* Overlay inferior */
+/* OVERLAY */
 .coach-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 22px;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    z-index: 10;
+    padding: 26px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px);
+    z-index: 5;
 }
 
 .coach-name {
-    font-size: 1.9rem;
-    font-weight: 800;
-}
-
-.coach-role {
-    color: #A7A9AC;
-    font-size: .95rem;
-}
-
-/* Hover */
-.coach-card:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 32px rgba(255,48,48,0.6);
-}
-
-/* ======================== */
-/* TARJETA EXPANDIDA        */
-/* ======================== */
-
-.coach-expanded {
-    background: #111;
-    border: 2px solid #C51515;
-    border-radius: 14px;
-    padding: 26px;
-    margin-top: 40px;
-    box-shadow: 0 0 38px rgba(255,40,40,0.45);
-    animation: fadeUp .45s ease;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.coach-close {
-    background: #C51515;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    color: white;
-    font-size: 1.4rem;
-    border: none;
-    float: right;
-    cursor: pointer;
-}
-
-.coach-expanded-content {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin-top: 20px;
-}
-
-.expanded-img {
-    width: 340px;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid #C51515;
-    box-shadow: 0 0 24px rgba(255,40,40,0.45);
-}
-
-.expanded-name {
     font-size: 2rem;
     font-weight: 800;
 }
 
-.expanded-role {
+.coach-role {
+    margin-top: 4px;
+    font-size: 1rem;
     color: #FFC400;
-    margin-bottom: 12px;
 }
 
-.expanded-specialties div {
-    padding: 6px 12px;
-    background: #C51515;
-    display: inline-block;
-    margin-right: 6px;
-    border-radius: 4px;
-    margin-top: 6px;
-}
+/* ============================================================
+   MODAL EXPANDIDO FIREHOUSE PRO
+   ============================================================ */
 
-
-/* MODAL OVERLAY */
-.coach-modal {
+#coach-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.72);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
 }
 
-/* CONTENEDOR DEL MODAL */
-.coach-modal-content {
-    background: #0A0A0A;
+#coach-modal-content {
+    width: 88%;
+    max-width: 1200px;
+    background: radial-gradient(circle at top left, rgba(255,50,50,0.20), rgba(0,0,0,0.95) 60%);
     border: 3px solid #C51515;
-    box-shadow: 0 0 45px rgba(255,30,30,0.55);
-    border-radius: 16px;
-    width: 85%;
-    max-width: 1100px;
-    padding: 32px;
-    position: relative;
-    animation: modalPop .35s ease;
+    border-radius: 22px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 0 65px rgba(255,40,40,0.45);
+    animation: modalFade .35s ease;
 }
 
-@keyframes modalPop {
-    from { transform: scale(.85); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
+@keyframes modalFade {
+    from { opacity: 0; transform: scale(.92); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
-/* BOTÓN DE CIERRE */
-.coach-modal-close {
-    position: absolute;
-    right: 14px;
-    top: 14px;
+#coach-modal-content img {
+    width: 42%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #FF6A00;
+}
+
+/* TEXTO */
+.expanded-name {
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.expanded-role {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    color: #FFC400;
+}
+
+.expanded-desc {
+    margin-top: 16px;
+    line-height: 1.55;
+    color: #ddd;
+}
+
+/* TAGS */
+.expanded-specialties div {
+    display: inline-block;
     background: #C51515;
+    padding: 6px 14px;
+    border-radius: 6px;
+    margin-right: 8px;
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+/* BOTÓN CERRAR */
+#coach-modal-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    background: #FF0000;
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    font-size: 1.4rem;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: 2px solid black;
+    box-shadow: 0 0 14px rgba(255,0,0,0.7);
+}
+#coach-modal-close:hover {
+    background: black;
+    color: #FF3A3A;
 }
 
-/* LAYOUT INTERNO */
-.coach-modal-inner {
-    display: flex;
-    gap: 32px;
-}
-
-/* IMAGEN */
-.coach-modal-img {
-    width: 50%;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid #C51515;
-}
-
-/* TEXTO */
-.coach-modal-info {
-    width: 50%;
-}
-
-.coach-modal-name {
-    font-size: 2.1rem;
-    font-weight: 800;
-}
-
-.coach-modal-role {
-    color: #FFC400;
-    margin-top: 6px;
-    margin-bottom: 14px;
-}
-
-.coach-modal-desc {
-    line-height: 1.6;
-    color: #DDD;
-}
-
-/* TAGS */
-.coach-modal-specialties {
-    margin-top: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.coach-modal-specialties div {
-    background: #C51515;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    color: white;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .coach-modal-content {
-        width: 92%;
-        padding: 20px;
-    }
-
-    .coach-modal-inner {
-        flex-direction: column;
-    }
-
-    .coach-modal-img,
-    .coach-modal-info {
-        width: 100%;
-    }
-
-    .coach-modal-img {
-        height: 380px;
-    }
-}
 
 
