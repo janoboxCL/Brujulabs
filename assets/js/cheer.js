@@ -137,53 +137,41 @@ const coachData = {
     }
 };
 
-const cards = document.querySelectorAll("[data-coach]");
-const template = document.querySelector("#coach-expanded-template");
+// Elementos del modal
+const modal = document.getElementById("coach-modal");
+const modalImg = document.getElementById("coach-modal-img");
+const modalName = document.getElementById("coach-modal-name");
+const modalRole = document.getElementById("coach-modal-role");
+const modalDesc = document.getElementById("coach-modal-desc");
+const modalSpecs = document.getElementById("coach-modal-specialties");
+const btnClose = document.getElementById("coach-modal-close");
 
-let currentPanel = null;
-
-cards.forEach(card => {
-
+// Abrir modal desde una tarjeta
+document.querySelectorAll("[data-coach]").forEach(card => {
     card.addEventListener("click", () => {
+        const id = card.dataset.coach;
+        const c = coachData[id];
 
-        const id = card.getAttribute("data-coach");
-        const data = coachData[id];
+        modalImg.src = c.img;
+        modalName.textContent = c.name;
+        modalRole.textContent = c.role;
+        modalDesc.textContent = c.desc;
 
-        // Cerrar panel anterior si está abierto
-        if (currentPanel) currentPanel.remove();
-
-        // Crear nuevo panel
-        const panel = document.createElement("div");
-        panel.className = "coach-expanded";
-        panel.innerHTML = `
-            <button class="coach-close">×</button>
-
-            <div class="coach-expanded-content">
-                <img src="${data.img}" class="expanded-img" />
-
-                <div class="expanded-info">
-                    <h3 class="expanded-name">${data.name}</h3>
-                    <p class="expanded-role">${data.role}</p>
-                    <p class="expanded-desc">${data.desc}</p>
-
-                    <div class="expanded-specialties">
-                        ${data.specialties.map(s => `<div>${s}</div>`).join("")}
-                    </div>
-                </div>
-            </div>
-        `;
-
-        // Insertarlo en el DOM justo debajo del coach clickeado
-        card.insertAdjacentElement("afterend", panel);
-
-        // Guardar referencia
-        currentPanel = panel;
-
-        panel.querySelector(".coach-close").addEventListener("click", () => {
-            panel.remove();
-            currentPanel = null;
+        modalSpecs.innerHTML = "";
+        c.specialties.forEach(s => {
+            const tag = document.createElement("div");
+            tag.textContent = s;
+            modalSpecs.appendChild(tag);
         });
 
-        panel.scrollIntoView({ behavior: "smooth", block: "center" });
+        modal.classList.remove("hidden");
     });
+});
+
+// Cerrar modal botón
+btnClose.addEventListener("click", () => modal.classList.add("hidden"));
+
+// Cerrar modal al hacer click fuera
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
 });
