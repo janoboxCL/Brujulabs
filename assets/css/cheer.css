@@ -171,7 +171,10 @@
 }
 
 
-/* BASE */
+/* ======================== */
+/* TARJETA BASE COACH       */
+/* ======================== */
+
 .coach-card,
 .coach-card-mobile {
     position: relative;
@@ -183,71 +186,72 @@
     transition: transform .35s ease, box-shadow .35s ease;
 }
 
-/* Versión mobile más pequeña */
+/* Mobile */
 .coach-card-mobile {
     width: 100%;
     height: 520px;
 }
 
-/* FOTO */
+/* Foto */
 .coach-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
 }
 
-/* MARCO PRINCIPAL */
+/* ======================== */
+/* MARCO NUEVO FIREHOUSE    */
+/* ======================== */
+
 .coach-frame {
     position: absolute;
     inset: 0;
-    border: 4px solid #C51515;
     pointer-events: none;
     z-index: 3;
     border-radius: 14px;
-}
 
-/* SEGUNDA LÍNEA (NEON INTERIOR) */
-.coach-frame::after {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border: 2px solid #FF3A3A;
-    border-radius: 10px;
-    pointer-events: none;
-}
-
-/* ESQUINAS FIREHOUSE */
-.coach-card::before,
-.coach-card-mobile::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 14px;
-    pointer-events: none;
-    z-index: 4;
     background:
-        linear-gradient(135deg, #C51515 0%, #C51515 20%, transparent 20%) top left no-repeat,
-        linear-gradient(-135deg, #C51515 0%, #C51515 20%, transparent 20%) top right no-repeat,
-        linear-gradient(45deg, #C51515 0%, #C51515 20%, transparent 20%) bottom left no-repeat,
-        linear-gradient(-45deg, #C51515 0%, #C51515 20%, transparent 20%) bottom right no-repeat;
-    background-size: 60px 60px;
-    opacity: .9;
+        /* barras steel */
+        linear-gradient(90deg, #A7A9AC 0 2px, transparent 2px),
+        linear-gradient(180deg, #A7A9AC 0 2px, transparent 2px),
+
+        /* borde rojo exterior */
+        linear-gradient(#C51515, #C51515),
+        linear-gradient(#C51515, #C51515),
+        linear-gradient(#C51515, #C51515),
+        linear-gradient(#C51515, #C51515);
+    
+    background-size:
+        100% 2px,
+        2px 100%,
+        3px 100%,
+        3px 100%,
+        100% 3px,
+        100% 3px;
+
+    background-position:
+        top left,
+        top left,
+        top left,
+        top right,
+        top left,
+        bottom left;
+
+    background-repeat: no-repeat;
 }
 
-/* OVERLAY */
+/* Overlay inferior */
 .coach-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 22px;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(3px);
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
     z-index: 10;
 }
 
 .coach-name {
-    font-family: var(--font-title);
     font-size: 1.9rem;
     font-weight: 800;
 }
@@ -255,62 +259,76 @@
 .coach-role {
     color: #A7A9AC;
     font-size: .95rem;
-    margin-top: 2px;
 }
 
-/* HOVER DESKTOP */
+/* Hover */
 .coach-card:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 26px rgba(255,48,48,0.55);
+    transform: scale(1.06);
+    box-shadow: 0 0 32px rgba(255,48,48,0.6);
 }
 
-/* PANEL EXPANDIDO */
-.coach-panel {
+/* ======================== */
+/* TARJETA EXPANDIDA        */
+/* ======================== */
+
+.coach-expanded {
     background: #111;
     border: 2px solid #C51515;
-    padding: 30px;
     border-radius: 14px;
+    padding: 26px;
     margin-top: 40px;
-    animation: panelFade .35s ease;
+    box-shadow: 0 0 38px rgba(255,40,40,0.45);
+    animation: fadeUp .45s ease;
 }
 
-@keyframes panelFade {
-    from { opacity: 0; transform: translateY(20px); }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 .coach-close {
     background: #C51515;
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: .9rem;
-    font-weight: 600;
-    margin-bottom: 18px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    float: right;
+    cursor: pointer;
 }
 
-.panel-name {
+.coach-expanded-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.expanded-img {
+    width: 340px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #C51515;
+    box-shadow: 0 0 24px rgba(255,40,40,0.45);
+}
+
+.expanded-name {
     font-size: 2rem;
     font-weight: 800;
 }
 
-.panel-role {
-    font-size: 1.1rem;
-    color: #A7A9AC;
+.expanded-role {
+    color: #FFC400;
     margin-bottom: 12px;
 }
 
-.panel-specialties {
-    margin-top: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.panel-specialties li {
-    background: #222;
-    border: 1px solid #C51515;
+.expanded-specialties div {
     padding: 6px 12px;
-    border-radius: 6px;
-    font-size: .85rem;
+    background: #C51515;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 4px;
+    margin-top: 6px;
 }
