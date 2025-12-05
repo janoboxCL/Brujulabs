@@ -332,3 +332,127 @@
     border-radius: 4px;
     margin-top: 6px;
 }
+
+
+/* MODAL OVERLAY */
+.coach-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* CONTENEDOR DEL MODAL */
+.coach-modal-content {
+    background: #0A0A0A;
+    border: 3px solid #C51515;
+    box-shadow: 0 0 45px rgba(255,30,30,0.55);
+    border-radius: 16px;
+    width: 85%;
+    max-width: 1100px;
+    padding: 32px;
+    position: relative;
+    animation: modalPop .35s ease;
+}
+
+@keyframes modalPop {
+    from { transform: scale(.85); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+/* BOTÓN DE CIERRE */
+.coach-modal-close {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    background: #C51515;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* LAYOUT INTERNO */
+.coach-modal-inner {
+    display: flex;
+    gap: 32px;
+}
+
+/* IMAGEN */
+.coach-modal-img {
+    width: 50%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #C51515;
+}
+
+/* TEXTO */
+.coach-modal-info {
+    width: 50%;
+}
+
+.coach-modal-name {
+    font-size: 2.1rem;
+    font-weight: 800;
+}
+
+.coach-modal-role {
+    color: #FFC400;
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+.coach-modal-desc {
+    line-height: 1.6;
+    color: #DDD;
+}
+
+/* TAGS */
+.coach-modal-specialties {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.coach-modal-specialties div {
+    background: #C51515;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .coach-modal-content {
+        width: 92%;
+        padding: 20px;
+    }
+
+    .coach-modal-inner {
+        flex-direction: column;
+    }
+
+    .coach-modal-img,
+    .coach-modal-info {
+        width: 100%;
+    }
+
+    .coach-modal-img {
+        height: 380px;
+    }
+}
+
+
