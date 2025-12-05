@@ -170,7 +170,7 @@ document.querySelectorAll("[data-coach]").forEach(card => {
         modalImg.src = c.img;
         modalName.textContent = c.name;
         modalRole.textContent = c.role;
-        modalDesc.textContent = c.desc;
+        modalDesc.innerHTML  = c.desc;
 
         modalSpecs.innerHTML = "";
         c.specialties.forEach(s => {
@@ -194,6 +194,7 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
 
