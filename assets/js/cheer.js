@@ -114,56 +114,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const coachData = {
     1: {
+        img: "assets/coach1.jpg",
         name: "Coach Nombre 1",
         role: "Tumbling • Técnica",
-        description: "Trayectoria destacada con enfoque en técnica, acrobacia y progresiones seguras.",
+        desc: "Trayectoria destacada con enfoque en técnica, acrobacia y progresiones seguras.",
         specialties: ["Tumbling", "Acrobacia", "Flexibilidad", "Progresiones"]
     },
     2: {
+        img: "assets/coach2.jpg",
         name: "Coach Nombre 2",
         role: "Stunts • Liderazgo",
-        description: "Amplia experiencia en stunts, pirámides y disciplina competitiva.",
+        desc: "Amplia experiencia en stunts, pirámides y disciplina competitiva.",
         specialties: ["Stunts", "Piramides", "Transiciones", "Liderazgo"]
     },
     3: {
+        img: "assets/coach3.jpg",
         name: "Coach Nombre 3",
         role: "Jumps • Coreografía",
-        description: "Especialista en saltos, técnica y armado de rutinas de alto impacto visual.",
+        desc: "Especialista en saltos, técnica y armado de rutinas de alto impacto visual.",
         specialties: ["Jumps", "Coreografía", "Marcación", "Ritmo"]
     }
 };
 
-const cards = document.querySelectorAll("[data-coach]");
-const panel = document.getElementById("coach-panel");
+const coachCards = document.querySelectorAll("[data-coach]");
+const expanded = document.getElementById("coach-expanded");
 const closeBtn = document.getElementById("coach-close");
 
-cards.forEach(card => {
+coachCards.forEach(card => {
     card.addEventListener("click", () => {
         const id = card.getAttribute("data-coach");
         const data = coachData[id];
 
-        document.getElementById("panel-name").textContent = data.name;
-        document.getElementById("panel-role").textContent = data.role;
-        document.getElementById("panel-description").textContent = data.description;
+        expanded.classList.remove("hidden");
+        expanded.scrollIntoView({ behavior: "smooth" });
 
-        const list = document.getElementById("panel-specialties");
-        list.innerHTML = "";
+        document.getElementById("expanded-img").src = data.img;
+        document.getElementById("expanded-name").textContent = data.name;
+        document.getElementById("expanded-role").textContent = data.role;
+        document.getElementById("expanded-desc").textContent = data.desc;
+
+        const specs = document.getElementById("expanded-specialties");
+        specs.innerHTML = "";
         data.specialties.forEach(s => {
-            const li = document.createElement("li");
-            li.textContent = s;
-            list.appendChild(li);
+            const el = document.createElement("div");
+            el.textContent = s;
+            specs.appendChild(el);
         });
-
-        panel.classList.remove("hidden");
-        panel.scrollIntoView({ behavior: "smooth" });
     });
 });
 
 closeBtn.addEventListener("click", () => {
-    panel.classList.add("hidden");
+    expanded.classList.add("hidden");
 });
-
-
-
-
-
