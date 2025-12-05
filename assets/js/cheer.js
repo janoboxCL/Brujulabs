@@ -137,7 +137,7 @@ const coachData = {
     desc: "Entrenador y profesor de Educación Física, campeón nacional y panamericano, con enfoque en técnica, preparación física y ejecución coreográfica.",
     specialties: ["Técnica", "Cheer Dance", "Preparación Física", "Disciplina Competitiva"]
 }
-    }
+    
 };
 
 // Elementos del modal
@@ -182,6 +182,7 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
 
