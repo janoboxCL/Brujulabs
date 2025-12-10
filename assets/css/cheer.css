@@ -529,7 +529,7 @@
     overflow:hidden;
 
     background: 
-        url('assets/llama.png'),
+        url('assets/img/llama.png'),
         linear-gradient(180deg,#1A0000,#000);
     background-size:cover;
 
@@ -564,7 +564,7 @@
     content:"";
     position:absolute;
     inset:0;
-    background:url('assets/ruido.png');
+    background:url('assets/img/ruido.png');
     opacity:.22;
     mix-blend-mode:overlay;
 }
@@ -618,7 +618,7 @@
     content:"";
     position:absolute;
     inset:0;
-    background:url('assets/ruido.png');
+    background:url('assets/img/ruido.png');
     opacity:.18;
     mix-blend-mode:overlay;
 }
@@ -673,3 +673,4 @@
     color:#FF3A3A;
     box-shadow:0 0 25px rgba(255,40,40,.75);
 }
+
