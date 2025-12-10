@@ -545,10 +545,23 @@
     transform: rotateY(180deg);
 }
 
+.flip-front, .flip-back {
+    border-radius: 18px;
+    border: 3px solid #C51515;
+    box-shadow:
+        0 0 6px #FF3A3A inset,
+        0 0 25px rgba(255, 20, 20, 0.55),
+        0 10px 25px rgba(0,0,0,0.6);
+}
 
 
 /* FRONT */
-
+.flip-front {
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: multiply;
+}
 
 .flip-title {
     font-size: 1.8rem;
@@ -565,7 +578,11 @@
 }
 
 /* BACK */
-
+.flip-back {
+    background: linear-gradient(180deg, #000, #1A0000 45%, #000);
+    transform: rotateY(180deg);
+    text-align: left;
+}
 
 .flip-details {
     color: #ddd;
@@ -590,16 +607,6 @@
     border-color: #C51515;
 }
 
-.flip-front, .flip-back {
-    border-radius: 18px;
-    border: 3px solid #C51515;
-    box-shadow:
-        0 0 6px #FF3A3A inset,
-        0 0 25px rgba(255, 20, 20, 0.55),
-        0 10px 25px rgba(0,0,0,0.6);
-}
-
-
 /* MOBILE FIX */
 @media(max-width: 768px) {
     .program-flip {
@@ -612,7 +619,3 @@
         font-size: 1.2rem;
     }
 }
-
-
-
-
