@@ -488,190 +488,111 @@
     }
 }
 
-/* ============================================
-   PROGRAMAS FIREHOUSE V3 — diseño pro
-   ============================================ */
+/* ===============================
+   PROGRAMAS — ESTILO FIREHOUSE 1
+   =============================== */
 
-/* Textura general del fondo */
-.program-bg-texture {
-    position: absolute;
-    inset: 0;
-    background:
-        url('../img/noise.png'),
-        radial-gradient(circle at top, rgba(255,80,20,0.28), transparent 60%);
-    opacity: 0.25;
-    mix-blend-mode: screen;
-}
-
-/* Flip card contenedor */
-.program-flip {
+.program-card {
     width: 100%;
-    height: 380px;
+    height: 360px;
     perspective: 1400px;
 }
 
-/* Capa interna 3D */
-.program-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform .9s cubic-bezier(.25,.85,.25,1);
+.flip-wrapper {
+    perspective: 1400px;
 }
 
-.program-flip:hover .program-inner {
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .9s cubic-bezier(.2,.85,.25,1);
+}
+
+.flip-wrapper:hover .flip-inner {
     transform: rotateY(180deg);
 }
 
-/* ============================================
-   FRONT CARD
-   ============================================ */
-
+/* FRONT */
 .program-front {
     position: absolute;
     inset: 0;
+    background: #000;
     border-radius: 18px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
     border: 3px solid #C51515;
-    transform: rotateY(0deg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+        url('../img/fuego-soft.png'),
+        url('../img/noise-light.png'),
+        linear-gradient(180deg, #111, #000);
+    background-size: cover, auto, 100%;
+    background-blend-mode: overlay;
+
+    box-shadow:
+        0 0 16px rgba(255,40,40,0.45),
+        0 0 30px rgba(0,0,0,0.8);
     backface-visibility: hidden;
-    box-shadow: 0 0 25px rgba(255,0,0,0.4);
 }
 
-/* Gradiente de color competitivo */
-.program-front-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
+.program-icon {
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 12px rgba(255,40,40,0.55));
 }
 
-/* Título */
-.prog-title {
-    position: absolute;
-    bottom: 70px;
-    width: 100%;
-    text-align: center;
+.program-title {
     font-size: 1.8rem;
     font-weight: 900;
-    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Línea estética roja */
-.prog-line {
-    position: absolute;
-    bottom: 56px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background: #FF6A00;
+.program-sub {
+    margin-top: 6px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #FF3A3A;
 }
 
-/* Subtítulo */
-.prog-sub {
-    position: absolute;
-    bottom: 28px;
-    text-align: center;
-    width: 100%;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #C51515;
-}
-
-/* ============================================
-   BACK CARD
-   ============================================ */
-
+/* BACK */
 .program-back {
     position: absolute;
     inset: 0;
+    padding: 30px;
+    background: linear-gradient(180deg, #000, #1A0000, #000);
     border-radius: 18px;
-    background: linear-gradient(160deg, #0A0A0A, #1A0000 40%, #000);
     border: 3px solid #C51515;
-    padding: 24px;
     transform: rotateY(180deg);
     backface-visibility: hidden;
 }
 
-.prog-back-title {
-    font-size: 1.6rem;
-    font-weight: 900;
-    margin-bottom: 14px;
+.program-title-small {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
 }
 
-.prog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.program-list {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: .95rem;
+    margin-bottom: 24px;
 }
 
-.prog-list li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 22px;
-    line-height: 1.5;
-}
-
-/* Bullet tipo "competición" */
-.prog-list li::before {
-    content: "★";
-    color: #FFC400;
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 0.9rem;
-}
-
-/* CTA individual */
-.prog-cta {
-    margin-top: 22px;
-    padding: 10px 22px;
+.program-cta {
+    padding: 12px 20px;
     background: #C51515;
     color: white;
     font-weight: 700;
     border-radius: 8px;
     border: 2px solid black;
-    transition: 0.3s ease;
+    transition: .25s;
 }
 
-.prog-cta:hover {
+.program-cta:hover {
     background: black;
-    color: #FF3A3A;
-}
-
-/* ============================================
-   CTA GLOBAL
-   ============================================ */
-
-.prog-global-cta {
-    padding: 16px 42px;
-    background: linear-gradient(90deg, #C51515, #FF6A00);
-    color: white;
-    font-weight: 800;
-    border-radius: 14px;
-    border: 2px solid black;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-    box-shadow: 0 0 30px rgba(255,50,10,0.45);
-}
-
-.prog-global-cta:hover {
-    background: black;
-    color: #FF3A3A;
-}
-
-/* ============================================
-   MOBILE OPTIMIZACIÓN
-   ============================================ */
-@media (max-width: 768px) {
-    .program-flip {
-        height: 320px;
-    }
-    .prog-title { font-size: 1.4rem; }
-    .prog-sub { font-size: 1rem; }
-    .prog-back-title { font-size: 1.3rem; }
+    color: #C51515;
 }
