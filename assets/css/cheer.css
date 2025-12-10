@@ -489,223 +489,187 @@
 }
 
 /* ============================================================
-   PROGRAMAS FIREHOUSE — VISUAL UPGRADE + FIX COMPLETO
-   ============================================================ */
-
-/* --- TARJETA BASE PARA FRONT/BACK --- */
-.flip-front, .flip-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 18px;
-    border: 3px solid #C51515;
-    overflow: hidden;
-
-    /* Fire Frame mejorado */
-    box-shadow:
-        0 0 6px #FF3A3A inset,
-        0 0 25px rgba(255, 20, 20, 0.55),
-        0 12px 28px rgba(0,0,0,0.75);
-}
-
-/* TEXTURA FIRHOUSE */
-.flip-front::before,
-.flip-back::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url('assets/textures/grunge.png');
-    opacity:0.08;
-    mix-blend-mode:overlay;
-    pointer-events:none;
-}
-
-/* BARRA INFERIOR FIREHOUSE */
-.flip-front::after {
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:6px;
-    background:linear-gradient(90deg,#FFC400,#FF3A3A);
-    border-radius:0 0 16px 16px;
-    opacity:0.85;
-}
-
-/* ============================================================
-   FLIP SYSTEM
+   FIREHOUSE PROGRAM CARDS — VISUAL UPGRADE EXTREME
    ============================================================ */
 
 .program-flip {
-    width: 100%;
-    height: 340px;
-    perspective: 1800px; /* más profundo */
-    position: relative;
-    transition: transform .25s ease;
+    position:relative;
+    width:100%;
+    height:340px;
+    perspective:1600px;
+    transition:.3s;
 }
 
-/* Hover magnético */
+/* Glow global */
 .program-flip:hover {
-    transform: translateY(-6px);
+    transform:translateY(-8px);
 }
 
 .flip-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform .8s cubic-bezier(.25,.8,.25,1);
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform .85s cubic-bezier(.25,.8,.25,1);
 }
 
 .program-flip:hover .flip-inner {
-    transform: rotateY(180deg) translateX(10px); /* flip con desplazamiento */
+    transform:rotateY(180deg);
 }
 
-/* ============================================================
+/* ------------------------------------------------------------
    FRONT SIDE
-   ============================================================ */
+   ------------------------------------------------------------ */
 
 .flip-front {
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: multiply;
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    border-radius:20px;
+    overflow:hidden;
+
+    background: 
+        url('assets/llama.png'),
+        linear-gradient(180deg,#1A0000,#000);
+    background-size:cover;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:20px;
-    text-align:center;
+
+    /* Glow externo */
+    box-shadow:
+        0 0 22px rgba(255,40,40,.55),
+        0 0 65px rgba(255,90,20,.35);
 }
 
-/* TÍTULO NOMBRE */
-.flip-title {
-    font-size: 1.9rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow:0 0 10px rgba(255,40,40,0.55);
-    color:white;
-}
-
-/* SUBTÍTULO (NIVEL) */
-.flip-sub {
-    margin-top: 10px;
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: #C51515;
-    text-shadow:0 0 8px rgba(255,20,20,0.6);
-}
-
-/* TAG DE NIVEL (ICONO) */
-.level-tag {
+/* ESQUINAS DIAGONALES — MARCO PRO FIREHOUSE */
+.flip-front::before {
+    content:"";
     position:absolute;
-    top:14px;
-    right:14px;
-    background:rgba(0,0,0,0.55);
-    padding:4px 12px;
-    border-radius:8px;
-    color:white;
-    font-size:0.85rem;
-    font-weight:700;
-    letter-spacing:.5px;
+    inset:0;
+    border-radius:20px;
+    padding:4px;
+    background:linear-gradient(135deg,#FF7A00,#C51515 60%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    pointer-events:none;
 }
 
-/* ============================================================
+/* Textura interior */
+.flip-front::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url('assets/ruido.png');
+    opacity:.22;
+    mix-blend-mode:overlay;
+}
+
+/* Banner superior */
+.card-banner {
+    position:absolute;
+    top:0;
+    height:12px;
+    width:100%;
+    background:linear-gradient(90deg,#FFC400,#FF3A00,#C51515);
+}
+
+/* Textos front */
+.flip-title {
+    font-size:2rem;
+    font-weight:900;
+    text-transform:uppercase;
+    color:white;
+    text-shadow:0 0 14px rgba(255,40,40,.65);
+}
+
+.flip-sub {
+    margin-top:8px;
+    font-size:1.4rem;
+    font-weight:900;
+    color:#FF3A3A;
+    text-shadow:0 0 10px rgba(255,40,40,.55);
+}
+
+/* ------------------------------------------------------------
    BACK SIDE
-   ============================================================ */
+   ------------------------------------------------------------ */
 
 .flip-back {
-    background: linear-gradient(180deg, #000, #1A0000 45%, #000);
-    transform: rotateY(180deg);
-    padding: 26px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    transform:rotateY(180deg);
+    border-radius:20px;
+    background:radial-gradient(circle at top,#2A0000,#000 70%);
+    padding:26px;
+
+    box-shadow:
+        0 0 35px rgba(255,40,40,.35),
+        inset 0 0 25px rgba(255,40,40,.25);
 }
 
-/* TÍTULO INTERNO */
+/* Textura interna */
+.flip-back::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url('assets/ruido.png');
+    opacity:.18;
+    mix-blend-mode:overlay;
+}
+
+/* Título interno */
 .back-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #FFC400;
-    margin-bottom: 10px;
+    font-size:1.3rem;
+    font-weight:800;
+    color:#FFC400;
+    margin-bottom:10px;
 }
 
-/* DETALLES */
+/* Lista */
 .flip-details {
-    color: #ddd;
-    line-height: 1.55;
-    font-size: .95rem;
-    padding-left: 0;
-    margin: 0;
-    list-style: none;
+    list-style:none;
+    padding:0;
+    margin:0 0 16px 0;
+    color:#ddd;
+    font-size:.95rem;
+    line-height:1.55;
 }
 
 .flip-details li {
-    margin-bottom: 8px;
+    margin-bottom:8px;
     display:flex;
     align-items:flex-start;
 }
 
 .flip-details li::before {
-    content:"• ";
-    color:#FFC400;
+    content:"🔥";
+    color:#FF3A00;
     margin-right:6px;
-    font-size:1.2rem;
+    font-size:1rem;
 }
 
-/* SEPARADOR */
-.divider {
-    width:100%;
-    height:1px;
-    background:rgba(255,255,255,0.2);
-    margin:14px 0;
-}
-
-/* CTA BOTÓN */
+/* CTA */
 .flip-cta {
+    margin-top:auto;
     display:inline-block;
-    padding: 10px 24px;
+    padding:12px 20px;
     background:linear-gradient(90deg,#C51515,#FF3A3A);
+    border-radius:10px;
     color:white;
     font-weight:700;
-    border-radius:8px;
-    border:2px solid black;
+    box-shadow:0 0 18px rgba(255,40,40,.55);
     text-align:center;
     transition:.25s ease;
-    box-shadow:0 0 16px rgba(255,40,40,0.55);
 }
 
 .flip-cta:hover {
     background:black;
-    color:#C51515;
-    border-color:#C51515;
-    box-shadow:0 0 22px rgba(255,20,20,0.75);
+    color:#FF3A3A;
+    box-shadow:0 0 25px rgba(255,40,40,.75);
 }
-
-/* ============================================================
-   MOBILE FIX
-   ============================================================ */
-
-@media(max-width: 768px) {
-
-    .program-flip {
-        height: 300px;
-    }
-
-    .flip-title {
-        font-size: 1.4rem;
-    }
-
-    .flip-sub {
-        font-size: 1.2rem;
-    }
-
-    .level-tag {
-        font-size: .75rem;
-        padding:3px 8px;
-    }
-}
-
