@@ -488,49 +488,66 @@
     }
 }
 
-.program-card {
-    background: linear-gradient(180deg, #111 0%, #000 90%);
-    border: 2px solid #C51515;
-    border-radius: 14px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 0 26px rgba(255,20,20,0.28);
-    transition: .35s ease;
+/* ============================================================
+   PROGRAMAS FIREHOUSE — VISUAL UPGRADE + FIX COMPLETO
+   ============================================================ */
+
+/* --- TARJETA BASE PARA FRONT/BACK --- */
+.flip-front, .flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    border: 3px solid #C51515;
+    overflow: hidden;
+
+    /* Fire Frame mejorado */
+    box-shadow:
+        0 0 6px #FF3A3A inset,
+        0 0 25px rgba(255, 20, 20, 0.55),
+        0 12px 28px rgba(0,0,0,0.75);
 }
 
-.program-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 0 38px rgba(255,20,20,0.55);
-    border-color: #FF3A3A;
+/* TEXTURA FIRHOUSE */
+.flip-front::before,
+.flip-back::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url('assets/textures/grunge.png');
+    opacity:0.08;
+    mix-blend-mode:overlay;
+    pointer-events:none;
 }
 
-.program-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: 1px;
+/* BARRA INFERIOR FIREHOUSE */
+.flip-front::after {
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(90deg,#FFC400,#FF3A3A);
+    border-radius:0 0 16px 16px;
+    opacity:0.85;
 }
 
-.program-sub {
-    font-size: 2.2rem;
-    font-weight: 900;
-    color: #C51515;
-    margin-top: 6px;
-    margin-bottom: 16px;
-}
+/* ============================================================
+   FLIP SYSTEM
+   ============================================================ */
 
-.program-info {
-    color: #ddd;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-
-/* ===== PROGRAMAS – FLIP CARDS ===== */
 .program-flip {
     width: 100%;
     height: 340px;
-    perspective: 1400px;
+    perspective: 1800px; /* más profundo */
+    position: relative;
+    transition: transform .25s ease;
+}
+
+/* Hover magnético */
+.program-flip:hover {
+    transform: translateY(-6px);
 }
 
 .flip-inner {
@@ -542,80 +559,153 @@
 }
 
 .program-flip:hover .flip-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateX(10px); /* flip con desplazamiento */
 }
 
-.flip-front, .flip-back {
-    border-radius: 18px;
-    border: 3px solid #C51515;
-    box-shadow:
-        0 0 6px #FF3A3A inset,
-        0 0 25px rgba(255, 20, 20, 0.55),
-        0 10px 25px rgba(0,0,0,0.6);
-}
+/* ============================================================
+   FRONT SIDE
+   ============================================================ */
 
-
-/* FRONT */
 .flip-front {
     background-size: cover;
     background-position: center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: multiply;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    text-align:center;
 }
 
+/* TÍTULO NOMBRE */
 .flip-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 900;
-    text-align: center;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    text-shadow:0 0 10px rgba(255,40,40,0.55);
+    color:white;
 }
 
+/* SUBTÍTULO (NIVEL) */
 .flip-sub {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 1.6rem;
     font-weight: 900;
     color: #C51515;
+    text-shadow:0 0 8px rgba(255,20,20,0.6);
 }
 
-/* BACK */
+/* TAG DE NIVEL (ICONO) */
+.level-tag {
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:rgba(0,0,0,0.55);
+    padding:4px 12px;
+    border-radius:8px;
+    color:white;
+    font-size:0.85rem;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+/* ============================================================
+   BACK SIDE
+   ============================================================ */
+
 .flip-back {
     background: linear-gradient(180deg, #000, #1A0000 45%, #000);
     transform: rotateY(180deg);
-    text-align: left;
+    padding: 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
+/* TÍTULO INTERNO */
+.back-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #FFC400;
+    margin-bottom: 10px;
+}
+
+/* DETALLES */
 .flip-details {
     color: #ddd;
-    line-height: 1.6;
+    line-height: 1.55;
     font-size: .95rem;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
 }
 
+.flip-details li {
+    margin-bottom: 8px;
+    display:flex;
+    align-items:flex-start;
+}
+
+.flip-details li::before {
+    content:"• ";
+    color:#FFC400;
+    margin-right:6px;
+    font-size:1.2rem;
+}
+
+/* SEPARADOR */
+.divider {
+    width:100%;
+    height:1px;
+    background:rgba(255,255,255,0.2);
+    margin:14px 0;
+}
+
+/* CTA BOTÓN */
 .flip-cta {
-    margin-top: 22px;
+    display:inline-block;
     padding: 10px 24px;
-    background: #C51515;
-    color: white;
-    font-weight: 700;
-    border-radius: 8px;
-    border: 2px solid black;
-    transition: .25s;
+    background:linear-gradient(90deg,#C51515,#FF3A3A);
+    color:white;
+    font-weight:700;
+    border-radius:8px;
+    border:2px solid black;
+    text-align:center;
+    transition:.25s ease;
+    box-shadow:0 0 16px rgba(255,40,40,0.55);
 }
 
 .flip-cta:hover {
-    background: black;
-    color: #C51515;
-    border-color: #C51515;
+    background:black;
+    color:#C51515;
+    border-color:#C51515;
+    box-shadow:0 0 22px rgba(255,20,20,0.75);
 }
 
-/* MOBILE FIX */
+/* ============================================================
+   MOBILE FIX
+   ============================================================ */
+
 @media(max-width: 768px) {
+
     .program-flip {
         height: 300px;
     }
+
     .flip-title {
         font-size: 1.4rem;
     }
+
     .flip-sub {
         font-size: 1.2rem;
     }
+
+    .level-tag {
+        font-size: .75rem;
+        padding:3px 8px;
+    }
 }
+
