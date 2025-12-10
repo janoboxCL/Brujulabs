@@ -489,110 +489,143 @@
 }
 
 /* ===============================
-   PROGRAMAS — ESTILO FIREHOUSE 1
+   PROGRAMAS — ESTILO FIREHOUSE 2.0
    =============================== */
 
-.program-card {
-    width: 100%;
-    height: 360px;
-    perspective: 1400px;
-}
-
+/* Base para el efecto flip */
 .flip-wrapper {
-    perspective: 1400px;
+    perspective: 1000px; /* Reducido para un efecto más rápido */
 }
 
 .flip-inner {
     width: 100%;
-    height: 100%;
+    height: 360px; /* Altura definida */
     transform-style: preserve-3d;
-    transition: transform .9s cubic-bezier(.2,.85,.25,1);
+    transition: transform .7s cubic-bezier(.68,-0.55,.26,1.55); /* Transición más viva y "rebotona" */
 }
 
 .flip-wrapper:hover .flip-inner {
     transform: rotateY(180deg);
 }
 
-/* FRONT */
-.program-front {
+/* Base de las caras */
+.program-front,
+.program-back {
     position: absolute;
     inset: 0;
-    background: #000;
-    border-radius: 18px;
-    border: 3px solid #C51515;
-    padding: 30px;
+    border-radius: 12px; /* Bordes ligeramente más suaves */
+    backface-visibility: hidden;
+    padding: 2.5rem 1.5rem; /* Relleno estandarizado */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background-image:
-        url('../img/fuego-soft.png'),
-        url('../img/noise-light.png'),
-        linear-gradient(180deg, #111, #000);
-    background-size: cover, auto, 100%;
-    background-blend-mode: overlay;
-
-    box-shadow:
-        0 0 16px rgba(255,40,40,0.45),
-        0 0 30px rgba(0,0,0,0.8);
-    backface-visibility: hidden;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
+/* ==================
+   CARA FRONTAL (FRONT)
+   ================== */
+.program-front {
+    /* Fondo con efecto "neón" oscuro y textura */
+    background: 
+        url('../img/noise-light.png'), /* Fondo de ruido sutil */
+        linear-gradient(145deg, #181818, #000000); 
+    background-size: auto, cover;
+    
+    border: 1px solid rgba(255, 69, 0, 0.2); /* Borde sutil */
+    
+    /* Sombra exterior más futurista/neón */
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 69, 0, 0.3); /* Sombra de neón rojo-naranja */
+}
+
+.flip-wrapper:hover .program-front {
+    /* Opacidad y sombra al voltear para un mejor feedback visual */
+    opacity: 0.8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Iconos */
 .program-icon {
-    margin-bottom: 18px;
-    filter: drop-shadow(0 0 12px rgba(255,40,40,0.55));
+    margin-bottom: 1.5rem;
+    /* Efecto de brillo intenso en el icono */
+    filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    /* El color del SVG/icono debe establecerse directamente en el HTML con clases de texto/fill, e.g., text-red-500 */
 }
 
 .program-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    color: #ffffff; /* Texto principal blanco */
 }
 
 .program-sub {
-    margin-top: 6px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #FF3A3A;
+    margin-top: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    /* Color de contraste brillante */
+    color: #FF4500; 
 }
 
-/* BACK */
+/* ==================
+   CARA TRASERA (BACK)
+   ================== */
 .program-back {
-    position: absolute;
-    inset: 0;
-    padding: 30px;
-    background: linear-gradient(180deg, #000, #1A0000, #000);
-    border-radius: 18px;
-    border: 3px solid #C51515;
     transform: rotateY(180deg);
-    backface-visibility: hidden;
+    /* Fondo con gradiente oscuro con un punto focal rojo */
+    background: 
+        linear-gradient(160deg, #111111 0%, #290000 70%, #000000 100%);
+    border: 1px solid #FF4500; /* Borde de color de acento */
+    
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.5); /* Sombra neón más intensa en el reverso */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .program-title-small {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin-bottom: 1.5rem;
+    color: #FF4500; /* Título secundario con acento */
+    border-bottom: 2px solid rgba(255, 69, 0, 0.3);
+    padding-bottom: 5px;
 }
 
 .program-list {
-    color: #ddd;
-    line-height: 1.6;
-    font-size: .95rem;
-    margin-bottom: 24px;
+    color: #e0e0e0;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: auto; /* Empuja el CTA hacia abajo */
+    padding-left: 0;
+    list-style: none; /* Eliminar el estilo de lista por defecto, mantener el • del HTML */
 }
 
+/* Call to Action (CTA) */
 .program-cta {
-    padding: 12px 20px;
-    background: #C51515;
-    color: white;
-    font-weight: 700;
-    border-radius: 8px;
-    border: 2px solid black;
-    transition: .25s;
+    align-self: center; /* Centrar el botón */
+    padding: 14px 30px;
+    margin-top: 2rem;
+    background: #FF4500;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 4px; /* Bordes más rectos, más modernos */
+    border: none;
+    transition: all .3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.4);
 }
 
 .program-cta:hover {
-    background: black;
-    color: #C51515;
+    background: #FF6A1F; /* Un ligero cambio de color al pasar el ratón */
+    transform: translateY(-2px); /* Un pequeño levantamiento para hacerlo interactivo */
+    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.6);
 }
