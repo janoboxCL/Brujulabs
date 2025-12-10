@@ -354,177 +354,110 @@
 
 
 
-<!-- PROGRAMAS / CATEGORÍAS -->
-<section id="programas" class="w-full py-32 bg-cheer-black">
-    <div class="max-w-screen-xl mx-auto px-6">
+<!-- PROGRAMAS FIREHOUSE V3 -->
+<section id="programas" class="w-full py-32 bg-cheer-black relative overflow-hidden">
 
-        <h2 class="font-title text-4xl md:text-5xl font-extrabold mb-16 text-center">
-            Programas Firehouse
+    <!-- Textura fuego suave -->
+    <div class="program-bg-texture"></div>
+
+    <div class="max-w-screen-xl mx-auto px-6 text-center mb-20 relative z-10">
+        <h2 class="font-title text-4xl md:text-5xl font-extrabold text-cheer-white">
+            Programas de Entrenamiento
         </h2>
-
-        <p class="text-center text-cheer-white/70 max-w-2xl mx-auto mb-16">
-            Siete programas diseñados para cada nivel, desde iniciación hasta alto rendimiento.
-            Explora cada categoría y conoce sus requisitos, objetivos y nivel competitivo.
+        <p class="text-cheer-white/70 mt-4 text-lg">
+            Estructura competitiva según edad, nivel técnico y proyección deportiva.
         </p>
+    </div>
 
-        <!-- GRID -->
-        <div class="grid md:grid-cols-3 gap-12">
+    <!-- GRID DE PROGRAMAS -->
+    <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-3 gap-14 relative z-10">
 
-            <!-- ======================== CARD 1 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
+        <!-- PROGRAMA -->
+        <div class="program-flip">
+            <div class="program-inner">
 
-                    <div class="flip-front" style="background-image:url('assets/programs/diamonds.jpg')">
-                        <h3 class="flip-title">FIRE DIAMONDS</h3>
-                        <p class="flip-sub">OPEN COED 3.2</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• Desde 15 años</li>
-                            <li>• Reintegro deportivo competitivo</li>
-                            <li>• Ex atletas con experiencia</li>
-                            <li>• Nivel requerido 3.2</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
+                <!-- FRONT -->
+                <div class="program-front" style="background-image: url('assets/programs/prog1.jpg')">
+                    <div class="program-front-gradient"></div>
+                    <h3 class="prog-title">Iniciación</h3>
+                    <span class="prog-line"></span>
+                    <p class="prog-sub">Fundamentos del Cheer</p>
                 </div>
-            </div>
 
-            <!-- ======================== CARD 2 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/ladyfire.jpg')">
-                        <h3 class="flip-title">LADY FIRE</h3>
-                        <p class="flip-sub">SENIOR 2.2</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 12 a 19 años</li>
-                            <li>• Progresión técnica y seguridad</li>
-                            <li>• Perfil con base sólida</li>
-                            <li>• Gimnasia nivel 2</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
+                <!-- BACK -->
+                <div class="program-back">
+                    <h3 class="prog-back-title">Iniciación</h3>
+                    <ul class="prog-list">
+                        <li>Técnica básica de stunts y motions</li>
+                        <li>Flexibilidad y coordinación</li>
+                        <li>Progresiones seguras</li>
+                        <li>Introducción al trabajo en equipo</li>
+                    </ul>
+                    <button class="prog-cta">Quiero saber más</button>
                 </div>
+
             </div>
-
-            <!-- ======================== CARD 3 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/fireclaws.jpg')">
-                        <h3 class="flip-title">FIRECLAWS</h3>
-                        <p class="flip-sub">SENIOR 1.1</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 12 a 19 años</li>
-                            <li>• Fundamentación técnica</li>
-                            <li>• Transición a niveles superiores</li>
-                            <li>• Nivel requerido 1</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ======================== CARD 4 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/firelights.jpg')">
-                        <h3 class="flip-title">FIRELIGHTS</h3>
-                        <p class="flip-sub">YOUTH N1</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 6 a 11 años</li>
-                            <li>• Técnica temprana + disciplina</li>
-                            <li>• Formación integral</li>
-                            <li>• Nivel requerido 1 básico</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ======================== CARD 5 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/firestorm.jpg')">
-                        <h3 class="flip-title">FIRESTORM</h3>
-                        <p class="flip-sub">JUNIOR 1.1</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 9 a 15 años</li>
-                            <li>• Técnica fundamental</li>
-                            <li>• Desarrollo competitivo inicial</li>
-                            <li>• Nivel requerido 1</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ======================== CARD 6 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/fireworks.jpg')">
-                        <h3 class="flip-title">FIREWORKS</h3>
-                        <p class="flip-sub">MINI N1</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 5 a 9 años</li>
-                            <li>• Iniciación al cheer</li>
-                            <li>• Formación lúdica + técnica</li>
-                            <li>• No requiere experiencia</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ======================== CARD 7 ======================== -->
-            <div class="program-flip">
-                <div class="flip-inner">
-
-                    <div class="flip-front" style="background-image:url('assets/programs/firedragons.jpg')">
-                        <h3 class="flip-title">FIRE DRAGONS</h3>
-                        <p class="flip-sub">KIDS PREP</p>
-                    </div>
-
-                    <div class="flip-back">
-                        <ul class="flip-details">
-                            <li>• 4 a 7 años</li>
-                            <li>• Motricidad + coordinación</li>
-                            <li>• Formación temprana</li>
-                            <li>• Sin requisitos previos</li>
-                        </ul>
-                        <a href="#contacto" class="flip-cta">Postular</a>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
+
+        <!-- PROGRAMA 2 -->
+        <div class="program-flip">
+            <div class="program-inner">
+
+                <div class="program-front" style="background-image: url('assets/programs/prog2.jpg')">
+                    <div class="program-front-gradient"></div>
+                    <h3 class="prog-title">Intermedio</h3>
+                    <span class="prog-line"></span>
+                    <p class="prog-sub">Dominio Técnico</p>
+                </div>
+
+                <div class="program-back">
+                    <h3 class="prog-back-title">Intermedio</h3>
+                    <ul class="prog-list">
+                        <li>Montajes y transiciones</li>
+                        <li>Saltos intermedios y motions avanzados</li>
+                        <li>Tumbling inicial e intermedio</li>
+                        <li>Rutinas de formación competitiva</li>
+                    </ul>
+                    <button class="prog-cta">Quiero saber más</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROGRAMA 3 -->
+        <div class="program-flip">
+            <div class="program-inner">
+
+                <div class="program-front" style="background-image: url('assets/programs/prog3.jpg')">
+                    <div class="program-front-gradient"></div>
+                    <h3 class="prog-title">Avanzado</h3>
+                    <span class="prog-line"></span>
+                    <p class="prog-sub">Competición Real</p>
+                </div>
+
+                <div class="program-back">
+                    <h3 class="prog-back-title">Avanzado</h3>
+                    <ul class="prog-list">
+                        <li>Tumbling competitivo</li>
+                        <li>Stunts avanzados y pirámides</li>
+                        <li>Rutinas All-Star completas</li>
+                        <li>Preparación física intensiva</li>
+                    </ul>
+                    <button class="prog-cta">Quiero saber más</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA GLOBAL -->
+    <div class="text-center mt-24 relative z-10">
+        <a href="#contacto" class="prog-global-cta">Ver todos los programas</a>
+    </div>
+
+</section>
+
 
         <!-- CTA GLOBAL -->
         <div class="text-center mt-20">
@@ -631,6 +564,7 @@
 
 </body>
 </html>
+
 
 
 
