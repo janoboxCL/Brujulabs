@@ -489,19 +489,20 @@
 }
 
 /* ===============================
-   PROGRAMAS — ESTILO FIREHOUSE 2.0
+   PROGRAMAS — ESTILO FIREHOUSE 2.1 (AJUSTES)
    =============================== */
 
 /* Base para el efecto flip */
 .flip-wrapper {
-    perspective: 1000px; /* Reducido para un efecto más rápido */
+    perspective: 1000px;
 }
 
 .flip-inner {
     width: 100%;
-    height: 360px; /* Altura definida */
+    height: 360px;
     transform-style: preserve-3d;
-    transition: transform .7s cubic-bezier(.68,-0.55,.26,1.55); /* Transición más viva y "rebotona" */
+    /* AJUSTE 2: Transición más suave y elegante (ease-in-out) */
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .flip-wrapper:hover .flip-inner {
@@ -513,9 +514,9 @@
 .program-back {
     position: absolute;
     inset: 0;
-    border-radius: 12px; /* Bordes ligeramente más suaves */
+    border-radius: 12px;
     backface-visibility: hidden;
-    padding: 2.5rem 1.5rem; /* Relleno estandarizado */
+    padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -530,20 +531,27 @@
 .program-front {
     /* Fondo con efecto "neón" oscuro y textura */
     background: 
-        url('../img/noise-light.png'), /* Fondo de ruido sutil */
+        url('../img/noise-light.png'),
         linear-gradient(145deg, #181818, #000000); 
     background-size: auto, cover;
     
-    border: 1px solid rgba(255, 69, 0, 0.2); /* Borde sutil */
+    /* AJUSTE 1: Borde más grueso y con gradiente de color */
+    border: 4px solid; 
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        45deg, 
+        #FFC400,   /* Amarillo */
+        #FF6A00,   /* Naranja */
+        #FF3A3A    /* Rojo */
+    );
     
     /* Sombra exterior más futurista/neón */
     box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(255, 69, 0, 0.3); /* Sombra de neón rojo-naranja */
+        0 4px 15px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(255, 106, 0, 0.55); /* Sombra naranja intensa */
 }
 
 .flip-wrapper:hover .program-front {
-    /* Opacidad y sombra al voltear para un mejor feedback visual */
     opacity: 0.8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -551,16 +559,15 @@
 /* Iconos */
 .program-icon {
     margin-bottom: 1.5rem;
-    /* Efecto de brillo intenso en el icono */
-    filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
-    /* El color del SVG/icono debe establecerse directamente en el HTML con clases de texto/fill, e.g., text-red-500 */
+    /* El drop-shadow se mantiene para el brillo */
+    filter: drop-shadow(0 0 10px rgba(255, 106, 0, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
 
 .program-title {
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: 1.5px;
-    color: #ffffff; /* Texto principal blanco */
+    color: #ffffff;
 }
 
 .program-sub {
@@ -568,7 +575,7 @@
     font-size: 1.35rem;
     font-weight: 700;
     /* Color de contraste brillante */
-    color: #FF4500; 
+    color: #FFC400; /* Usamos el amarillo del borde */
 }
 
 /* ==================
@@ -579,13 +586,15 @@
     /* Fondo con gradiente oscuro con un punto focal rojo */
     background: 
         linear-gradient(160deg, #111111 0%, #290000 70%, #000000 100%);
-    border: 1px solid #FF4500; /* Borde de color de acento */
     
-    box-shadow: 0 0 25px rgba(255, 69, 0, 0.5); /* Sombra neón más intensa en el reverso */
+    /* Borde trasero más discreto */
+    border: 1px solid #FF4500; 
+    
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
     
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinear contenido a la izquierda */
+    align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
 }
@@ -594,7 +603,7 @@
     font-size: 1.6rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    color: #FF4500; /* Título secundario con acento */
+    color: #FF4500;
     border-bottom: 2px solid rgba(255, 69, 0, 0.3);
     padding-bottom: 5px;
 }
@@ -603,21 +612,21 @@
     color: #e0e0e0;
     line-height: 1.7;
     font-size: 1rem;
-    margin-bottom: auto; /* Empuja el CTA hacia abajo */
+    margin-bottom: auto;
     padding-left: 0;
-    list-style: none; /* Eliminar el estilo de lista por defecto, mantener el • del HTML */
+    list-style: none;
 }
 
 /* Call to Action (CTA) */
 .program-cta {
-    align-self: center; /* Centrar el botón */
+    align-self: center;
     padding: 14px 30px;
     margin-top: 2rem;
     background: #FF4500;
     color: #ffffff;
     font-weight: 800;
     text-transform: uppercase;
-    border-radius: 4px; /* Bordes más rectos, más modernos */
+    border-radius: 4px;
     border: none;
     transition: all .3s ease;
     letter-spacing: 0.5px;
@@ -625,7 +634,7 @@
 }
 
 .program-cta:hover {
-    background: #FF6A1F; /* Un ligero cambio de color al pasar el ratón */
-    transform: translateY(-2px); /* Un pequeño levantamiento para hacerlo interactivo */
+    background: #FF6A1F;
+    transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(255, 69, 0, 0.6);
 }
