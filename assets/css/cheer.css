@@ -488,153 +488,219 @@
     }
 }
 
-/* ===============================
-   PROGRAMAS — ESTILO FIREHOUSE 2.1 (AJUSTES)
-   =============================== */
+/* ============================================================
+   PROGRAMAS FIREHOUSE — FLIP CARDS V3 (PROFESIONAL)
+   ============================================================ */
 
-/* Base para el efecto flip */
+/* Wrapper con perspectiva real */
 .flip-wrapper {
-    perspective: 1000px;
+    perspective: 1100px;
+    position: relative;
 }
 
+/* Contenedor interno que rota */
 .flip-inner {
     width: 100%;
-    height: 360px;
+    height: 380px;
     transform-style: preserve-3d;
-    /* AJUSTE 2: Transición más suave y elegante (ease-in-out) */
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); 
+    transition: transform 0.75s cubic-bezier(.25,.8,.25,1);
+    border-radius: 14px;
+    position: relative;
 }
 
+/* Acción del flip */
 .flip-wrapper:hover .flip-inner {
     transform: rotateY(180deg);
 }
 
-/* Base de las caras */
+/* Caras base */
 .program-front,
 .program-back {
     position: absolute;
     inset: 0;
-    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
     backface-visibility: hidden;
-    padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
+    align-items: center;
+    transition: opacity .25s ease;
 }
 
-/* ==================
-   CARA FRONTAL (FRONT)
-   ================== */
+/* ============================================================
+   CARA FRONTAL — diseño principal
+   ============================================================ */
 .program-front {
-    /* Fondo con efecto "neón" oscuro y textura */
-    background: 
+    background:
         url('../img/noise-light.png'),
-        linear-gradient(145deg, #181818, #000000); 
+        linear-gradient(150deg, #1a1a1a 0%, #000 100%);
     background-size: auto, cover;
-    
-    /* AJUSTE 1: Borde más grueso y con gradiente de color */
-    border: 4px solid; 
+    position: relative;
+
+    border: 4px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(
-        45deg, 
-        #FFC400,   /* Amarillo */
-        #FF6A00,   /* Naranja */
-        #FF3A3A    /* Rojo */
+        45deg,
+        #FFC400,
+        #FF6A00,
+        #FF3A3A
     );
-    
-    /* Sombra exterior más futurista/neón */
-    box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.7),
-        0 0 25px rgba(255, 106, 0, 0.55); /* Sombra naranja intensa */
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.7),
+        0 0 22px rgba(255,80,20,0.45);
 }
 
-.flip-wrapper:hover .program-front {
-    opacity: 0.8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Glow interno sutil */
+.program-front::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 28px rgba(255,120,40,0.18);
 }
 
 /* Iconos */
 .program-icon {
-    margin-bottom: 1.5rem;
-    /* El drop-shadow se mantiene para el brillo */
-    filter: drop-shadow(0 0 10px rgba(255, 106, 0, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    margin-bottom: 1.7rem;
+    filter:
+        drop-shadow(0 0 12px rgba(255,106,0,0.75))
+        drop-shadow(0 0 3px rgba(255,255,255,0.35));
+    animation: softPulse 6s ease-in-out infinite;
 }
 
+@keyframes softPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.06); opacity: .9; }
+}
+
+/* Titular frontal */
 .program-title {
-    font-size: 2rem;
+    font-size: clamp(1.7rem, 1.6vw, 2.4rem);
     font-weight: 900;
+    color: #fff;
     letter-spacing: 1.5px;
-    color: #ffffff;
+    text-transform: uppercase;
+    transition: transform .35s ease;
 }
 
+.flip-wrapper:hover .program-title {
+    transform: translateY(-3px);
+}
+
+/* Subtítulo */
 .program-sub {
-    margin-top: 0.5rem;
-    font-size: 1.35rem;
+    margin-top: .6rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    /* Color de contraste brillante */
-    color: #FFC400; /* Usamos el amarillo del borde */
+    color: #FFC400;
 }
 
-/* ==================
-   CARA TRASERA (BACK)
-   ================== */
+/* ============================================================
+   CARA TRASERA — diseño editorial
+   ============================================================ */
 .program-back {
     transform: rotateY(180deg);
-    /* Fondo con gradiente oscuro con un punto focal rojo */
-    background: 
-        linear-gradient(160deg, #111111 0%, #290000 70%, #000000 100%);
-    
-    /* Borde trasero más discreto */
-    border: 1px solid #FF4500; 
-    
-    box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
-    
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
     text-align: left;
+    background: linear-gradient(160deg, #0e0e0e 0%, #2a0000 60%, #000 100%);
+    border: 1px solid #FF4500;
+    box-shadow: 0 0 25px rgba(255,60,0,0.35);
 }
 
+/* Título posterior */
 .program-title-small {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
     color: #FF4500;
-    border-bottom: 2px solid rgba(255, 69, 0, 0.3);
-    padding-bottom: 5px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(255,70,0,0.3);
+    padding-bottom: 6px;
+    width: 100%;
 }
 
+/* Lista posterior */
 .program-list {
-    color: #e0e0e0;
-    line-height: 1.7;
-    font-size: 1rem;
-    margin-bottom: auto;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
     list-style: none;
+    color: #e0e0e0;
+    line-height: 1.65;
+    font-size: 1rem;
+    width: 100%;
 }
 
-/* Call to Action (CTA) */
+.program-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.program-list li::before {
+    content: "•";
+    color: #FF6A00;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Botón CTA */
 .program-cta {
-    align-self: center;
-    padding: 14px 30px;
     margin-top: 2rem;
+    align-self: center;
     background: #FF4500;
-    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 6px;
     font-weight: 800;
     text-transform: uppercase;
-    border-radius: 4px;
-    border: none;
-    transition: all .3s ease;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.4);
+    color: #fff;
+    letter-spacing: 0.6px;
+    transition: .28s ease;
+    box-shadow: 0 4px 10px rgba(255,70,0,0.5);
 }
 
 .program-cta:hover {
-    background: #FF6A1F;
+    background: #FF6A00;
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.6);
+    box-shadow: 0 6px 14px rgba(255,70,0,0.6);
+}
+
+/* ============================================================
+   RESPONSIVE — optimización mobile
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .flip-inner {
+        height: auto;
+        min-height: 380px;
+        transform-style: preserve-3d;
+    }
+
+    .program-front,
+    .program-back {
+        padding: 2rem 1.4rem;
+    }
+
+    /* Flip vertical opcional para evitar cortes en scroll */
+    .flip-wrapper:hover .flip-inner {
+        transform: rotateX(180deg);
+    }
+
+    .program-title {
+        font-size: 1.65rem;
+    }
+
+    .program-sub {
+        font-size: 1.15rem;
+    }
+
+    .program-list li {
+        font-size: 0.95rem;
+    }
+
+    .program-cta {
+        margin-top: 1.5rem;
+    }
 }
