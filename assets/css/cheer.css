@@ -1084,8 +1084,20 @@
 @media (max-width: 768px) {
     .gallery-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .gallery-slider { grid-template-columns: 1fr; }
-    .gallery-grid { justify-content: flex-start; }
+    .gallery-grid {
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 12px;
+    }
     .gallery-nav { width: 42px; height: 42px; font-size: 1.4rem; }
-    .gallery-card { height: 200px; min-width: 220px; flex-basis: 240px; }
+    .gallery-card {
+        height: 200px;
+        min-width: 220px;
+        flex-basis: 240px;
+        scroll-snap-align: center;
+    }
     .lightbox-meta { flex-direction: column; align-items: flex-start; }
 }
