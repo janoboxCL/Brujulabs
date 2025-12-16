@@ -386,6 +386,32 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLightboxContent();
     }
 
+    let touchStartX = null;
+    let touchStartY = null;
+    const SWIPE_THRESHOLD = 40;
+
+    function handleTouchStart(e) {
+        if (!e.touches?.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }
+
+    function handleTouchEnd(e) {
+        if (touchStartX === null || !e.changedTouches?.length) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+
+        if (Math.abs(dx) > Math.max(SWIPE_THRESHOLD, dy * 1.2)) {
+            changeImage(dx > 0 ? -1 : 1);
+            if (lightbox?.classList.contains("hidden")) {
+                setActiveCard(currentIndex);
+            }
+        }
+
+        touchStartX = null;
+        touchStartY = null;
+    }
+
     sliderPrev?.addEventListener("click", () => {
         changeImage(-1);
         if (lightbox?.classList.contains("hidden")) {
@@ -402,6 +428,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lightboxPrev?.addEventListener("click", () => changeImage(-1));
     lightboxNext?.addEventListener("click", () => changeImage(1));
+
+    function enableSwipe(element) {
+        if (!element) return;
+        element.addEventListener("touchstart", handleTouchStart, { passive: true });
+        element.addEventListener("touchend", handleTouchEnd, { passive: true });
+    }
+
+    enableSwipe(grid);
+    enableSwipe(lightbox);
+    enableSwipe(lightboxImg);
 
     loadGalleries().then((data) => {
         galleries = data;
