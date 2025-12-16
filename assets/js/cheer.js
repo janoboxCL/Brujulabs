@@ -84,8 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
 
-        // Pausar en hover
-        card.addEventListener("mouseenter", stopAutoRoll);
+        // Pausar en hover y mover la tarjeta al centro
+        card.addEventListener("mouseenter", () => {
+            stopAutoRoll();
+
+            if (card.classList.contains("hero-pos-left")) {
+                rotateOnceLeftToCenter();   // mover izquierda → centro
+            }
+            else if (card.classList.contains("hero-pos-right")) {
+                rotateOnceRightToCenter();  // mover derecha → centro
+            }
+        });
 
         // Reanudar al salir
         card.addEventListener("mouseleave", () => {
