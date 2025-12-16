@@ -235,11 +235,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxImg = document.getElementById("lightbox-image");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.getElementById("lightbox-close");
+    const sliderPrev = document.getElementById("gallery-prev");
+    const sliderNext = document.getElementById("gallery-next");
+    const lightboxPrev = document.getElementById("lightbox-prev");
+    const lightboxNext = document.getElementById("lightbox-next");
 
     if (!tabsContainer || !grid) return;
 
     let galleries = [];
     let activeGallery = null;
+    let currentIndex = 0;
 
     async function loadGalleries() {
         try {
@@ -258,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setActiveGallery(id) {
         activeGallery = id;
+        currentIndex = 0;
         renderTabs();
         renderGrid();
     }
@@ -278,10 +284,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function openLightbox(src, captionText) {
+    function scrollToCard(index) {
+        const card = grid.children[index];
+        if (!card) return;
+        const target = card.offsetLeft - (grid.clientWidth - card.clientWidth) / 2;
+        grid.scrollTo({ left: Math.max(target, 0), behavior: "smooth" });
+    }
+
+    function setActiveCard(index) {
+        [...grid.children].forEach((card, idx) => {
+            card.classList.toggle("active", idx === index);
+        });
+        scrollToCard(index);
+    }
+
+    function getActiveGallery() {
+        return galleries.find((g) => g.id === activeGallery) || galleries[0];
+    }
+
+    function updateLightboxContent() {
+        const gallery = getActiveGallery();
+        if (!gallery || !gallery.images.length) return;
+        const total = gallery.images.length;
+        currentIndex = ((currentIndex % total) + total) % total;
+        lightboxImg.src = gallery.images[currentIndex];
+        lightboxCaption.textContent = `${gallery.name} · ${currentIndex + 1}`;
+        setActiveCard(currentIndex);
+    }
+
+    function openLightbox(index) {
         if (!lightbox) return;
-        lightboxImg.src = src;
-        lightboxCaption.textContent = captionText;
+        currentIndex = index;
+        updateLightboxContent();
         lightbox.classList.remove("hidden");
         document.body.style.overflow = "hidden";
     }
@@ -292,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderGrid() {
-        const gallery = galleries.find((g) => g.id === activeGallery) || galleries[0];
+        const gallery = getActiveGallery();
         if (!gallery) return;
 
         title.textContent = gallery.name;
@@ -321,9 +355,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>${gallery.name}</p>
                     <span class="pill pill-red">#${idx + 1}</span>
                 </div>`;
-            card.addEventListener("click", () => openLightbox(imgSrc, `${gallery.name} · ${idx + 1}`));
+            card.addEventListener("click", () => {
+                currentIndex = idx;
+                openLightbox(idx);
+            });
             grid.appendChild(card);
         });
+
+        setActiveCard(currentIndex);
     }
 
     lightboxClose?.addEventListener("click", closeLightbox);
@@ -334,7 +373,37 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape" && !lightbox?.classList.contains("hidden")) {
             closeLightbox();
         }
+        if (e.key === "ArrowRight" && !lightbox?.classList.contains("hidden")) {
+            changeImage(1);
+        }
+        if (e.key === "ArrowLeft" && !lightbox?.classList.contains("hidden")) {
+            changeImage(-1);
+        }
     });
+
+    function changeImage(step) {
+        const gallery = getActiveGallery();
+        if (!gallery?.images.length) return;
+        currentIndex = (currentIndex + step + gallery.images.length) % gallery.images.length;
+        updateLightboxContent();
+    }
+
+    sliderPrev?.addEventListener("click", () => {
+        changeImage(-1);
+        if (lightbox?.classList.contains("hidden")) {
+            setActiveCard(currentIndex);
+        }
+    });
+
+    sliderNext?.addEventListener("click", () => {
+        changeImage(1);
+        if (lightbox?.classList.contains("hidden")) {
+            setActiveCard(currentIndex);
+        }
+    });
+
+    lightboxPrev?.addEventListener("click", () => changeImage(-1));
+    lightboxNext?.addEventListener("click", () => changeImage(1));
 
     loadGalleries().then((data) => {
         galleries = data;

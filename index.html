@@ -598,10 +598,14 @@
                     </div>
                 </div>
 
-                <div id="gallery-grid" class="gallery-grid" aria-live="polite">
-                    <div class="gallery-skeleton"></div>
-                    <div class="gallery-skeleton"></div>
-                    <div class="gallery-skeleton"></div>
+                <div class="gallery-slider" aria-live="polite">
+                    <button id="gallery-prev" class="gallery-nav" aria-label="Ver fotos anteriores">‹</button>
+                    <div id="gallery-grid" class="gallery-grid">
+                        <div class="gallery-skeleton"></div>
+                        <div class="gallery-skeleton"></div>
+                        <div class="gallery-skeleton"></div>
+                    </div>
+                    <button id="gallery-next" class="gallery-nav" aria-label="Ver fotos siguientes">›</button>
                 </div>
             </div>
         </div>
@@ -609,7 +613,9 @@
         <div id="gallery-lightbox" class="gallery-lightbox hidden" aria-modal="true" role="dialog">
             <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar galería">×</button>
             <div class="lightbox-body">
+                <button id="lightbox-prev" class="lightbox-nav lightbox-nav-prev" aria-label="Foto anterior">‹</button>
                 <img id="lightbox-image" class="lightbox-img" alt="Foto destacada de la galería">
+                <button id="lightbox-next" class="lightbox-nav lightbox-nav-next" aria-label="Foto siguiente">›</button>
                 <div class="lightbox-meta">
                     <p id="lightbox-caption" class="lightbox-caption"></p>
                     <div class="lightbox-cta">
