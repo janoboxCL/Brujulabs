@@ -388,26 +388,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let touchStartX = null;
     let touchStartY = null;
-    let isSwiping = false;
     const SWIPE_THRESHOLD = 40;
 
     function handleTouchStart(e) {
         if (!e.touches?.length) return;
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
-        isSwiping = false;
-    }
-
-    function handleTouchMove(e) {
-        if (touchStartX === null || !e.touches?.length) return;
-        const dx = e.touches[0].clientX - touchStartX;
-        const dy = Math.abs(e.touches[0].clientY - touchStartY);
-
-        // Evita que el scroll nativo dispare un desplazamiento excesivo
-        if (Math.abs(dx) > dy) {
-            isSwiping = true;
-            e.preventDefault();
-        }
     }
 
     function handleTouchEnd(e) {
@@ -415,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dx = e.changedTouches[0].clientX - touchStartX;
         const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
 
-        if (isSwiping && Math.abs(dx) > Math.max(SWIPE_THRESHOLD, dy * 1.2)) {
+        if (Math.abs(dx) > Math.max(SWIPE_THRESHOLD, dy * 1.2)) {
             changeImage(dx > 0 ? -1 : 1);
             if (lightbox?.classList.contains("hidden")) {
                 setActiveCard(currentIndex);
@@ -424,7 +410,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         touchStartX = null;
         touchStartY = null;
-        isSwiping = false;
     }
 
     sliderPrev?.addEventListener("click", () => {
@@ -447,7 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function enableSwipe(element) {
         if (!element) return;
         element.addEventListener("touchstart", handleTouchStart, { passive: true });
-        element.addEventListener("touchmove", handleTouchMove, { passive: false });
         element.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
