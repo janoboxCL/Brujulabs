@@ -981,25 +981,39 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    padding: 20px;
+    padding: 32px 20px;
+    overflow: auto;
 }
 
 .lightbox-body {
     position: relative;
     width: min(960px, 94vw);
+    max-height: 92vh;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.12);
-    background: linear-gradient(135deg, rgba(255,58,58,0.08), rgba(0,0,0,0.9));
+    background: linear-gradient(135deg, rgba(255,58,58,0.1), rgba(0,0,0,0.92));
     box-shadow: 0 24px 70px rgba(0,0,0,0.65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 16px 18px;
 }
 
 .lightbox-img {
     width: 100%;
     height: auto;
-    max-height: 78vh;
+    max-height: calc(92vh - 140px);
     object-fit: contain;
     display: block;
+    border: 4px solid #ff4d4d;
+    box-shadow:
+        0 0 0 3px rgba(0,0,0,0.65),
+        0 0 24px rgba(255, 90, 0, 0.65),
+        0 0 60px rgba(197, 21, 21, 0.45);
+    border-radius: 12px;
+    background: #050505;
 }
 
 .lightbox-nav {

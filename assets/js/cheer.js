@@ -317,12 +317,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex = index;
         updateLightboxContent();
         lightbox.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
         lightbox?.classList.add("hidden");
-        document.body.style.overflow = "";
     }
 
     function renderGrid() {
