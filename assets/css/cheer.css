@@ -28,10 +28,9 @@
 /* Fondo global tipo “brasas” */
 body{
   background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(255, 70, 0, 0.16), transparent 60%),
-    radial-gradient(900px 700px at 85% 20%, rgba(255, 140, 0, 0.12), transparent 55%),
-    radial-gradient(900px 900px at 50% 90%, rgba(255, 200, 80, 0.06), transparent 60%),
-    linear-gradient(180deg, var(--bg-warm-1) 0%, var(--bg-base) 40%, var(--bg-warm-2) 100%);
+    radial-gradient(1200px 800px at 15% 10%, rgba(255,70,0,.14), transparent 60%),
+    radial-gradient(900px 700px at 85% 20%, rgba(255,140,0,.10), transparent 55%),
+    linear-gradient(180deg, var(--bg-warm-1) 0%, var(--bg-base) 45%, var(--bg-warm-2) 100%);
   background-color: var(--bg-base);
   background-attachment: fixed;
   color: #fff;
@@ -53,7 +52,7 @@ body::before {
 }
 
 .section--neutral-warm {
-  background: rgba(0,0,0,0.18);
+  background-color: rgba(0,0,0,.18);
   backdrop-filter: blur(2px);
 }
 
@@ -201,16 +200,40 @@ header a.active {
     linear-gradient(180deg, #130909 0%, #0f0808 100%);
 }
 
-/* Secciones “warm panel” (más naranja) */
-#programas,
-#cta{
-  background: transparent;
+.fire-bg-a{
+  background:
+    radial-gradient(1100px 700px at 12% 18%, rgba(255,70,0,.20), transparent 62%),
+    radial-gradient(900px 650px at 88% 28%, rgba(255,140,0,.14), transparent 58%),
+    rgba(8,6,6,.22);
+  border-top:1px solid rgba(255,120,30,.10);
+  border-bottom:1px solid rgba(255,120,30,.10);
 }
 
-/* Secciones “neutral dark” (más sobrias) */
-#familia,
-#coaches{
-  background: transparent;
+.fire-bg-b{
+  background:
+    radial-gradient(1000px 700px at 85% 15%, rgba(255,70,0,.18), transparent 62%),
+    radial-gradient(900px 700px at 20% 55%, rgba(255,140,0,.12), transparent 60%),
+    rgba(8,6,6,.22);
+  border-top:1px solid rgba(255,120,30,.10);
+  border-bottom:1px solid rgba(255,120,30,.10);
+}
+
+.fire-bg-c{
+  background:
+    radial-gradient(1200px 650px at 50% 0%, rgba(255,140,0,.16), transparent 70%),
+    radial-gradient(900px 900px at 50% 100%, rgba(255,42,42,.12), transparent 62%),
+    rgba(8,6,6,.20);
+  border-top:1px solid rgba(255,120,30,.10);
+  border-bottom:1px solid rgba(255,120,30,.10);
+}
+
+.fire-bg-d{
+  background:
+    radial-gradient(900px 500px at 30% 15%, rgba(255,200,80,.10), transparent 70%),
+    radial-gradient(1100px 750px at 70% 55%, rgba(255,106,26,.14), transparent 62%),
+    rgba(8,6,6,.18);
+  border-top:1px solid rgba(255,120,30,.10);
+  border-bottom:1px solid rgba(255,120,30,.10);
 }
 
 #mobile-menu {
