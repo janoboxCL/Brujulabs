@@ -465,11 +465,3 @@ document.addEventListener("DOMContentLoaded", () => {
         renderGrid();
     });
 });
-
-
-
-
-  window.addEventListener("scroll", onScroll, { passive:true });
-  onScroll();
-
-})();
