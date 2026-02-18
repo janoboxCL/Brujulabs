@@ -1516,7 +1516,17 @@ header{
 
 .fh-top-unified{
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
+  isolation: isolate;
+}
+
+#hero{
+  position: relative;
+  z-index: 1;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Topbar y nav: sin fondo propio (para que se vea el fondo unificado) */
@@ -1542,4 +1552,3 @@ header{
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,120,0,0.18) !important;
 }
-
