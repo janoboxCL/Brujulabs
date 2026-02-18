@@ -467,37 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* ===== TOPBAR EVENTO CERRABLE ===== */
 
-(function(){
-  const topbar = document.getElementById("topbar");
-  const closeBtn = document.getElementById("topbar-close");
-  const nav = document.getElementById("site-nav");
-
-  if(!topbar) return;
-
-  // Persistencia
-  const dismissed = localStorage.getItem("topbar-dismissed");
-  if(dismissed === "true") {
-    topbar.style.display = "none";
-  }
-
-  if(closeBtn){
-    closeBtn.addEventListener("click", function(){
-      topbar.style.opacity = "0";
-      topbar.style.height = "0";
-      topbar.style.overflow = "hidden";
-      localStorage.setItem("topbar-dismissed", "true");
-    });
-  }
-
-  // Nav glass al scroll
-  const onScroll = () => {
-    const scrolled = window.scrollY >= 24;
-    if(nav){
-      nav.classList.toggle("is-scrolled", scrolled);
-    }
-  };
 
   window.addEventListener("scroll", onScroll, { passive:true });
   onScroll();
