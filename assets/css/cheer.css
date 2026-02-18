@@ -3,21 +3,86 @@
    =============================== */
 
 :root{
-  --fh-red:#C51515;
-  --fh-orange:#FF6A00;
-  --fh-yellow:#FFC400;
-  --fh-black:#0A0A0A;
-  --fh-charcoal:#0f0f10;
+  --fh-black: #0A0A0A;
+  --fh-red: #C51515;
+  --fh-orange: #FF6A00;
+  --fh-yellow: #FFC400;
+
+  /* fondos cálidos */
+  --fh-charcoal-1: #070607;
+  --fh-charcoal-2: #0B0707;
+  --fh-ember-red: rgba(197,21,21,.14);
+  --fh-ember-orange: rgba(255,106,0,.12);
 }
 
-/* Replace flat black with heat-layer background */
+/* Fondo global tipo “brasas” */
 body{
   background:
-    radial-gradient(circle at 70% 12%, rgba(255,106,0,0.22), transparent 45%),
-    radial-gradient(circle at 18% 78%, rgba(197,21,21,0.28), transparent 52%),
-    radial-gradient(circle at 55% 55%, rgba(255,196,0,0.10), transparent 55%),
-    linear-gradient(180deg, #120000 0%, #0a0a0a 55%, #070707 100%);
+    radial-gradient(900px 520px at 15% 10%, var(--fh-ember-red), transparent 60%),
+    radial-gradient(820px 520px at 85% 18%, var(--fh-ember-orange), transparent 62%),
+    radial-gradient(680px 520px at 55% 85%, rgba(255,196,0,.08), transparent 60%),
+    linear-gradient(180deg, var(--fh-charcoal-2), var(--fh-charcoal-1));
   background-attachment: fixed;
+}
+
+/* HEADER FIREHOUSE */
+nav{
+  border-bottom: 1px solid rgba(255,106,0,.25);
+  position: sticky;
+}
+
+nav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:3px;
+  background: linear-gradient(90deg, var(--fh-red), var(--fh-orange), var(--fh-yellow));
+  filter: blur(.2px);
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* Links: underline naranja */
+nav a{
+  position: relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-10px;
+  height:2px;
+  background: var(--fh-orange);
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .2s ease;
+  opacity:.9;
+}
+
+nav a:hover::after{
+  transform: scaleX(1);
+}
+
+.btn-primary-orange{
+  background: var(--fh-orange);
+  color: #111;
+  border: 2px solid #000;
+  font-weight: 800;
+  padding: .6rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(255,106,0,.35);
+  transition: .25s ease;
+}
+
+.btn-primary-orange:hover{
+  background: #000;
+  color: var(--fh-orange);
+  border-color: var(--fh-orange);
+  box-shadow: 0 0 24px rgba(255,106,0,.55);
 }
 
 /* Section backgrounds to alternate */
@@ -29,6 +94,23 @@ body{
 
 .charcoal-bg{
   background: linear-gradient(180deg, #0b0b0c 0%, #0a0a0a 100%);
+}
+
+/* Secciones “warm panel” (más naranja) */
+#programas,
+#cta{
+  background:
+    radial-gradient(900px 520px at 10% 0%, rgba(255,106,0,.16), transparent 62%),
+    radial-gradient(900px 520px at 90% 100%, rgba(197,21,21,.14), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+
+/* Secciones “neutral dark” (más sobrias) */
+#familia,
+#coaches{
+  background:
+    radial-gradient(900px 520px at 15% 10%, rgba(197,21,21,.10), transparent 62%),
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55));
 }
 
 .fade-in {
@@ -265,7 +347,7 @@ body{
         linear-gradient(45deg, #FFC400 0%, transparent 35%) bottom left no-repeat,
         linear-gradient(-45deg, #C51515 0%, transparent 35%) bottom right no-repeat;
     background-size: 70px 70px;
-    opacity: .4;
+    opacity: .28;
     pointer-events: none;
 }
 
@@ -534,42 +616,25 @@ body{
 }
 
 
-/* Desktop: reduce “elongated” look by controlling the crop focus */
 @media (min-width: 768px){
   .coach-card{ height: 540px; }
   .coach-card .coach-img{
-    object-position: center 18%;
+    object-position: center 20%;
   }
-}
 
-/* Coach CTA hint */
-.coach-card::marker{ content:none; }
-
-.coach-card .coach-overlay::after,
-.coach-card-mobile .coach-overlay::after{
-  content:"Ver perfil →";
-  display:inline-block;
-  margin-top:10px;
-  font-weight:800;
-  font-size:0.95rem;
-  color: var(--fh-yellow);
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,106,0,0.45);
-  padding: 8px 12px;
-  border-radius: 999px;
-  box-shadow: 0 0 14px rgba(255,106,0,0.25);
-}
-
-/* Desktop: show hint on hover for cleanliness */
-@media (min-width: 768px){
+  /* CTA overlay en desktop */
   .coach-card .coach-overlay::after{
-    opacity:0;
-    transform: translateY(6px);
-    transition:.25s ease;
-  }
-  .coach-card:hover .coach-overlay::after{
-    opacity:1;
-    transform: translateY(0);
+    content:"Ver perfil →";
+    display:inline-block;
+    margin-top: 12px;
+    font-weight: 800;
+    font-size: .9rem;
+    color: var(--fh-orange);
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,106,0,.35);
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: 0 0 18px rgba(255,106,0,.18);
   }
 }
 
