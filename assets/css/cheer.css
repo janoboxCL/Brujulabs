@@ -190,12 +190,15 @@ header a.active {
 /* Section backgrounds to alternate */
 .fire-bg{
   background:
-    radial-gradient(circle at 50% 20%, rgba(255,106,0,0.22), transparent 60%),
-    linear-gradient(180deg, #1a0000 0%, #0a0a0a 100%);
+    radial-gradient(circle at 50% 16%, rgba(255,106,0,0.32), transparent 60%),
+    radial-gradient(circle at 25% 60%, rgba(197,21,21,0.22), transparent 62%),
+    linear-gradient(180deg, #2a0906 0%, #140807 62%, #0f0807 100%);
 }
 
 .charcoal-bg{
-  background: linear-gradient(180deg, #0b0b0c 0%, #0a0a0a 100%);
+  background:
+    radial-gradient(820px 420px at 20% 14%, rgba(255, 50, 20, 0.16), transparent 64%),
+    linear-gradient(180deg, #130909 0%, #0f0808 100%);
 }
 
 /* Secciones “warm panel” (más naranja) */
@@ -1077,7 +1080,7 @@ header a.active {
     justify-content: space-between;
     padding: 16px 18px;
     border-radius: 14px;
-    background: linear-gradient(120deg, rgba(197, 21, 21, 0.12), rgba(0,0,0,0.65));
+    background: linear-gradient(120deg, rgba(197, 21, 21, 0.22), rgba(255,120,0,0.10), rgba(0,0,0,0.55));
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
