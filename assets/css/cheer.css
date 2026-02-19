@@ -1605,3 +1605,25 @@ header{
   }
 }
 
+
+.academy-kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem 1rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,120,0,.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(255,196,0,.95);
+  font-size: .75rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+
+.academy-hero-title{
+  text-shadow: 0 14px 36px rgba(0,0,0,.65);
+}
+
