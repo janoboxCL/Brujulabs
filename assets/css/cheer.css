@@ -1599,7 +1599,7 @@ header{
 .academy-hero-wrapper{
   position: relative;
   width: 100%;
-  height: 860px;
+  height: 1220px;
   overflow: hidden;
   border-radius: 14px;
 }
@@ -1645,14 +1645,6 @@ header{
   width: 100%;
 }
 
-.academy-badges-wrapper{
-  width: 100%;
-  margin-top: 8px;
-}
-
-.academy-editorial-box{
-  margin-top: auto;
-}
 
 .academy-hero-title{
   font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -1675,60 +1667,12 @@ header{
 }
 
 /* ======================================================
-   BADGES INTEGRADOS SOBRE IMAGEN
-   ====================================================== */
-
-.academy-badges{
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-
-.academy-badge{
-  text-align: center;
-  color: white;
-}
-
-.academy-badge-ring{
-  width: 88px;
-  height: 88px;
-  border-radius: 999px;
-  border: 5px solid white;
-  display: grid;
-  place-items: center;
-  background: rgba(0,0,0,.45);
-  box-shadow:
-    0 0 0 2px rgba(255,120,0,.15),
-    0 20px 40px rgba(0,0,0,.6);
-  margin: 0 auto 10px;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.academy-badge-ring span{
-  font-size: 28px;
-}
-
-.academy-badge:hover .academy-badge-ring{
-  transform: translateY(-6px);
-  box-shadow:
-    0 0 25px rgba(255,120,0,.6),
-    0 30px 60px rgba(0,0,0,.7);
-}
-
-.academy-badge p{
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .9;
-}
-
-/* ======================================================
    BLOQUE EDITORIAL DESTACADO
    ====================================================== */
 
 .academy-editorial-box{
   width: min(900px, 100%);
+  margin-top: 22px;
   padding: 24px 28px;
   border-radius: 18px;
   background:
@@ -1751,12 +1695,12 @@ header{
 
 @media (max-width: 900px){
   .academy-hero-wrapper{
-    height: 1040px;
+    height: 1520px;
   }
 
   .academy-hero-flow{
-    padding: 74px 16px 28px;
-    gap: 18px;
+    padding: 74px 16px 30px;
+    gap: 22px;
   }
 
   .academy-editorial-box{
@@ -1768,7 +1712,95 @@ header{
     line-height: 1.6;
   }
 
-  .academy-badges{
-    gap: 20px;
+}
+
+/* ==========================================
+   ACADEMIA – CÍRCULOS EDITORIALES (3)
+   ========================================== */
+
+.academy-circles-wrapper{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+.academy-circle{
+  width: 340px;
+  height: 340px;
+  border-radius: 999px;
+  padding: 40px 35px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,90,0,0.18), transparent 60%),
+    rgba(10,10,10,0.78);
+
+  border: 7px solid rgba(255,140,0,0.75);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.75),
+    0 0 40px rgba(255,60,0,0.25),
+    0 0 0 2px rgba(255,210,120,0.15) inset;
+
+  backdrop-filter: blur(6px);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.academy-circle:hover{
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.85),
+    0 0 60px rgba(255,80,0,0.45);
+}
+
+.academy-circle h3{
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  margin-bottom: 18px;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 7px;
+  text-decoration-color: rgba(255,170,60,0.95);
+  text-shadow: 0 0 18px rgba(255,120,0,0.45);
+}
+
+.academy-circle p{
+  font-size: .9rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,.85);
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .academy-circle{
+    width: 300px;
+    height: 300px;
+    padding: 35px;
+  }
+}
+
+@media (max-width: 768px){
+  .academy-circles-wrapper{
+    gap: 40px;
+    margin-top: 56px;
+  }
+
+  .academy-circle{
+    width: 260px;
+    height: 260px;
+    padding: 28px;
+  }
+
+  .academy-circle p{
+    font-size: .82rem;
   }
 }
