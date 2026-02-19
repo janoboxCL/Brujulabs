@@ -1595,7 +1595,7 @@ header{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%; /* sube el encuadre (prueba 12%–28%) */
+  object-position: center 26%; /* sube el encuadre (prueba 12%–28%) */
 }
 
 /* en mobile suele necesitar otro ajuste */
