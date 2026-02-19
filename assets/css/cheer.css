@@ -223,7 +223,7 @@ header{
     radial-gradient(1100px 700px at 12% 18%, rgba(255,70,0,.20), transparent 62%),
     radial-gradient(900px 650px at 88% 28%, rgba(255,140,0,.14), transparent 58%),
     rgba(8,6,6,.22);
-  border-top:1px solid rgba(255,120,30,.10);
+  border-top:none;
   border-bottom:1px solid rgba(255,120,30,.10);
 }
 
@@ -1523,10 +1523,47 @@ header{
 
 #hero{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
   visibility: visible;
   opacity: 1;
+}
+
+#hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:160px;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,8,8,0) 0%,
+      rgba(10,8,8,0.65) 40%,
+      rgba(10,8,8,0.95) 75%,
+      rgba(10,8,8,1) 100%
+    );
+}
+
+#academia{
+  position: relative;
+}
+
+#academia::before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  left:0;
+  right:0;
+  height:200px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,70,0,.15), transparent 60%),
+    radial-gradient(circle at 70% 40%, rgba(255,140,0,.12), transparent 60%);
+  filter: blur(8px);
+  opacity:.6;
 }
 
 /* Topbar y nav: sin fondo propio (para que se vea el fondo unificado) */
