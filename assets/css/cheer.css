@@ -1554,122 +1554,183 @@ header{
 }
 
 
-/* ===== ACADEMIA FIREHOUSE ===== */
+/* ======================================================
+   ACADEMIA HERO PRO INTEGRADO
+   ====================================================== */
 
-.academy-card{
-  text-align: center;
-  padding: 2rem 1.5rem;
-  border-radius: 12px;
-  background: linear-gradient(
-      180deg,
-      rgba(255,80,0,0.08),
-      rgba(0,0,0,0.6)
-  );
-  border: 1px solid rgba(255,120,0,0.15);
-  transition: transform .3s ease, box-shadow .3s ease;
+.academy-hero-wrapper{
+  position: relative;
+  width: 100%;
+  height: 860px;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
-.academy-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(255,80,0,.18);
-}
-
-.academy-icon{
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.academy-title{
-  font-weight: 700;
-  margin-bottom: .5rem;
-}
-
-.academy-text{
-  color: rgba(255,255,255,.75);
-  font-size: .95rem;
-}
-
-
-/* ===== ACADEMIA HERO (banner) ===== */
 .academy-hero-img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 26%; /* sube el encuadre (prueba 12%–28%) */
+  object-position: center 18%;
 }
 
-/* en mobile suele necesitar otro ajuste */
-@media (max-width: 768px){
-  .academy-hero-img{
-    object-position: center 12%;
-  }
+/* Degradado inferior intenso */
+.academy-hero-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.03) 28%,
+      rgba(0,0,0,0.45) 52%,
+      rgba(0,0,0,0.78) 74%,
+      rgba(8,8,8,0.96) 100%
+    );
+  z-index: 1;
 }
 
-
-.academy-kicker{
-  display: inline-flex;
+/* Flujo vertical para evitar superposiciones */
+.academy-hero-flow{
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: .5rem;
-  padding: .55rem 1rem;
-  border-radius: 999px;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,120,0,.18);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: rgba(255,196,0,.95);
-  font-size: .75rem;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+  justify-content: flex-start;
+  padding: 96px 24px 44px;
+  gap: 30px;
+}
+
+/* Texto */
+.academy-hero-content{
+  text-align: center;
+  width: 100%;
+}
+
+.academy-badges-wrapper{
+  width: 100%;
+  margin-top: 8px;
+}
+
+.academy-editorial-box{
+  margin-top: auto;
 }
 
 .academy-hero-title{
-  text-shadow: 0 14px 36px rgba(0,0,0,.65);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 20px 50px rgba(0,0,0,0.8);
 }
 
+.academy-kicker{
+  display: inline-block;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,120,0,.25);
+  color: #FFC400;
+  font-size: .75rem;
+  letter-spacing: .25em;
+  margin-bottom: 18px;
+  backdrop-filter: blur(6px);
+}
 
-/* ===== ACADEMIA BADGES (círculos estilo IG) ===== */
+/* ======================================================
+   BADGES INTEGRADOS SOBRE IMAGEN
+   ====================================================== */
+
 .academy-badges{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  justify-items: center;
-}
-
-@media (min-width: 768px){
-  .academy-badges{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 26px;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
 .academy-badge{
   text-align: center;
+  color: white;
 }
 
 .academy-badge-ring{
-  width: 92px;
-  height: 92px;
+  width: 88px;
+  height: 88px;
   border-radius: 999px;
-  background: rgba(0,0,0,.35);
-  border: 6px solid rgba(255,255,255,.92);
-  box-shadow:
-    0 0 0 1px rgba(255,120,0,.14),
-    0 18px 38px rgba(0,0,0,.55);
+  border: 5px solid white;
   display: grid;
   place-items: center;
+  background: rgba(0,0,0,.45);
+  box-shadow:
+    0 0 0 2px rgba(255,120,0,.15),
+    0 20px 40px rgba(0,0,0,.6);
+  margin: 0 auto 10px;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.academy-badge-emoji{
-  font-size: 30px;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,.55));
+.academy-badge-ring span{
+  font-size: 28px;
 }
 
-.academy-badge-text{
-  margin-top: 10px;
-  font-size: 13px;
-  color: rgba(255,255,255,.82);
-  letter-spacing: .08em;
+.academy-badge:hover .academy-badge-ring{
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 25px rgba(255,120,0,.6),
+    0 30px 60px rgba(0,0,0,.7);
+}
+
+.academy-badge p{
+  font-size: 12px;
+  letter-spacing: .12em;
   text-transform: uppercase;
+  opacity: .9;
 }
 
+/* ======================================================
+   BLOQUE EDITORIAL DESTACADO
+   ====================================================== */
+
+.academy-editorial-box{
+  width: min(900px, 100%);
+  padding: 24px 28px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(255,60,0,.25), transparent 60%),
+    rgba(10,10,10,.85);
+  border: 1px solid rgba(255,120,0,.25);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.7),
+    0 0 40px rgba(255,70,0,.25);
+  text-align: center;
+}
+
+.academy-editorial-box p{
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,.9);
+}
+
+
+
+@media (max-width: 900px){
+  .academy-hero-wrapper{
+    height: 1040px;
+  }
+
+  .academy-hero-flow{
+    padding: 74px 16px 28px;
+    gap: 18px;
+  }
+
+  .academy-editorial-box{
+    padding: 18px 16px;
+  }
+
+  .academy-editorial-box p{
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .academy-badges{
+    gap: 20px;
+  }
+}
