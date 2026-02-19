@@ -1588,3 +1588,20 @@ header{
   color: rgba(255,255,255,.75);
   font-size: .95rem;
 }
+
+
+/* ===== ACADEMIA HERO (banner) ===== */
+.academy-hero-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%; /* sube el encuadre (prueba 12%–28%) */
+}
+
+/* en mobile suele necesitar otro ajuste */
+@media (max-width: 768px){
+  .academy-hero-img{
+    object-position: center 12%;
+  }
+}
+
