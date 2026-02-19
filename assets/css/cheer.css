@@ -1552,3 +1552,39 @@ header{
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,120,0,0.18) !important;
 }
+
+
+/* ===== ACADEMIA FIREHOUSE ===== */
+
+.academy-card{
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(
+      180deg,
+      rgba(255,80,0,0.08),
+      rgba(0,0,0,0.6)
+  );
+  border: 1px solid rgba(255,120,0,0.15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.academy-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(255,80,0,.18);
+}
+
+.academy-icon{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.academy-title{
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.academy-text{
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+}
