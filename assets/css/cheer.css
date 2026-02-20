@@ -2189,3 +2189,171 @@ header{
   .academy-offer-top{ flex-direction: column; align-items:flex-start; }
   .offer-price{ font-size: 2.6rem; }
 }
+
+/* =========================
+   CTA TEMPORADA 2026 — FLAT V1
+   ========================= */
+
+.season-flat{
+  /* lienzo de lado a lado, plano, llamativo */
+  background: #ff6a00; /* plano (sin degradé) */
+  padding: 22px 0;
+  box-shadow: 0 22px 60px rgba(255, 106, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+/* “highlight” suave (no es borde, es luz) */
+.season-flat::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(900px 240px at 20% 35%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(900px 260px at 85% 55%, rgba(0,0,0,0.14), transparent 62%);
+  opacity: .85;
+  pointer-events:none;
+}
+
+/* línea negra inferior (marca el CTA como bloque) */
+.season-flat::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:6px;
+  background: rgba(0,0,0,0.35);
+  pointer-events:none;
+}
+
+.season-flat__wrap{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.season-flat__left{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Placeholder logo (sin borde, simple) */
+.season-flat__logo{
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,0.85);
+  color: rgba(255,255,255,0.85);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: .08em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+}
+
+.season-flat__copy{
+  min-width: 0;
+}
+
+.season-flat__title{
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: clamp(1.7rem, 3.6vw, 3.2rem);
+  line-height: 1.0;
+  /* contraste extra sin “glow” ni borde */
+  text-shadow: 0 2px 0 rgba(255,255,255,0.12);
+}
+
+.season-flat__bullets{
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  color: rgba(0,0,0,0.82);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* Bullet “Únete hoy” y resto */
+.season-flat__bullets li{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+}
+
+/* bullet visual simple */
+.season-flat__bullets li::before{
+  content:"•";
+  font-size: 1.2rem;
+  line-height: 1;
+  opacity: .9;
+}
+
+/* resalta “Únete hoy” como bullet más importante */
+.season-flat__bullets li:first-child{
+  background: rgba(0,0,0,0.10);
+  padding: 6px 10px;
+}
+
+.season-flat__right{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+/* Botones planos, sin degradé */
+.season-flat__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 16px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: transform .16s ease, filter .16s ease;
+  white-space: nowrap;
+}
+
+.season-flat__btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+.season-flat__btn--primary{
+  background: #ffc400;      /* plano */
+  color: #0b0a0a;
+}
+
+.season-flat__btn--secondary{
+  background: rgba(255,255,255,0.18); /* plano */
+  color: #0b0a0a;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .season-flat__wrap{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .season-flat__right{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .season-flat__btn{
+    width: 100%;
+  }
+}
