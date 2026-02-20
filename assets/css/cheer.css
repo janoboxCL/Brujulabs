@@ -1604,12 +1604,16 @@ header{
 .academy-hero-wrapper{
   position: relative;
   width: 100%;
-  height: 1220px;
-  overflow: hidden;
+  min-height: 1220px;
+  height: auto;
+  overflow: visible;
   border-radius: 14px;
 }
 
 .academy-hero-img{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1633,8 +1637,7 @@ header{
 
 /* Flujo vertical para evitar superposiciones */
 .academy-hero-flow{
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -1700,7 +1703,7 @@ header{
 
 @media (max-width: 900px){
   .academy-hero-wrapper{
-    height: 1520px;
+    min-height: 1520px;
   }
 
   .academy-hero-flow{
@@ -1973,10 +1976,11 @@ header{
 /* ===== ACADEMIA: OFERTA / PRECIO ===== */
 
 .academy-offer-wrap{
-  width: min(1100px, 92%);
+  width: min(1100px, 92vw);
   margin: 26px auto 0;
   position: relative;
   z-index: 5; /* asegura que quede sobre overlays */
+  max-width: 100%;
 }
 
 /* Cuando la oferta vive como sección aparte */
@@ -1984,6 +1988,11 @@ header{
   margin-top: 0;
   margin-bottom: 0;
   z-index: 2;
+}
+
+.academy-offer-wrap--inside-academia{
+  margin-top: 28px;
+  z-index: 6;
 }
 
 /* Opcional: si algún contenedor padre tiene overflow hidden, esto ayuda */
@@ -1994,7 +2003,7 @@ header{
 .academy-offer-card--v2{
   border-radius: 18px;
   padding: 22px;
-  background: rgba(10,8,8,0.55);
+  background: rgba(10,8,8,0.68);
   border: 1px solid rgba(255,120,0,0.14);
   box-shadow: 0 18px 70px rgba(0,0,0,0.55), 0 0 60px rgba(255,120,0,0.08);
   backdrop-filter: blur(10px);
@@ -2175,6 +2184,7 @@ header{
 }
 
 @media (max-width: 900px){
+  .academy-offer-wrap--inside-academia{ margin-top: 18px; }
   .academy-offer-grid{ grid-template-columns: 1fr; }
   .academy-offer-top{ flex-direction: column; align-items:flex-start; }
   .offer-price{ font-size: 2.6rem; }
