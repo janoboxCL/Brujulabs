@@ -2244,8 +2244,8 @@ header{
 }
 
 .season-flat__logo{
-  width: 84px;
-  height: 84px;
+  width: 150px;
+  
   object-fit: contain;
   flex: 0 0 auto;
 }
