@@ -2592,7 +2592,6 @@ header{
 
 #categorias .fh-cat-front{
   transform: translateZ(1px);
-  position: relative;
   border-radius: 22px;
   overflow: hidden;
   background:
@@ -2796,7 +2795,6 @@ header{
 
 /* BACK también más gráfico para que no se vea “vacío” */
 #categorias .fh-cat-back{
-  position: relative;
   overflow:hidden;
   border-radius: 22px;
   background:
@@ -2837,6 +2835,15 @@ header{
   box-shadow:
     0 20px 70px rgba(0,0,0,.65),
     0 0 70px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* FIX: las caras deben ser ABSOLUTAS y ocupar la misma caja */
+#categorias .fh-cat-front,
+#categorias .fh-cat-back{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 1200px){
