@@ -145,8 +145,8 @@ Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo
 
     },
     2: {
-       img: "assets/img/coach_jc.jpeg",
-        name: "Coach JC",
+       img: "assets/img/coach_javier.jpg",
+        name: "Coach Javier",
         role: "Preparación Física • Técnica",
         desc: `
 Masoterapeuta y entrenador especializado en desarrollo técnico y preparación física aplicada al Cheerleading. Su enfoque combina precisión, control corporal y progresiones seguras para atletas en formación y niveles competitivos.<br><br>
@@ -161,8 +161,8 @@ Masoterapeuta y entrenador especializado en desarrollo técnico y preparación f
         specialties: ["Técnica", "Preparación Física", "Movilidad", "Progresiones"]
     },
     3: {
-        img: "assets/img/coach_jona.jpeg",
-        name: "Coach Jona",
+        img: "assets/img/coach_nicolas.jpg",
+        name: "Coach Nicolas",
        role: "Preparación Física • Cheer Dance",
     desc: `
 Profesor de Educación Física y Personal Trainer con amplia experiencia en deportes de rendimiento. Campeón nacional y panamericano, integrante de equipos de Cheer Dance y All Star. Su trabajo integra fuerza, técnica y ejecución competitiva.<br><br>
