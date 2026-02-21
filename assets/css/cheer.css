@@ -2243,18 +2243,10 @@ header{
   min-width: 0;
 }
 
-/* Placeholder logo (sin borde, simple) */
 .season-flat__logo{
-  width: 56px;
-  height: 56px;
-  background: rgba(0,0,0,0.85);
-  color: rgba(255,255,255,0.85);
-  font-weight: 800;
-  font-size: 0.8rem;
-  letter-spacing: .08em;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
   flex: 0 0 auto;
 }
 
@@ -2355,6 +2347,10 @@ header{
   }
   .season-flat__btn{
     width: 100%;
+  }
+  .season-flat__logo{
+    width: 72px;
+    height: 72px;
   }
 }
 
