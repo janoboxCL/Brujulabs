@@ -2543,6 +2543,7 @@ header{
   border-radius: 22px;
   transform: translateZ(0);
   will-change: transform;
+  contain: layout paint;
   justify-self: center;
 }
 
@@ -2564,6 +2565,7 @@ header{
   inset: 0;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
