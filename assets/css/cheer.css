@@ -2534,21 +2534,22 @@ header{
 
 /* wrapper: define tamaño, evita reflow */
 #categorias .fh-cat{
-  width: 100%;
-  max-width: 320px;
-  height: 520px;
   position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 520px;
   perspective: 1200px;
-  transform: translateZ(0);
   border-radius: 22px;
+  transform: translateZ(0);
   justify-self: center;
 }
 
 /* inner: rota sin afectar layout */
 #categorias .fh-cat-inner{
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  position: relative;
   transform-style: preserve-3d;
   transition: transform .75s cubic-bezier(.22,1,.36,1);
   will-change: transform;
@@ -2721,6 +2722,12 @@ header{
 #categorias .fh-cat[data-team="firediamonds"] .fh-cat-team{
   letter-spacing: .16em;
   font-size: clamp(1.82rem, 1.85vw, 2.15rem);
+}
+
+/* Solo para nombres largos (FIREFIGHTERS) */
+#categorias .fh-cat-team--tight{
+  font-size: 2.05rem;
+  letter-spacing: .20em;
 }
 
 /* edades como “badge block” */
