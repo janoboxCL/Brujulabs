@@ -147,34 +147,34 @@ Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo
     2: {
        img: "assets/img/coach_javier.jpg",
         name: "Coach Javier",
-        role: "Preparación Física • Técnica",
+        role: "Entrenador de Cheer • Técnica Competitiva",
         desc: `
-Masoterapeuta y entrenador especializado en desarrollo técnico y preparación física aplicada al Cheerleading. Su enfoque combina precisión, control corporal y progresiones seguras para atletas en formación y niveles competitivos.<br><br>
+Con una basta experiencia en la formación de equipos CHEERLEADING, Javier lidera procesos de desarrollo técnico y competitivo con foco en la ejecución limpia, la seguridad y el trabajo en equipo.<br><br>
 
 <ul style="margin-left:0; padding-left:18px; list-style:none;">
-    <li style="margin-bottom:6px;">• Campeón nacional categoría All Star.</li>
-    <li style="margin-bottom:6px;">• Entrenador de la selección del Colegio Alicante del Rosal.</li>
-    <li style="margin-bottom:6px;">• Especialista en movilidad, prevención de lesiones y técnica individual.</li>
-    <li style="margin-bottom:6px;">• Acompañamiento progresivo para atletas que buscan subir de nivel.</li>
+    <li style="margin-bottom:6px;">• Campeón mundial TEAM CHILE 2017.</li>
+    <li style="margin-bottom:6px;">• Ex alumno Colegio Alicante del Rosal.</li>
+    <li style="margin-bottom:6px;">• Entrenador de Cheer enfocado en técnica de stunts, transiciones y performance competitiva.</li>
+    <li style="margin-bottom:6px;">• Planificación progresiva para formación de bases, flyers y equipos School/All Star.</li>
 </ul>
 `,
-        specialties: ["Técnica", "Preparación Física", "Movilidad", "Progresiones"]
+        specialties: ["Cheerleading", "Técnica Competitiva", "Stunts", "Formación de Equipos"]
     },
     3: {
         img: "assets/img/coach_nicolas.jpg",
         name: "Coach Nicolas",
-       role: "Preparación Física • Cheer Dance",
+       role: "Entrenador de Gimnasia • Técnica y Fuerza",
     desc: `
-Profesor de Educación Física y Personal Trainer con amplia experiencia en deportes de rendimiento. Campeón nacional y panamericano, integrante de equipos de Cheer Dance y All Star. Su trabajo integra fuerza, técnica y ejecución competitiva.<br><br>
+Con una basta experiencia en la formación de equipos CHEERLEADING, Nicolás aplica fundamentos de gimnasia para potenciar fuerza, movilidad y control corporal en cada atleta.<br><br>
 
 <ul style="margin-left:0; padding-left:18px; list-style:none;">
-    <li style="margin-bottom:6px;">• Campeón nacional y panamericano en categorías de alto rendimiento.</li>
-    <li style="margin-bottom:6px;">• Integrante de equipos de Cheer Dance a nivel competitivo.</li>
-    <li style="margin-bottom:6px;">• Entrenador de equipos School y All Star.</li>
-    <li style="margin-bottom:6px;">• Enfoque integral en técnica, coreografía y preparación física.</li>
+    <li style="margin-bottom:6px;">• Campeón mundial TEAM CHILE 2017.</li>
+    <li style="margin-bottom:6px;">• Ex alumno Colegio Alicante del Rosa.</li>
+    <li style="margin-bottom:6px;">• Entrenador de gimnasia orientado a técnica de suelo, flexibilidad activa y estabilidad.</li>
+    <li style="margin-bottom:6px;">• Desarrollo de progresiones para tumbling, fuerza específica y prevención de lesiones.</li>
 </ul>
 `,
-    specialties: ["Técnica", "Cheer Dance", "Preparación Física", "Disciplina Competitiva"]
+    specialties: ["Gimnasia", "Tumbling", "Flexibilidad", "Fuerza Funcional"]
 }
 
 };
