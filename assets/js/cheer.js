@@ -255,19 +255,97 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeGallery = null;
     let currentIndex = 0;
 
+    async function urlExists(url) {
+        try {
+            const response = await fetch(url, { method: "HEAD", cache: "no-store" });
+            if (response.ok) return true;
+        } catch (err) {
+            // Algunos hosts estáticos no soportan HEAD
+        }
+
+        try {
+            const response = await fetch(url, { method: "GET", cache: "no-store" });
+            return response.ok;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    function parseLinksFromHtml(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        return [...doc.querySelectorAll("a[href]")]
+            .map((a) => a.getAttribute("href") || "")
+            .filter(Boolean);
+    }
+
+    async function discoverGalleriesFromDirectoryListing() {
+        try {
+            const rootResponse = await fetch("assets/img/galeria/", { cache: "no-store" });
+            if (!rootResponse.ok || !rootResponse.headers.get("content-type")?.includes("text/html")) {
+                return [];
+            }
+
+            const rootHtml = await rootResponse.text();
+            const folderNames = parseLinksFromHtml(rootHtml)
+                .filter((href) => href.endsWith("/"))
+                .map((href) => href.replace(/\/$/, ""))
+                .map((href) => href.split("/").pop())
+                .filter((name) => name && name !== "." && name !== "..");
+
+            const discovered = await Promise.all(folderNames.map(async (folderName) => {
+                const folderUrl = `assets/img/galeria/${folderName}/`;
+                const folderResponse = await fetch(folderUrl, { cache: "no-store" });
+                if (!folderResponse.ok || !folderResponse.headers.get("content-type")?.includes("text/html")) {
+                    return null;
+                }
+
+                const folderHtml = await folderResponse.text();
+                const images = parseLinksFromHtml(folderHtml)
+                    .filter((href) => /(\.png|\.jpe?g|\.webp|\.gif)$/i.test(href))
+                    .map((href) => `${folderUrl}${href.split("/").pop()}`);
+
+                return {
+                    id: folderName,
+                    name: folderName.replace(/_/g, " ").replace(/\b(\w)/g, (match) => match.toUpperCase()),
+                    images,
+                };
+            }));
+
+            return discovered.filter((gallery) => gallery?.images.length);
+        } catch (err) {
+            return [];
+        }
+    }
+
     async function loadGalleries() {
         try {
-            const response = await fetch("assets/img/gallery-index.json", { cache: "no-store" });
+            const response = await fetch(`assets/img/gallery-index.json?v=${Date.now()}`, { cache: "no-store" });
             if (response.ok) {
                 const data = await response.json();
                 if (Array.isArray(data.galleries) && data.galleries.length) {
-                    return data.galleries.map((g) => ({ ...g, images: g.images || [] }));
+                    const galleriesFromJson = data.galleries.map((g) => ({ ...g, images: g.images || [] }));
+                    const validated = await Promise.all(galleriesFromJson.map(async (gallery) => {
+                        const existingImages = await Promise.all(gallery.images.map(async (img) => {
+                            const exists = await urlExists(img);
+                            return exists ? img : null;
+                        }));
+
+                        return {
+                            ...gallery,
+                            images: existingImages.filter(Boolean),
+                        };
+                    }));
+
+                    const nonEmpty = validated.filter((gallery) => gallery.images.length);
+                    if (nonEmpty.length) return nonEmpty;
                 }
             }
         } catch (err) {
             console.warn("No se pudo cargar el índice de galería, usando fallback", err);
         }
-        return [];
+
+        return discoverGalleriesFromDirectoryListing();
     }
 
     function setActiveGallery(id) {
