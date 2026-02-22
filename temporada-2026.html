@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/fav.png">
+  <title>Temporada 2026 — Firehouse Cheer</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config (mismo que home) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cheer: {
+              red: "#C51515",
+              orange: "#FF6A00",
+              yellow: "#FFC400",
+              black: "#0A0A0A",
+              gray: "#2A2A2A",
+              white: "#FFFFFF",
+            },
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            title: ["Montserrat", "sans-serif"],
+          },
+          boxShadow: {
+            hard: "0 0 24px rgba(0,0,0,0.65)",
+            card: "0 0 12px rgba(0,0,0,0.50)",
+          },
+          borderRadius: {
+            base: "6px",
+            card: "10px",
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/cheer.css" />
+</head>
+
+<body class="text-cheer-white font-sans bg-cheer-black">
+
+  <!-- HEADER SIMPLE (sticky, pocos items) -->
+  <header class="sticky top-0 z-50 bg-cheer-black/80 backdrop-blur border-b border-cheer-orange/30">
+    <div class="max-w-screen-xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
+      <a href="index.html#hero" class="flex items-center gap-3">
+        <img src="assets/img/logo.png" alt="Firehouse Cheer" class="h-12 w-auto select-none" />
+        <span class="hidden sm:inline font-title font-extrabold tracking-wide">Temporada 2026</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#hero" class="nav-link">Inicio</a>
+        <a href="#fixture" class="nav-link">Fixture</a>
+        <a href="#gastos" class="nav-link">Gastos</a>
+        <a href="#inscripcion" class="nav-link">Inscripción</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/56944485003" target="_blank" rel="noopener"
+           class="btn-primary-orange">
+          WhatsApp
+        </a>
+        <button id="season-mobile-btn" class="md:hidden text-white text-2xl">☰</button>
+      </div>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div id="season-mobile-menu" class="md:hidden hidden px-6 pb-5 space-y-3 text-sm">
+      <a href="#hero" class="block nav-link">Inicio</a>
+      <a href="#fixture" class="block nav-link">Fixture</a>
+      <a href="#gastos" class="block nav-link">Gastos</a>
+      <a href="#inscripcion" class="block nav-link">Inscripción</a>
+      <a href="https://wa.me/56944485003" target="_blank" rel="noopener" class="inline-block btn-primary-orange">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO: amarillo/naranjo fuerte, pero texto siempre legible -->
+  <section id="hero" class="relative overflow-hidden">
+    <!-- base oscuro -->
+    <div class="absolute inset-0 bg-cheer-black"></div>
+
+    <!-- overlay cálido dominante -->
+    <div class="absolute inset-0 bg-gradient-to-br from-cheer-yellow/45 via-cheer-orange/40 to-cheer-red/15"></div>
+
+    <!-- manchas/glow -->
+    <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-cheer-yellow/35 blur-3xl"></div>
+    <div class="absolute -bottom-28 -right-28 h-[28rem] w-[28rem] rounded-full bg-cheer-orange/35 blur-3xl"></div>
+
+    <div class="relative max-w-screen-xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <!-- copy -->
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cheer-yellow/60 bg-cheer-black/50 shadow-card text-xs uppercase tracking-[0.25em]">
+          🔥 TEMPORADA 2026
+        </div>
+
+        <h1 class="font-title text-4xl md:text-6xl font-extrabold leading-tight">
+          Entrena. Compite. <span class="text-cheer-yellow">Brilla</span>.
+        </h1>
+
+        <p class="text-cheer-white/80 text-lg leading-relaxed">
+          Inicio en marzo · Cupos limitados · Sede San Miguel
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-2 rounded-full bg-cheer-yellow text-cheer-black text-sm font-semibold">Inicio marzo</span>
+          <span class="px-3 py-2 rounded-full bg-cheer-orange text-cheer-black text-sm font-semibold">Cupos limitados</span>
+          <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/40 text-sm">📍 San Miguel</span>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="https://wa.me/56944485003" target="_blank" rel="noopener" class="btn-primary">
+            Pedir info por WhatsApp
+          </a>
+          <a href="#fixture" class="btn-secondary">Ver Fixture</a>
+        </div>
+      </div>
+
+      <!-- arte Blaze + Nova -->
+      <div class="relative">
+        <!-- Reemplaza el src por tu imagen final -->
+        <div class="rounded-[18px] overflow-hidden border border-cheer-yellow/40 shadow-hard bg-cheer-black/30">
+          <img
+            src="assets/img/season2026-heroes.png"
+            alt="Blaze y Nova — Firehouse"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-xs text-cheer-white/60 mt-3">
+          *Imagen referencial. Mantén el texto fuera del arte para máxima legibilidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP ESENCIAL -->
+  <section class="py-10 border-y border-cheer-yellow/20 bg-cheer-black">
+    <div class="max-w-screen-xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="p-5 rounded-card border border-cheer-orange/30 bg-cheer-black/60 shadow-card">
+        <div class="text-cheer-yellow font-bold">📍 Sede</div>
+        <div class="text-cheer-white/80 mt-1">San Miguel</div>
+      </div>
+      <div class="p-5 rounded-card border border-cheer-orange/30 bg-cheer-black/60 shadow-card">
+        <div class="text-cheer-yellow font-bold">🗓️ Inicio</div>
+        <div class="text-cheer-white/80 mt-1">Marzo 2026</div>
+      </div>
+      <div class="p-5 rounded-card border border-cheer-orange/30 bg-cheer-black/60 shadow-card">
+        <div class="text-cheer-yellow font-bold">👧🧒 Categorías</div>
+        <div class="text-cheer-white/80 mt-1">Desde 6 años</div>
+      </div>
+      <div class="p-5 rounded-card border border-cheer-orange/30 bg-cheer-black/60 shadow-card">
+        <div class="text-cheer-yellow font-bold">🏆 Camino</div>
+        <div class="text-cheer-white/80 mt-1">Showcase → Metro → Nacional</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIXTURE -->
+  <section id="fixture" class="py-20 md:py-28">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="font-title text-4xl md:text-5xl font-extrabold">
+          Fixture 2026
+        </h2>
+        <p class="text-cheer-white/70">
+          Planificación anual por etapas. Progresión técnica → construcción coreográfica → temporada competitiva.
+        </p>
+      </div>
+
+      <div class="mt-14 grid lg:grid-cols-2 gap-8">
+        <!-- ETAPA 1 -->
+        <div class="p-7 rounded-[18px] border border-cheer-yellow/35 bg-gradient-to-br from-cheer-yellow/10 via-cheer-orange/10 to-cheer-black shadow-hard">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs uppercase tracking-[0.25em] text-cheer-white/70">Primera etapa</div>
+              <h3 class="font-title text-2xl font-extrabold text-cheer-yellow mt-1">Proceso de Capacitación</h3>
+            </div>
+            <span class="px-3 py-2 rounded-full bg-cheer-yellow text-cheer-black text-sm font-bold">Mar–May</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Marzo — capacitación de deportistas</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Abril — nivelación técnica</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Mayo — evaluación técnica final</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div class="p-7 rounded-[18px] border border-cheer-orange/40 bg-gradient-to-br from-cheer-orange/12 via-cheer-yellow/10 to-cheer-black shadow-hard">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs uppercase tracking-[0.25em] text-cheer-white/70">Segunda etapa</div>
+              <h3 class="font-title text-2xl font-extrabold text-cheer-orange mt-1">Proceso Preparatorio Coreográfico</h3>
+            </div>
+            <span class="px-3 py-2 rounded-full bg-cheer-orange text-cheer-black text-sm font-bold">Jun–Ago</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-orange/35">Junio — capacitaciones + vacaciones de invierno</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-orange/35">Julio — asesoría coreógrafo americano</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-orange/35">Agosto — construcción final coreografía</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div class="p-7 rounded-[18px] border border-cheer-yellow/35 bg-gradient-to-br from-cheer-yellow/10 via-cheer-orange/10 to-cheer-black shadow-hard">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs uppercase tracking-[0.25em] text-cheer-white/70">Proceso competitivo</div>
+              <h3 class="font-title text-2xl font-extrabold text-cheer-yellow mt-1">Competencias</h3>
+            </div>
+            <span class="px-3 py-2 rounded-full bg-cheer-yellow text-cheer-black text-sm font-bold">Sep–Nov</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Septiembre — Showcases (1)</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Octubre — Metropolitana (2)</span>
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-yellow/35">Noviembre — Nacionales (1)</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 4 -->
+        <div class="p-7 rounded-[18px] border border-cheer-orange/40 bg-gradient-to-br from-cheer-orange/12 via-cheer-yellow/10 to-cheer-black shadow-hard">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs uppercase tracking-[0.25em] text-cheer-white/70">Proceso selectivo</div>
+              <h3 class="font-title text-2xl font-extrabold text-cheer-orange mt-1">Audiciones 2027</h3>
+            </div>
+            <span class="px-3 py-2 rounded-full bg-cheer-orange text-cheer-black text-sm font-bold">Dic</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-2 rounded-full bg-cheer-black/60 border border-cheer-orange/35">Diciembre — audiciones 2027</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#inscripcion" class="btn-primary inline-block">Quiero inscribirme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIOS (reutiliza tu info actual) -->
+  <section id="horarios" class="py-20 bg-gradient-to-b from-cheer-orange/10 to-cheer-black border-y border-cheer-orange/20">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="font-title text-4xl font-extrabold">Horarios</h2>
+        <p class="text-cheer-white/70">*Según categoría</p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-2 gap-6">
+        <div class="p-7 rounded-[18px] bg-cheer-black/60 border border-cheer-yellow/30 shadow-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🤸</span>
+            <div class="font-title text-2xl font-extrabold text-cheer-yellow">Gimnasia</div>
+          </div>
+          <div class="mt-3 text-lg text-cheer-white/85">Viernes 17:00–20:00</div>
+          <div class="mt-2 text-cheer-white/60">Técnica de suelo · fuerza · progresiones</div>
+        </div>
+
+        <div class="p-7 rounded-[18px] bg-cheer-black/60 border border-cheer-orange/35 shadow-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🔥</span>
+            <div class="font-title text-2xl font-extrabold text-cheer-orange">Cheer Class</div>
+          </div>
+          <div class="mt-3 text-lg text-cheer-white/85">Sábado 16:00–22:00*</div>
+          <div class="mt-2 text-cheer-white/60">Stunts · transiciones · preparación competitiva</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GASTOS / UNIFORME / TRANSFERENCIA (estructura lista, sin placeholders visibles) -->
+  <section id="gastos" class="py-20 md:py-28">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="font-title text-4xl md:text-5xl font-extrabold">Gastos generales</h2>
+        <p class="text-cheer-white/70">Aquí va el detalle completo (mensualidad, uniforme y costos de competencia).</p>
+      </div>
+
+      <div class="mt-14 grid lg:grid-cols-3 gap-6">
+        <div class="p-7 rounded-[18px] border border-cheer-yellow/30 bg-cheer-black/60 shadow-card">
+          <div class="text-cheer-yellow font-bold">Mensualidad</div>
+          <div class="text-cheer-white/70 mt-2">Incluye planificación y entrenamientos según categoría.</div>
+          <!-- TODO: reemplazar con valores oficiales -->
+        </div>
+
+        <div class="p-7 rounded-[18px] border border-cheer-orange/35 bg-cheer-black/60 shadow-card">
+          <div class="text-cheer-orange font-bold">Uniforme</div>
+          <div class="text-cheer-white/70 mt-2">Kit oficial Firehouse + tiempos de entrega.</div>
+          <!-- TODO: reemplazar con detalle -->
+        </div>
+
+        <div class="p-7 rounded-[18px] border border-cheer-yellow/30 bg-cheer-black/60 shadow-card">
+          <div class="text-cheer-yellow font-bold">Competencias / Otros</div>
+          <div class="text-cheer-white/70 mt-2">Inscripciones, viajes, eventos y showcases.</div>
+          <!-- TODO: reemplazar con detalle -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inscripcion" class="py-20 bg-gradient-to-b from-cheer-yellow/12 via-cheer-orange/10 to-cheer-black border-t border-cheer-yellow/20">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center space-y-5">
+        <h2 class="font-title text-4xl md:text-5xl font-extrabold">
+          Inscripción Temporada 2026
+        </h2>
+        <p class="text-cheer-white/70 text-lg">
+          Pide la info completa, resolvemos dudas y te asignamos categoría.
+        </p>
+
+        <div class="flex flex-wrap gap-4 justify-center pt-2">
+          <a href="https://wa.me/56944485003" target="_blank" rel="noopener" class="btn-primary">
+            Hablar por WhatsApp
+          </a>
+          <a href="index.html#contacto" class="btn-secondary">
+            Ver sede y contacto
+          </a>
+        </div>
+
+        <!-- Transferencia (sobria) -->
+        <div class="mt-10 p-7 rounded-[18px] bg-cheer-black/70 border border-cheer-orange/25 text-left shadow-card">
+          <div class="text-cheer-orange font-bold">Datos de transferencia</div>
+          <p class="text-cheer-white/60 mt-2">
+            <!-- TODO: pegar aquí los datos oficiales (Banco, Rut, Tipo, Cuenta, Email) -->
+            (Sección lista para pegar datos oficiales)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (reutiliza tu estilo) -->
+  <footer class="fh-footer">
+    <div class="fh-footer__wrap">
+      <div class="fh-footer__brand">
+        <img src="assets/img/logo.png" alt="Firehouse Cheer" class="fh-footer__logo" />
+        <div class="fh-footer__brandtext">
+          <div class="fh-footer__name">Firehouse Cheerleading</div>
+          <div class="fh-footer__sub">Temporada 2026 · Sede San Miguel</div>
+        </div>
+      </div>
+
+      <div class="fh-footer__meta">
+        <span>© Firehouse Cheerleading. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS mínimo: toggle menú mobile (sin tocar cheer.js) -->
+  <script>
+    const btn = document.getElementById('season-mobile-btn');
+    const menu = document.getElementById('season-mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+    }
+  </script>
+
+</body>
+</html>
