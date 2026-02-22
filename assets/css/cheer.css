@@ -1810,16 +1810,17 @@ header{
   }
 
   .academy-circle{
-    width: min(84vw, 340px);
-    height: min(84vw, 340px);
+    width: min(74vw, 300px);
+    height: min(74vw, 300px);
     padding: clamp(22px, 6vw, 34px);
     justify-content: flex-start;
   }
 
   .academy-circle h3{
-    font-size: clamp(.98rem, 4.2vw, 1.08rem);
+    font-size: clamp(.82rem, 3.5vw, .98rem);
     line-height: 1.2;
-    letter-spacing: .05em;
+    letter-spacing: .03em;
+    padding-inline: 8px;
     margin-bottom: 12px;
   }
 
@@ -1831,8 +1832,8 @@ header{
 
 @media (max-width: 380px){
   .academy-circle{
-    width: min(88vw, 340px);
-    height: min(88vw, 340px);
+    width: min(78vw, 300px);
+    height: min(78vw, 300px);
   }
 }
 
