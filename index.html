@@ -1,916 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/fav.png">
-
-    <title>Academia Firehouse Cheer </title>
-	<!-- SEO básico (HOME) -->
-
-<meta name="description" content="Academia de cheer para niñas con enfoque en seguridad, disciplina y confianza. Coaches dedicados, ambiente sano y acompañamiento para mamás. ¡Cupos 2026!">
-<link rel="canonical" href="https://firehousecheer.cl/">
-
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Open Graph / WhatsApp / RRSS -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Firehouse Cheer">
-<meta property="og:title" content="Firehouse Cheer | Temporada 2026">
-<meta property="og:description" content="Cheer para niñas con foco en seguridad, confianza y formación.">
-<meta property="og:url" content="https://firehousecheer.cl/">
-<meta property="og:locale" content="es_CL">
-
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- Schema: Organización/Lugar deportivo -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SportsActivityLocation",
-  "name": "Firehouse Cheer",
-  "url": "https://firehousecheer.cl/",  
-  "description": "Academia de cheer para niñas y  niños con enfoque en seguridad, disciplina y confianza.",
-  "sameAs": [
-    "https://www.instagram.com/firehouse.cheer/"
-  ]
-}
-</script>
-
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Tailwind Config CheerApp -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cheer: {
-                            red: "#C51515",
-                            orange: "#FF6A00",
-                            yellow: "#FFC400",
-                            black: "#0A0A0A",
-                            gray: "#2A2A2A",
-                            white: "#FFFFFF",
-                        },
-                    },
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        title: ["Montserrat", "sans-serif"],
-                    },
-                    boxShadow: {
-                        hard: "0 0 24px rgba(0,0,0,0.65)",
-                        card: "0 0 12px rgba(0,0,0,0.50)",
-                    },
-                    borderRadius: {
-                        base: "6px",
-                        card: "10px",
-                    }
-                }
-            }
-        };
-    </script>
-
-    <!-- Estilos propios -->
-    <link rel="stylesheet" href="assets/css/cheer.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/fav.png" />
+  <title>brujulabs | tu rumbo digital</title>
+  <meta name="description" content="brujulabs: soluciones digitales claras, confiables y orientadas a resultados para equipos y negocios en crecimiento." />
+  <meta property="og:site_name" content="brujulabs" />
+  <meta property="og:title" content="brujulabs | tu rumbo digital" />
+  <link rel="stylesheet" href="assets/css/cheer.css" />
 </head>
-
-<body class="text-cheer-white font-sans">
-
-    <!-- HEADER -->
-    <!-- HEADER FIREHOUSE -->
-<div class="fh-top-unified fire-bg-main">
-
-<header id="site-header" class="w-full header-unified">
-
-    <!-- BARRA SUPERIOR COMERCIAL -->
-<div id="topbar" class="topbar-event">
-  <div class="max-w-screen-xl mx-auto px-6 py-2 flex items-center justify-between gap-4">
-
-    <div class="flex items-center gap-3 min-w-0">
-      <span class="topbar-badge">🔥</span>
-      <p class="topbar-text truncate">
-        <strong>Temporada 2026:</strong> inicio marzo — cupos limitados
-      </p>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#hero" class="logo-area"><img src="assets/img/logo.png" alt="brujulabs" class="logo" /></a>
+      <nav class="nav-links" aria-label="principal">
+        <a class="nav-link" href="#soluciones">Soluciones</a>
+        <a class="nav-link" href="#servicios">Servicios</a>
+        <a class="nav-link" href="temporada-2026.html">Temporada 2026</a>
+        <a class="nav-link" href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn btn-primary" href="#contacto">Agendar demo</a>
+      <button id="mobile-btn" class="mobile-toggle" aria-label="Abrir menú">☰</button>
     </div>
-
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <a href="#contacto" class="topbar-cta">
-        Inscríbete aquí →
-      </a>
-
-     
+    <div id="mobile-menu" class="container mobile-menu">
+      <a class="nav-link" href="#soluciones">Soluciones</a>
+      <a class="nav-link" href="#servicios">Servicios</a>
+      <a class="nav-link" href="temporada-2026.html">Temporada 2026</a>
+      <a class="nav-link" href="#contacto">Contacto</a>
     </div>
-
-  </div>
-</div>
-
-    <!-- NAV FIREHOUSE -->
-    <nav id="site-nav" class="w-full text-white sticky top-0 z-50 nav-unified">
-
-        <div class="max-w-screen-xl mx-auto px-6 py-3 flex items-center justify-between">
-
-            <!-- LOGO + NOMBRE -->
-            <div class="flex items-center gap-3">
-                <img src="assets/img/logo.png"
-                     alt="Firehouse Cheer"
-                     class="h-20 md:h-24 w-auto select-none pointer-events-none logo-premium">
-
-
-            </div>
-
-            <!-- MENÚ DESKTOP -->
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-
-                <a href="#hero" class="nav-link">Inicio</a>
-                <a href="#academia" class="nav-link">Academia</a>
-                <a href="temporada-2026.html" class="nav-link">Temporada 2026</a>
-                <a href="#categorias" class="nav-link">Categorías</a>
-                <a href="#coaches" class="nav-link">Coachs</a>
-                <a href="#galeria" class="nav-link">Galería</a>
-                <a href="#contacto" class="nav-link">Contacto</a>
-
-            </div>
-
-            <!-- CTA -->
-            <a href="#contacto"
-               class="hidden md:inline-block btn-primary-orange">
-                Únete
-            </a>
-
-            <!-- MOBILE MENU BUTTON -->
-            <button id="mobile-btn" class="md:hidden text-white text-2xl">
-                ☰
-            </button>
-        </div>
-
-        <!-- MENÚ MOBILE -->
-        <div id="mobile-menu" class="md:hidden text-white hidden px-6 pb-6 space-y-4 text-sm">
-
-            <a href="#hero" class="block nav-link">Inicio</a>
-            <a href="#academia" class="block nav-link">Academia</a>
-            <a href="temporada-2026.html" class="block nav-link">Temporada 2026</a>
-            <a href="#categorias" class="block nav-link">Categorías</a>
-            <a href="#coaches" class="block nav-link">Coachs</a>
-            <a href="#galeria" class="block nav-link">Galería</a>
-            <a href="#contacto" class="block nav-link">Contacto</a>
-
-            <a href="#contacto"
-               class="inline-block btn-primary-orange">
-                Únete
-            </a>
-
-        </div>
-    </nav>
-
-</header>
-
-
-
-
-    <!-- HERO -->
-    <!-- HERO STACK PRO -->
-<section id="hero" class="w-full py-24 md:py-32">
-    <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-
-        <!-- COLUMNA TEXTO -->
-        <div class="space-y-8">
-            <div class="hero-copy">
-                <div class="hero-kicker">🔥 NO LLEGASTE AQUÍ POR CASUALIDAD 🔥</div>
-                <h1 class="hero-title">Llegaste porque estás listo para ser <span class="hero-highlight">MEJOR</span></h1>
-                <h2 class="hero-subtitle">FIREHOUSE CREA CAMPEONES</h2>
-                <p class="hero-description">
-                    Enseñamos. Formamos. Competimos.<br>
-                    Mentalidad fuerte. Disciplina real. Alto rendimiento.<br>
-                    👧🧒 Desde los 6 años • 📍 San Miguel
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://forms.gle/tc5iBvezFqeFsn5H7" target="_blank" rel="noopener" class="btn-primary">Formulario inscripción 2026</a>
-                    <a href="temporada-2026.html" class="btn-secondary">Temporada 2026</a>
-                </div>
-            </div>
-        </div>
-
-      <!-- COLUMNA STACK DE FOTOS -->
-<div class="relative w-full">
-
-    <!-- DESKTOP: carrusel 3D -->
-    <div class="hidden md:block w-full">
-        <div class="hero-stack-carousel">
-
-            <div class="hero-card hero-pos-center">
-                <img src="assets/img/hero1.jpg" class="hero-card-img">
-            </div>
-
-            <div class="hero-card hero-pos-left">
-                <img src="assets/img/elevaciones.jpg" class="hero-card-img">
-            </div>
-
-            <div class="hero-card hero-pos-right">
-                <img src="assets/img/hero3.jpg" class="hero-card-img">
-            </div>
-
-            
-
-        </div>
-    </div>
-
-    <!-- MOBILE: carrusel horizontal simple -->
-    <div class="block md:hidden w-full">
-        <div class="hero-stack-mobile">
-
-            <div class="hero-mobile-card">
-                <img src="assets/img/hero1.jpg" class="hero-card-img" alt="">
-            </div>
-
-            <div class="hero-mobile-card">
-                <img src="assets/img/elevaciones.jpg" class="hero-card-img" alt="">
-            </div>
-
-            <div class="hero-mobile-card">
-                <img src="assets/img/hero3.jpg" class="hero-card-img" alt="">
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-
-
-    </div>
-
-
-</section>
-
-</div> <!-- fh-top-unified -->
-
-
-
-
-
-<section id="academia" class="w-full pt-0 pb-12 fire-bg-a relative">
-
-    <!-- BLOQUE HERO ACADEMIA -->
-    <div class="academy-hero-wrapper">
-
-        <img src="assets/img/fondo_academia.png"
-             class="academy-hero-img">
-
-        <!-- Degradado inferior fuerte -->
-        <div class="academy-hero-overlay"></div>
-
-        <div class="academy-hero-flow">
-            <!-- Texto central -->
-            <div class="academy-hero-content">
-                <div class="academy-kicker">
-                    DESCUBRE TU POTENCIAL
-                </div>
-
-                <h2 class="academy-hero-title font-title">
-                    🔥 Academia Cheerleader<br>
-                    Firehouse 🔥
-                </h2>
-            </div>
-
-            <!-- BLOQUE CÍRCULOS EDITORIALES (3) -->
-            <div class="academy-circles-wrapper">
-
-              <div class="academy-circle">
-                <h3>ACONDICIONAMIENTO</h3>
-                <p>
-                  El acondicionamiento físico en el cheerleader es clave para fuerza,
-                  resistencia, seguridad, rendimiento, confianza y prevención de lesiones
-                  en cada rutina. 💪🔥
-                </p>
-              </div>
-
-              <div class="academy-circle">
-                <h3>GIMNASIA DE SUELO</h3>
-                <p>
-                  El trabajo de gimnasia es fundamental en el cheerleading: desarrolla fuerza,
-                  flexibilidad, coordinación y control corporal, permitiendo ejecuciones seguras,
-                  limpias y de alto nivel competitivo. 🤸🔥
-                </p>
-              </div>
-
-              <div class="academy-circle">
-                <h3>CLASE DE CHEERLEADER</h3>
-                <p>
-                  La técnica adecuada en el cheerleading es la base de todo: garantiza seguridad,
-                  potencia el rendimiento, mejora la ejecución y permite que cada atleta alcance
-                  su máximo nivel con confianza. 🔥💪
-                </p>
-              </div>
-
-            </div>
-
-            <div class="academy-editorial-box">
-                <p>
-                    En la academia Firehouse Cheerleader, niños y niñas desarrollan
-                    acondicionamiento físico, coordinación y disciplina,
-                    fortaleciendo el trabajo en equipo.
-                    Todo en un ambiente familiar, seguro y motivador,
-                    guiados por entrenadores expertos que lideran con experiencia,
-                    valores y compromiso real con cada atleta. 💪🔥
-                </p>
-            </div>
-
-
-
-        </div>
-
-    </div> <!-- academy-hero-wrapper -->
-
-    <div class="academy-offer-wrap academy-offer-wrap--inside-academia">
-      <div class="academy-offer-card academy-offer-card--v2">
-
-        <div class="academy-offer-top">
-          <span class="offer-badge">Matrícula gratis</span>
-          <span class="offer-chip">🔥 2 clases por semana</span>
-        </div>
-
-        <div class="academy-offer-grid">
-
-          <div class="offer-left">
-            <div class="offer-price-box">
-              <div class="offer-price-label">Arancel mensual</div>
-              <div class="offer-price">$30.000</div>
-              <div class="offer-sub">Incluye 1 día gimnasia + 1 día cheer class</div>
-            </div>
-
-            <ul class="offer-bullets">
-              <li>💪 <strong>1 día</strong> gimnasia</li>
-              <li>🎯 <strong>1 día</strong> cheer class</li>
-              <li>👨‍👩‍👧‍👦 Convenio hermanos</li>
-            </ul>
-
-            <a href="#contacto" class="offer-cta">Quiero inscribirme →</a>
-            <p class="offer-note">Cupos limitados · Inicio marzo</p>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="overline">tu rumbo digital</p>
+          <h1>Impulsamos decisiones claras para crecer con tecnología.</h1>
+          <p>brujulabs es tu copiloto digital: diseño, implementación y mejora continua para plataformas modernas, robustas y confiables.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contacto">Hablemos hoy</a>
+            <a class="btn btn-secondary" href="#soluciones">Ver propuesta</a>
           </div>
-
-          <div class="offer-right">
-            <div class="offer-panel">
-              <div class="offer-panel-title">Sede San Miguel</div>
-              <div class="offer-panel-text">
-                📍 Calle Santa Corina 197<br>
-                🚇 Metro Lo Ovalle — Línea 2
-              </div>
-
-              <div class="offer-panel-divider"></div>
-
-              <div class="offer-panel-text">
-                💬 +56 9 4448 5003<br>
-                🌐 firehousecheer.cl
-              </div>
-            </div>
-
-            <div class="offer-hours">
-              <div class="offer-hours-title">Horarios</div>
-              <div class="offer-hours-chips">
-                <div class="hours-chip">
-                  <div class="hours-chip-title">Gimnasia</div>
-                  <div class="hours-chip-sub">Viernes 17:00–20:00</div>
-                </div>
-                <div class="hours-chip">
-                  <div class="hours-chip-title">Cheer Class</div>
-                  <div class="hours-chip-sub">Sábado 16:00–22:00*</div>
-                </div>
-              </div>
-              <div class="offer-hours-foot">*Según categoría</div>
-            </div>
+          <div class="curve" aria-hidden="true"></div>
+          <span class="badge badge-neutral">SaaS moderno</span>
+          <span class="badge badge-accent">Operación confiable</span>
+        </div>
+        <div class="stack">
+          <img class="visual" src="assets/img/hero1.jpg" alt="Equipo brujulabs colaborando" />
+          <div class="card">
+            <h4>Resultados medibles</h4>
+            <p class="m0">Tableros, automatización y optimización de procesos para que tu equipo gane foco y velocidad.</p>
           </div>
-
         </div>
       </div>
-    </div>
-
-
-</section>
-
-
-<!-- CTA TEMPORADA 2026 — FLAT -->
-<section id="cta-temporada" class="season-flat" aria-label="Temporada 2026">
-  <div class="season-flat__wrap">
-
-    <div class="season-flat__left">
-      <img src="assets/img/logo.png" alt="Firehouse Cheer" class="season-flat__logo">
-
-      <div class="season-flat__copy">
-        <div class="season-flat__title">TEMPORADA 2026</div>
-
-        <ul class="season-flat__bullets" aria-label="Detalles">
-          <li>Únete hoy</li>
-          <li>Cupos limitados</li>
-          <li>Inicio marzo</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="season-flat__right">
-      <a href="#contacto" class="season-flat__btn season-flat__btn--secondary">Únete hoy</a>
-      <a href="temporada-2026.html#programacion" class="season-flat__btn season-flat__btn--primary">Ver info 2026 →</a>
-    </div>
-
-  </div>
-</section>
-
- <!-- COACHES -->
-<section id="coaches" class="w-full py-32 fire-bg-b">
-    <div class="max-w-screen-xl mx-auto px-6">
-
-        <h2 class="font-title text-4xl md:text-5xl font-extrabold mb-16 text-center">
-            Nuestros Entrenadores
-        </h2>
-
-        <!-- CONTENEDOR DESKTOP -->
-        <div class="relative hidden md:flex justify-center gap-12">
-
-            <!-- TARJETA INDIVIDUAL -->
-            <div class="coach-card" data-coach="1">
-                <div class="coach-frame"></div>
-                <img src="assets/img/coach_benja.jpeg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Ben</h3>
-                    <p class="coach-role">Head coach • Técnica</p>
-                </div>
-            </div>
-
-            <div class="coach-card" data-coach="2">
-                <div class="coach-frame"></div>
-                <img src="assets/img/javier2.jpeg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Javier</h3>
-                    <p class="coach-role">Entrenador de Cheer • Técnica Competitiva</p>
-                </div>
-            </div>
-
-            <div class="coach-card" data-coach="3">
-                <div class="coach-frame"></div>
-                <img src="assets/img/coach_nicolas.jpg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Nicolas</h3>
-                    <p class="coach-role">Entrenador de Gimnasia • Técnica y Fuerza</p>
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- MOBILE STACK -->
-        <div class="block md:hidden space-y-12 mt-20">
-
-            <div class="coach-card-mobile" data-coach="1">
-                <div class="coach-frame"></div>
-                 <img src="assets/img/coach_benja.jpeg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Nombre 1</h3>
-                    <p class="coach-role">Head Coach • Técnica</p>
-                </div>
-            </div>
-
-            <div class="coach-card-mobile" data-coach="2">
-                <div class="coach-frame"></div>
-                <img src="assets/img/javier2.jpeg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Javier</h3>
-                    <p class="coach-role">Entrenador de Cheer • Técnica Competitiva</p>
-                </div>
-            </div>
-
-            <div class="coach-card-mobile" data-coach="3">
-                <div class="coach-frame"></div>
-                 <img src="assets/img/coach_nicolas.jpg" class="coach-img" />
-                <div class="coach-overlay">
-                    <h3 class="coach-name">Coach Nicolas</h3>
-                    <p class="coach-role">Entrenador de Gimnasia • Técnica y Fuerza</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-<div class="section-divider" aria-hidden="true"></div>
-
-<section id="categorias" class="categories-section">
-  <div class="categories-header">
-    <h2>NUESTRAS CATEGORÍAS 2026</h2>
-    <p>Forma parte del equipo que te hará crecer.</p>
-  </div>
-
-  <div class="categories-grid">
-
-    <div class="fh-cat" data-team="firelights">
-      <div class="fh-cat-inner">
-        <div class="fh-cat-face fh-cat-front">
-          <div class="fh-cat-frame"></div>
-          <div class="fh-cat-top">
-            <div class="fh-cat-topbar">
-              <img src="assets/img/logo.png" alt="Firehouse" class="fh-cat-logo" />
-              <span class="fh-cat-chip">Youth Prep</span>
-            </div>
-          </div>
-
-          <h3 class="team-name fh-cat-team">FIRELIGHTS</h3>
-
-          <div class="team-ages fh-cat-ages">
-            <span class="team-year fh-cat-year">Edad 2026</span>
-            <span class="fh-cat-age">6–11 AÑOS</span>
-          </div>
-
-          <div class="fh-cat-divider"></div>
-          <div class="fh-cat-hint">Gira para ver detalles ↻</div>
-        </div>
-
-        <div class="fh-cat-face fh-cat-back">
-          <h3 class="program-title-small">FIRELIGHTS</h3>
-          <p>Youth Prep</p>
-          <p>Edad 2026</p>
-          <p>6–11 años</p>
-          <p>📍 San Miguel</p>
-          <a href="#contacto" class="program-cta btn-join">Quiero ser parte</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="fh-cat" data-team="firefighters">
-      <div class="fh-cat-inner">
-        <div class="fh-cat-face fh-cat-front">
-          <div class="fh-cat-frame"></div>
-          <div class="fh-cat-top">
-            <div class="fh-cat-topbar">
-              <img src="assets/img/logo.png" alt="Firehouse" class="fh-cat-logo" />
-              <span class="fh-cat-chip">Junior Prep</span>
-            </div>
-          </div>
-
-          <h3 class="team-name fh-cat-team fh-cat-team--tight">FIREFIGHTERS</h3>
-
-          <div class="team-ages fh-cat-ages">
-            <span class="team-year fh-cat-year">Edad 2026</span>
-            <span class="fh-cat-age">9–15 AÑOS</span>
-          </div>
-
-          <div class="fh-cat-divider"></div>
-          <div class="fh-cat-hint">Gira para ver detalles ↻</div>
-        </div>
-
-        <div class="fh-cat-face fh-cat-back">
-          <h3 class="program-title-small">FIREFIGHTERS</h3>
-          <p>Junior Prep</p>
-          <p>Edad 2026</p>
-          <p>9–15 años</p>
-          <p>📍 San Miguel</p>
-          <a href="#contacto" class="program-cta btn-join">Quiero ser parte</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="fh-cat" data-team="ladyfire">
-      <div class="fh-cat-inner">
-        <div class="fh-cat-face fh-cat-front">
-          <div class="fh-cat-frame"></div>
-          <div class="fh-cat-top">
-            <div class="fh-cat-topbar">
-              <img src="assets/img/logo.png" alt="Firehouse" class="fh-cat-logo" />
-              <span class="fh-cat-chip">Senior Prep</span>
-            </div>
-          </div>
-
-          <h3 class="team-name fh-cat-team">LADY FIRE</h3>
-
-          <div class="team-ages fh-cat-ages">
-            <span class="team-year fh-cat-year">Edad 2026</span>
-            <span class="fh-cat-age">12–19 AÑOS</span>
-          </div>
-
-          <div class="fh-cat-divider"></div>
-          <div class="fh-cat-hint">Gira para ver detalles ↻</div>
-        </div>
-
-        <div class="fh-cat-face fh-cat-back">
-          <h3 class="program-title-small">LADY FIRE</h3>
-          <p>Senior Prep</p>
-          <p>Edad 2026</p>
-          <p>12–19 años</p>
-          <p>📍 San Miguel</p>
-          <a href="#contacto" class="program-cta btn-join">Quiero ser parte</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="fh-cat" data-team="firediamonds">
-      <div class="fh-cat-inner">
-        <div class="fh-cat-face fh-cat-front">
-          <div class="fh-cat-frame"></div>
-          <div class="fh-cat-top">
-            <div class="fh-cat-topbar">
-              <img src="assets/img/logo.png" alt="Firehouse" class="fh-cat-logo" />
-              <span class="fh-cat-chip">Open Coed</span>
-            </div>
-          </div>
-
-          <h3 class="team-name fh-cat-team">FIRE DIAMONDS</h3>
-
-          <div class="team-ages fh-cat-ages">
-            <span class="team-year fh-cat-year">Edad 2026</span>
-            <span class="fh-cat-age">DESDE LOS 15 AÑOS</span>
-          </div>
-
-          <div class="fh-cat-divider"></div>
-          <div class="fh-cat-hint">Gira para ver detalles ↻</div>
-        </div>
-
-        <div class="fh-cat-face fh-cat-back">
-          <h3 class="program-title-small">FIRE DIAMONDS</h3>
-          <p>Open Coed</p>
-          <p>Edad 2026</p>
-          <p>Desde los 15 años</p>
-          <p>📍 San Miguel</p>
-          <a href="#contacto" class="program-cta btn-join">Quiero ser parte</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-divider" aria-hidden="true"></div>
-
-    <!-- GALERÍA -->
-    <section id="galeria" class="w-full py-32 fade-in fire-bg-b">
-        <div class="max-w-screen-xl mx-auto px-6 text-center mb-12 space-y-4">
-            <h2 class="font-title text-4xl md:text-5xl font-extrabold">
-                Galería
-            </h2>
-            <p class="inline-flex items-center gap-3 px-4 py-2 bg-cheer-black text-xs uppercase tracking-[0.25em] border border-cheer-red/60 rounded-full shadow-card">
-                <span class="w-2 h-2 rounded-full bg-cheer-red animate-pulse"></span>
-                Momentos Firehouse Cheer
-            </p>           
-        </div>
-
-        <div class="max-w-screen-xl mx-auto px-6 space-y-8">
-            <div id="gallery-tabs" class="gallery-tabs"></div>
-
-            <div class="gallery-wrapper">
-                <div class="gallery-header">
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 rounded-full bg-gradient-to-br from-cheer-red via-cheer-orange to-cheer-yellow flex items-center justify-center text-xl font-bold shadow-card">🔥</div>
-                        <div>
-                            <p class="text-sm text-cheer-white/60">Colección activa</p>
-                            <p id="gallery-title" class="font-title text-2xl font-extrabold">Cargando...</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-xs text-cheer-white/60 uppercase tracking-[0.18em]">Total fotos</p>
-                        <p id="gallery-counter" class="text-2xl font-semibold text-cheer-yellow">—</p>
-                    </div>
-                </div>
-
-                <div class="gallery-slider" aria-live="polite">
-                    <button id="gallery-prev" class="gallery-nav" aria-label="Ver fotos anteriores">‹</button>
-                    <div id="gallery-grid" class="gallery-grid">
-                        <div class="gallery-skeleton"></div>
-                        <div class="gallery-skeleton"></div>
-                        <div class="gallery-skeleton"></div>
-                    </div>
-                    <button id="gallery-next" class="gallery-nav" aria-label="Ver fotos siguientes">›</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="gallery-lightbox" class="gallery-lightbox hidden" aria-modal="true" role="dialog">
-            <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar galería">×</button>
-            <div class="lightbox-body">
-                <button id="lightbox-prev" class="lightbox-nav lightbox-nav-prev" aria-label="Foto anterior">‹</button>
-                <img id="lightbox-image" class="lightbox-img" alt="Foto destacada de la galería">
-                <button id="lightbox-next" class="lightbox-nav lightbox-nav-next" aria-label="Foto siguiente">›</button>
-                <div class="lightbox-meta">
-                    <p id="lightbox-caption" class="lightbox-caption"></p>
-                    <div class="lightbox-cta">
-                        <span class="pill">Firehouse</span>
-                        <span class="pill pill-red">Competitivo</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
-
-<div class="section-divider" aria-hidden="true"></div>
-
-    <!-- CTA FINAL -->
-    <section id="cta" class="w-full py-32 fade-in section--ember fire-bg-d">
-        <div class="text-center max-w-3xl mx-auto px-6">
-
-            <h2 class="font-title text-4xl font-extrabold">
-                ¿Listo para entrenar en Firehouse?
-            </h2>
-
-            <p class="text-cheer-white/70 mt-4 text-lg">
-                Cupos limitados. Únete al equipo y entrena con disciplina y energía.
-            </p>
-
-            <a href="#contacto" class="btn-primary mt-10 inline-block">Quiero inscribirme</a>
+    <section id="soluciones" class="section section--subtle">
+      <div class="container">
+        <p class="overline">Propuesta de valor</p>
+        <h2>Soluciones diseñadas para operar con claridad.</h2>
+        <div class="grid">
+          <article class="card"><h4>Arquitectura digital</h4><p>Diseño de ecosistemas web y producto con foco en escalabilidad y seguridad.</p></article>
+          <article class="card"><h4>Growth & analítica</h4><p>Implementación de métricas accionables para mejorar adquisición y retención.</p></article>
+          <article class="card"><h4>Automatización</h4><p>Flujos y procesos para reducir tareas manuales y aumentar consistencia operativa.</p></article>
         </div>
+      </div>
     </section>
 
-
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="fh-contact fire-bg-a">
-  <div class="fh-contact__wrap">
-
-    <!-- Header -->
-    <div class="fh-contact__head">
-      <img src="assets/img/logo.png" alt="Firehouse Cheer" class="fh-contact__logo" />
-      <div class="fh-contact__titlewrap">
-        <h2 class="fh-contact__title">Contacto & Sede</h2>
-        
-      </div>
-
-      <div class="fh-contact__cta">
-        <a class="fh-btn fh-btn--wa" href="https://wa.me/56944485003" target="_blank" rel="noopener">
-          <span class="fh-ico">💬</span> WhatsApp
-        </a>
-        <a class="fh-btn fh-btn--primary" href="tel:+56944485003">
-          <span class="fh-ico">📞</span> Llamar
-        </a>
-      </div>
-    </div>
-
-    <!-- Main Card -->
-    <div class="fh-contact__card">
-      <!-- Left: Info -->
-      <div class="fh-contact__info">
-        <div class="fh-contact__block">
-          <div class="fh-contact__kicker">ACADEMIA FIREHOUSE — SAN MIGUEL</div>
-
-          <div class="fh-contact__item">
-            <div class="fh-contact__icon">📍</div>
-            <div>
-              <div class="fh-contact__label">Dirección</div>
-              <div class="fh-contact__value">Calle Santa Corina 197, San Miguel</div>
-              <div class="fh-contact__meta">🚇 Metro Lo Ovalle — Línea 2</div>
-            </div>
-          </div>
-
-          <div class="fh-contact__item">
-            <div class="fh-contact__icon">📞</div>
-            <div>
-              <div class="fh-contact__label">Teléfono / WhatsApp</div>
-              <a class="fh-contact__value fh-contact__link" href="https://wa.me/56944485003" target="_blank" rel="noopener">
-                +56 9 4448 5003
-              </a>
-            </div>
-          </div>
-
-          <div class="fh-contact__item">
-            <div class="fh-contact__icon">🌐</div>
-            <div>
-              <div class="fh-contact__label">Sitio web</div>
-              <a class="fh-contact__value fh-contact__link" href="https://firehousecheer.cl" target="_blank" rel="noopener">
-                www.firehousecheer.cl
-              </a>
-            </div>
-          </div>
-
-          <div class="fh-contact__item">
-            <div class="fh-contact__icon">✉️</div>
-            <div>
-              <div class="fh-contact__label">Correo</div>
-              <a class="fh-contact__value fh-contact__link" href="mailto:allstarfirehouse@gmail.com">allstarfirehouse@gmail.com</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hours -->
-        <div class="fh-contact__block fh-hours">
-          <div class="fh-hours__head">
-            <div class="fh-hours__title">Horarios</div>
-            <div class="fh-hours__chip">*Según categoría</div>
-          </div>
-
-          <div class="fh-hours__grid">
-            <div class="fh-hours__card">
-              <div class="fh-hours__top">
-                <span class="fh-hours__ico">🤸</span>
-                <div class="fh-hours__name">Gimnasia</div>
-              </div>
-              <div class="fh-hours__time">Viernes 17:00–20:00</div>
-              <div class="fh-hours__note">Técnica de suelo · fuerza · progresiones</div>
-            </div>
-
-            <div class="fh-hours__card">
-              <div class="fh-hours__top">
-                <span class="fh-hours__ico">🔥</span>
-                <div class="fh-hours__name">Cheer Class</div>
-              </div>
-              <div class="fh-hours__time">Sábado 16:00–22:00*</div>
-              <div class="fh-hours__note">Stunts · transiciones · preparación competitiva</div>
-            </div>
-          </div>
-
-          <div class="fh-contact__micro">
-           
-          </div>
+    <section id="servicios" class="section">
+      <div class="container">
+        <p class="overline">Sistema base</p>
+        <h2>Componentes y estructura listos para crecer.</h2>
+        <div class="grid">
+          <div class="card"><h4>Section + Container</h4><p>Ritmo vertical estandarizado, alternancia visual y máximo de 1200px.</p></div>
+          <div class="card"><h4>Button + Badge</h4><p>Estados consistentes con foco visible y jerarquía clara de acciones.</p></div>
+          <div class="card"><h4>Card + Input</h4><p>UI limpia enterprise con bordes suaves, sombras mínimas y alta legibilidad.</p></div>
         </div>
       </div>
+    </section>
 
-      <!-- Right: Map -->
-      <div class="fh-contact__map">
-        <div class="fh-contact__maphead">
-          <div class="fh-contact__maptitle">Cómo llegar</div>
-          <a class="fh-contact__maplink"
-             href="https://www.google.com/maps?q=Calle%20Santa%20Corina%20197%2C%20San%20Miguel%2C%20Santiago%2C%20Chile"
-             target="_blank" rel="noopener">
-            Abrir en Google Maps →
-          </a>
-        </div>
+    <section id="contacto" class="section section--subtle">
+      <div class="container">
+        <p class="overline">Contacto</p>
+        <h2>Conversemos sobre tu próxima etapa digital.</h2>
+        <form class="card form-grid" action="#" method="post">
+          <input class="input" type="text" placeholder="Nombre" required />
+          <input class="input" type="email" placeholder="Correo" required />
+          <input class="input" type="text" placeholder="Empresa" />
+          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        <iframe
-          class="fh-contact__iframe"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Calle%20Santa%20Corina%20197%2C%20San%20Miguel%2C%20Santiago%2C%20Chile&output=embed">
-        </iframe>
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>
+        <img src="assets/img/logo.png" alt="brujulabs" class="logo" />
+        <p>brujulabs · tu rumbo digital</p>
+      </div>
+      <div>
+        <a href="#hero">Inicio</a><br />
+        <a href="#soluciones">Soluciones</a><br />
+        <a href="#contacto">Contacto</a>
       </div>
     </div>
+  </footer>
 
-    <!-- Bottom bar -->
-    <div class="fh-footerbar">
-      <div class="fh-footerbar__left">
-        <span class="fh-footerbar__badge">🔥</span>
-        <span class="fh-footerbar__text">Firehouse Cheerleading · Disciplina · Familia · Alto rendimiento</span>
-      </div>
-
-      <div class="fh-footerbar__right">
-        <a href="#hero" class="fh-footerbar__link">Volver arriba ↑</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- FOOTER -->
-    <footer class="fh-footer">
-  <div class="fh-footer__wrap">
-    <div class="fh-footer__brand">
-      <img src="assets/img/logo.png" alt="Firehouse Cheer" class="fh-footer__logo" />
-      <div class="fh-footer__brandtext">
-        <div class="fh-footer__name">Firehouse Cheerleading</div>
-        <div class="fh-footer__sub">Sede San Miguel · Santiago, Chile</div>
-      </div>
-    </div>
-
-    <div class="fh-footer__meta">
-      <span>© Firehouse Cheerleading. Todos los derechos reservados.</span>
-    </div>
-  </div>
-</footer>
-	<!-- MODAL FLOTANTE COACH -->
-<div id="coach-modal" class="coach-modal hidden">
-    <div id="coach-modal-content" class="coach-modal-content">
-
-        <button id="coach-modal-close" class="coach-modal-close">×</button>
-
-        <div class="coach-modal-inner">
-
-            <img id="coach-modal-img" class="coach-modal-img" />
-
-            <div class="coach-modal-info">
-                <h3 id="coach-modal-name" class="coach-modal-name"></h3>
-                <p id="coach-modal-role" class="coach-modal-role"></p>
-                <p id="coach-modal-desc" class="coach-modal-desc"></p>
-
-                <div id="coach-modal-specialties" class="coach-modal-specialties"></div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-    <script src="assets/js/cheer.js"></script>
-
-
-
+  <script src="assets/js/cheer.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
