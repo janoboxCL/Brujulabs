@@ -11,23 +11,27 @@
   <link rel="stylesheet" href="assets/css/cheer.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header main-header">
     <div class="container nav-wrap">
       <a href="#hero" class="logo-area"><img src="assets/img/logo_brujulabs_4x.png" alt="brujulabs" class="logo" /></a>
       <nav class="nav-links" aria-label="principal">
-        <a class="nav-link" href="#soluciones">Soluciones</a>
+        <a class="nav-link is-active" href="#soluciones">Soluciones</a>
         <a class="nav-link" href="#servicios">Servicios</a>
         <a class="nav-link" href="temporada-2026.html">Temporada 2026</a>
         <a class="nav-link" href="#contacto">Contacto</a>
       </nav>
-      <a class="btn btn-primary" href="#contacto">Agendar demo</a>
-      <button id="mobile-btn" class="mobile-toggle" aria-label="Abrir menú">☰</button>
+      <div class="header-actions">
+        <a class="btn btn-primary desktop-cta" href="#contacto">Agendar demo</a>
+        <a class="btn btn-primary mobile-cta" href="#contacto">Demo</a>
+        <button id="mobile-btn" class="mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      </div>
     </div>
     <div id="mobile-menu" class="container mobile-menu">
       <a class="nav-link" href="#soluciones">Soluciones</a>
       <a class="nav-link" href="#servicios">Servicios</a>
       <a class="nav-link" href="temporada-2026.html">Temporada 2026</a>
       <a class="nav-link" href="#contacto">Contacto</a>
+      <a class="btn btn-primary mobile-menu-cta" href="#contacto">Agendar demo</a>
     </div>
   </header>
 
