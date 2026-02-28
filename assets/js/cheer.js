@@ -29,12 +29,13 @@ function setupHeroCarousel() {
   const root = document.getElementById('hero-carousel');
   if (!root) return;
 
-  const TRANSITION_MS = 1100;
+  const TRANSITION_MS = 1300;
   const SWIPE_THRESHOLD = 48;
 
   const slides = [
     {
       key: 'lanzar',
+      tabLabel: 'Lanzamiento',
       layout: 'A',
       heading: 'Tu copiloto para lanzar, ordenar y escalar con foco.',
       description: 'Aterrizamos tu operación digital con una ruta práctica y resultados desde el primer sprint.',
@@ -45,6 +46,7 @@ function setupHeroCarousel() {
     },
     {
       key: 'ordenar',
+      tabLabel: 'Sistema',
       layout: 'B',
       heading: 'Sistema operativo para crecer con orden.',
       description: 'Combinamos método y ejecución para que cada avance tenga estructura.',
@@ -56,6 +58,7 @@ function setupHeroCarousel() {
     },
     {
       key: 'crecer',
+      tabLabel: 'Roadmap',
       layout: 'C',
       heading: 'Roadmap operativo para avanzar trimestre a trimestre.',
       description: 'Convertimos objetivos en un plan vivo con hitos claros y entregables accionables.',
@@ -79,10 +82,10 @@ function setupHeroCarousel() {
   panels.className = 'hero-panels';
   panels.setAttribute('aria-live', 'polite');
 
-  const renderedSlides = slides.map((slide, index) => createHeroSlide(slide, index === activeIndex));
+  const renderedSlides = slides.map((slide, index) => createHeroSlide(slide, index, index === activeIndex));
   renderedSlides.forEach((slide) => panels.appendChild(slide));
 
-  const progress = createProgressControl(slides, {
+  const tabs = createTabControl(slides, {
     initialIndex: activeIndex,
     onChange: moveTo
   });
@@ -144,7 +147,7 @@ function setupHeroCarousel() {
     });
 
     activeIndex = nextIndex;
-    progress.setActive(activeIndex);
+    tabs.setActive(activeIndex);
 
     activeTimeout = window.setTimeout(() => {
       renderedSlides.forEach((slide, idx) => {
@@ -157,28 +160,29 @@ function setupHeroCarousel() {
 
   root.className = 'hero-carousel';
   root.style.setProperty('--hero-transition-ms', `${TRANSITION_MS}ms`);
-  root.append(previousButton, nextButton, panels, progress.element);
+  root.append(previousButton, nextButton, panels, tabs.element);
 }
 
-function createProgressControl(items, { initialIndex = 0, onChange }) {
-  const progress = document.createElement('div');
-  progress.className = 'hero-progress';
-  progress.setAttribute('role', 'tablist');
-  progress.setAttribute('aria-label', 'Cambiar viñeta del hero');
+function createTabControl(items, { initialIndex = 0, onChange }) {
+  const tablist = document.createElement('div');
+  tablist.className = 'hero-tabs';
+  tablist.setAttribute('role', 'tablist');
+  tablist.setAttribute('aria-label', 'Cambiar viñeta del hero');
 
   let activeIndex = initialIndex;
   const buttons = items.map((item, index) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'hero-progress-segment';
+    button.className = 'hero-tab';
     button.setAttribute('role', 'tab');
-    button.id = `hero-progress-${item.key}`;
-    button.setAttribute('aria-controls', `segment-panel-${item.key}`);
+    button.id = `hero-tab-${item.key}`;
+    button.setAttribute('aria-controls', `slide-${index + 1}`);
     const selected = index === activeIndex;
     button.setAttribute('aria-selected', String(selected));
     button.tabIndex = selected ? 0 : -1;
-    button.setAttribute('aria-label', `Ir a viñeta ${index + 1}`);
-    button.innerHTML = '<span class="hero-progress-fill" aria-hidden="true"></span><span class="hero-progress-led" aria-hidden="true"></span>';
+    button.setAttribute('aria-label', `Ir al slide ${index + 1}: ${item.tabLabel}`);
+    if (selected) button.classList.add('is-active');
+    button.innerHTML = `<span class="hero-tab-number">${String(index + 1).padStart(2, '0')}</span><span class="hero-tab-label">${item.tabLabel}</span><span class="hero-tab-led" aria-hidden="true"></span>`;
 
     button.addEventListener('click', () => {
       setActive(index);
@@ -198,7 +202,7 @@ function createProgressControl(items, { initialIndex = 0, onChange }) {
       onChange(next);
     });
 
-    progress.appendChild(button);
+    tablist.appendChild(button);
     return button;
   });
 
@@ -208,19 +212,20 @@ function createProgressControl(items, { initialIndex = 0, onChange }) {
       const selected = index === activeIndex;
       button.setAttribute('aria-selected', String(selected));
       button.tabIndex = selected ? 0 : -1;
+      button.classList.toggle('is-active', selected);
     });
   }
 
-  return { element: progress, setActive };
+  return { element: tablist, setActive };
 }
 
-function createHeroSlide(slide, isActive) {
+function createHeroSlide(slide, slideIndex, isActive) {
   const article = document.createElement('article');
   article.className = `hero-slide hero-layout-${slide.layout}${isActive ? ' is-active' : ''}`;
-  article.id = `segment-panel-${slide.key}`;
+  article.id = `slide-${slideIndex + 1}`;
   article.setAttribute('data-layout', slide.layout);
   article.setAttribute('role', 'tabpanel');
-  article.setAttribute('aria-labelledby', `hero-progress-${slide.key}`);
+  article.setAttribute('aria-labelledby', `hero-tab-${slide.key}`);
   article.setAttribute('aria-hidden', String(!isActive));
 
   if (slide.layout === 'A') return createLayoutA(article, slide);
@@ -261,35 +266,21 @@ function createLayoutA(article, slide) {
 
   copy.append(overline, heading, description, bulletList, actions);
 
-  const visual = document.createElement('div');
-  visual.className = 'hero-visual';
-
-  const frame = document.createElement('div');
-  frame.className = 'robot-frame';
-
-  const image = document.createElement('img');
-  image.className = 'robot-image';
-  image.src = 'assets/img/robot.png';
-  image.alt = 'Robot helper de brujulabs';
-
-  const tooltip = document.createElement('div');
-  tooltip.className = 'robot-tooltip';
-  tooltip.textContent = slide.tooltip;
-
-  const ring = document.createElement('div');
-  ring.className = 'hero-hud-ring';
-  ring.setAttribute('aria-hidden', 'true');
-
-  frame.appendChild(image);
-  visual.append(ring, frame, tooltip);
+  const visual = createRobotVisual({ tooltip: slide.tooltip });
 
   article.append(copy, visual);
   return article;
 }
 
 function createLayoutB(article, slide) {
+  const visual = createRobotVisual({
+    tooltip: 'Estado: módulo sincronizado',
+    large: true,
+    alt: 'Robot helper de brujulabs en vista ampliada'
+  });
+
   const centered = document.createElement('div');
-  centered.className = 'hero-centered';
+  centered.className = 'hero-copy hero-copy--right';
 
   const overline = document.createElement('p');
   overline.className = 'overline';
@@ -318,14 +309,14 @@ function createLayoutB(article, slide) {
   });
 
   centered.append(overline, heading, description, modules);
-  article.appendChild(centered);
+  article.append(visual, centered);
 
   return article;
 }
 
 function createLayoutC(article, slide) {
-  const timeline = document.createElement('div');
-  timeline.className = 'hero-timeline';
+  const intro = document.createElement('div');
+  intro.className = 'hero-copy hero-copy--center';
 
   const overline = document.createElement('p');
   overline.className = 'overline';
@@ -356,7 +347,12 @@ function createLayoutC(article, slide) {
     list.appendChild(item);
   });
 
-  timeline.append(overline, heading, description, list);
+  intro.append(overline, heading, description);
+
+  const visual = createRobotVisual({
+    tooltip: 'Estado: monitoreo activo',
+    compact: true
+  });
 
   const plan = document.createElement('aside');
   plan.className = 'hero-plan-card';
@@ -374,7 +370,12 @@ function createLayoutC(article, slide) {
   const planAction = createPrimaryButton(slide.primaryCta.label, slide.primaryCta.href);
 
   plan.append(planTitle, planDescription, planStatus, planAction);
-  article.append(timeline, plan);
+
+  const bottom = document.createElement('div');
+  bottom.className = 'hero-layout-c-bottom';
+  bottom.append(list, plan);
+
+  article.append(intro, visual, bottom);
 
   return article;
 }
@@ -384,9 +385,34 @@ function createNavButton(direction, label, symbol, onClick) {
   button.type = 'button';
   button.className = `hero-nav hero-${direction}`;
   button.setAttribute('aria-label', label);
-  button.innerHTML = `<span aria-hidden="true">${symbol}</span>`;
+  button.innerHTML = `<span aria-hidden="true" class="hero-chevron">${symbol}</span>`;
   button.addEventListener('click', onClick);
   return button;
+}
+
+function createRobotVisual({ tooltip, large = false, compact = false, alt = 'Robot helper de brujulabs' }) {
+  const visual = document.createElement('div');
+  visual.className = `hero-visual${large ? ' is-large' : ''}${compact ? ' is-compact' : ''}`;
+
+  const ring = document.createElement('div');
+  ring.className = 'hero-hud-ring';
+  ring.setAttribute('aria-hidden', 'true');
+
+  const frame = document.createElement('div');
+  frame.className = 'robot-frame';
+
+  const image = document.createElement('img');
+  image.className = 'robot-image';
+  image.src = 'assets/img/robot.png';
+  image.alt = alt;
+
+  const tooltipElement = document.createElement('div');
+  tooltipElement.className = 'robot-tooltip';
+  tooltipElement.textContent = tooltip;
+
+  frame.appendChild(image);
+  visual.append(ring, frame, tooltipElement);
+  return visual;
 }
 
 function normalizeIndex(index, length) {
