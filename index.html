@@ -19,7 +19,10 @@
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Brujulabs Home">
         <span class="brand-mark" aria-hidden="true">⌁</span>
-        <span class="brand-name">Brujulabs</span>
+        <span class="brand-meta">
+          <span class="brand-name">Brujulabs</span>
+          <span class="brand-tag">Implementación web estructurada</span>
+        </span>
       </a>
       <nav class="main-nav" aria-label="Navegación principal">
         <a href="#ruta">Ruta</a>
@@ -129,7 +132,10 @@
         <div class="checklist-operativa">
           <article class="card-check">
             <div class="check-head">
-              <p class="checklist-title">Publicación</p>
+              <div>
+                <p class="checklist-title">Publicación</p>
+                <p class="check-meta">Estado del dominio y salida online</p>
+              </div>
               <span class="state-ok">Listo</span>
             </div>
             <ul>
@@ -140,7 +146,10 @@
           </article>
           <article class="card-check">
             <div class="check-head">
-              <p class="checklist-title">Operación</p>
+              <div>
+                <p class="checklist-title">Operación</p>
+                <p class="check-meta">Uso real para contacto y navegación</p>
+              </div>
               <span class="state-ok">Listo</span>
             </div>
             <ul>
@@ -151,7 +160,10 @@
           </article>
           <article class="card-check">
             <div class="check-head">
-              <p class="checklist-title">Validación técnica</p>
+              <div>
+                <p class="checklist-title">Validación técnica</p>
+                <p class="check-meta">Configuración base de visibilidad</p>
+              </div>
               <span class="state-ok">Listo</span>
             </div>
             <ul>
@@ -268,29 +280,32 @@
     </section>
 
     <section class="section" id="demos">
-      <div class="container">
-        <p class="eyebrow">Demos por rubro</p>
-        <h2>No son mockups: son estructuras aplicadas según contexto.</h2>
-        <div class="demo-grid">
-          <article>
-            <h3>Servicios profesionales</h3>
-            <p>Estructura enfocada en autoridad, alcance del servicio y contacto directo.</p>
+      <div class="container demos-layout">
+        <div class="demos-copy">
+          <p class="eyebrow">Demos por rubro</p>
+          <h2>No son mockups: son estructuras aplicadas según contexto.</h2>
+          <p class="section-intro">Cada demo muestra cómo cambia la arquitectura del sitio según el tipo de negocio, la forma de vender y el tipo de contacto que necesita resolver.</p>
+          <div class="section-actions">
+            <a class="btn btn-ghost" href="/temporada-2026.html">Ver demos</a>
+            <a class="btn btn-primary" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Ya%20revis%C3%A9%20el%20alcance%20y%20las%20demos.%20Quiero%20saber%20si%20mi%20negocio%20encaja%20con%20el%20servicio.">Quiero revisar mi caso</a>
+          </div>
+        </div>
+        <div class="demo-stack">
+          <article class="demo-case featured">
+            <p class="demo-kicker">Servicios profesionales</p>
+            <h3>Autoridad, claridad del servicio y contacto directo.</h3>
             <ul><li>Home con prueba rápida</li><li>Bloque de servicios jerarquizado</li><li>FAQ de objeciones típicas</li></ul>
           </article>
-          <article>
-            <h3>Consultores e independientes</h3>
-            <p>Ruta centrada en método, credenciales y selección de plan recomendado.</p>
+          <article class="demo-case">
+            <p class="demo-kicker">Consultores e independientes</p>
+            <h3>Método, credenciales y selección de plan recomendado.</h3>
             <ul><li>Presentación de método</li><li>Casos de uso por tipo de cliente</li><li>Llamados a WhatsApp por contexto</li></ul>
           </article>
-          <article>
-            <h3>Clubes y academias</h3>
-            <p>Navegación clara para programas, requisitos y contacto operativo.</p>
+          <article class="demo-case">
+            <p class="demo-kicker">Clubes y academias</p>
+            <h3>Programas, requisitos y contacto operativo.</h3>
             <ul><li>Programas y niveles</li><li>Horarios y condiciones</li><li>Canales de inscripción</li></ul>
           </article>
-        </div>
-        <div class="section-actions">
-          <a class="btn btn-ghost" href="/temporada-2026.html">Ver demos</a>
-          <a class="btn btn-primary" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Ya%20revis%C3%A9%20el%20alcance%20y%20las%20demos.%20Quiero%20saber%20si%20mi%20negocio%20encaja%20con%20el%20servicio.">Quiero revisar mi caso</a>
         </div>
       </div>
     </section>
@@ -299,11 +314,27 @@
       <div class="container">
         <p class="eyebrow">Proceso, pagos y despegue</p>
         <h2>Antes de partir, las condiciones operativas también están claras.</h2>
-        <div class="process-grid">
-          <article><h3>Qué entregas tú</h3><p>Información base, servicios, textos e imágenes disponibles, feedback en plazo y compra del dominio.</p></article>
-          <article><h3>Qué hace Brujulabs</h3><p>Ordena estructura, implementa diseño, publica y deja conectada la configuración técnica mínima.</p></article>
-          <article><h3>Pagos y permanencia</h3><p>Plan fijo + 24 meses de hosting/correo incluidos. Renovación posterior se cobra por separado.</p></article>
-          <article><h3>SLA de despegue</h3><p>Canal formal por correo, respuesta inicial menor a 24h hábiles, ejecución entre 2 y 5 días hábiles.</p></article>
+        <div class="ops-grid">
+          <article class="ops-panel">
+            <p class="ops-kicker">Entradas</p>
+            <h3>Qué entregas tú</h3>
+            <p>Información base, servicios, textos e imágenes disponibles, feedback en plazo y compra del dominio.</p>
+          </article>
+          <article class="ops-panel">
+            <p class="ops-kicker">Ejecución</p>
+            <h3>Qué hace Brujulabs</h3>
+            <p>Ordena estructura, implementa diseño, publica y deja conectada la configuración técnica mínima.</p>
+          </article>
+          <article class="ops-panel accent">
+            <p class="ops-kicker">Condiciones</p>
+            <h3>Pagos y permanencia</h3>
+            <p>Plan fijo + 24 meses de hosting/correo incluidos. Renovación posterior se cobra por separado.</p>
+          </article>
+          <article class="ops-panel accent">
+            <p class="ops-kicker">Soporte inicial</p>
+            <h3>SLA de despegue</h3>
+            <p>Canal formal por correo, respuesta inicial menor a 24h hábiles, ejecución entre 2 y 5 días hábiles.</p>
+          </article>
         </div>
       </div>
     </section>
