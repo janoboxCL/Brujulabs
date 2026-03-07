@@ -942,3 +942,61 @@ h3 { font-size: 1.08rem; }
   .pricing-includes-strip{ grid-template-columns: 1fr; }
   .card-plan.featured{ transform:none; }
 }
+
+
+/* ===== Pricing fine-tuning ===== */
+.pricing-includes-strip{
+  margin-bottom: 1.35rem;
+}
+
+.pricing-actions .btn-ghost{
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  opacity: .92;
+}
+.pricing-actions .btn-ghost:hover,
+.pricing-actions .btn-ghost:focus-visible{
+  color: var(--teal-dark);
+  opacity: 1;
+}
+
+.plan-ctas{
+  align-items: stretch;
+}
+.plan-ctas .plan-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 .2rem;
+  line-height: 1;
+}
+
+.plan-compare summary{
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  width: 100%;
+  min-height: 52px;
+  padding: .85rem 1rem;
+  color: var(--text);
+  background: color-mix(in srgb, var(--teal) 6%, #fff);
+  transition: background-color .2s ease, color .2s ease;
+}
+.plan-compare[open] summary{
+  background: color-mix(in srgb, var(--teal) 9%, #fff);
+}
+.plan-compare summary:hover,
+.plan-compare summary:focus-visible{
+  color: var(--teal-dark);
+  background: color-mix(in srgb, var(--teal) 11%, #fff);
+}
+.compare-summary-ico{
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  opacity: .8;
+}
