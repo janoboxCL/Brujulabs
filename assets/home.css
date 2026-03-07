@@ -333,6 +333,9 @@ h3 { font-size: 1.08rem; }
   margin: 0;
   font-weight: 800;
   font-size: 1.08rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
 }
 
 .check-meta {
@@ -756,11 +759,49 @@ h3 { font-size: 1.08rem; }
   flex: 0 0 42px;
   background: color-mix(in srgb, var(--teal) 12%, #fff);
   border: 1px solid color-mix(in srgb, var(--teal) 22%, var(--stroke));
+  position: relative;
 }
-.inc-ico svg{
+.inc-ico::before{
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 9px;
+  height: 9px;
+  border-top: 1.5px solid color-mix(in srgb, var(--teal-dark) 72%, transparent);
+  border-left: 1.5px solid color-mix(in srgb, var(--teal-dark) 72%, transparent);
+  border-radius: 2px 0 0 0;
+  pointer-events: none;
+}
+.inc-ico::after{
+  content: "";
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--teal-dark) 78%, #fff);
+  opacity: .9;
+  pointer-events: none;
+}
+.ico{
   width: 22px;
   height: 22px;
   display:block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.checklist-title .ico{
+  width: 18px;
+  height: 18px;
+  color: var(--teal-dark);
+  flex: 0 0 auto;
+}
+.inc-ico .ico{
   transform: translateY(-.5px);
 }
 
