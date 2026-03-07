@@ -130,7 +130,6 @@ h3 { font-size: 1.08rem; }
 }
 
 .hero-panel ul,
-.checklist-card ul,
 .scope-grid ul,
 .demo-grid ul {
   margin: .6rem 0 0;
@@ -141,18 +140,69 @@ h3 { font-size: 1.08rem; }
 .inline-link { color: var(--teal); text-decoration: none; display: inline-block; margin-top: .9rem; }
 .section-intro { color: var(--text-soft); max-width: 70ch; }
 
-.route-grid {
+.route-sequence {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 0;
   display: grid;
-  gap: .8rem;
+  gap: 0;
 }
-.route-grid li {
+
+.card-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .95rem;
   border: 1px solid var(--stroke);
   border-radius: 12px;
-  padding: .85rem 1rem;
+  padding: 1rem;
   background: #131d2d;
+  margin-bottom: .9rem;
+}
+
+.card-step::after {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 100%;
+  width: 1px;
+  height: .9rem;
+  background: color-mix(in srgb, var(--teal) 35%, var(--stroke));
+}
+
+.card-step:last-child::after { display: none; }
+
+.step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #0e2432;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: .84rem;
+  border: 1px solid #204763;
+}
+
+.step-state {
+  margin: 0;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .73rem;
+  font-weight: 700;
+}
+
+.card-step h3 {
+  margin: .18rem 0 .35rem;
+  font-size: 1rem;
+}
+
+.card-step p {
+  margin: 0;
+  color: var(--text-soft);
 }
 
 .two-col {
@@ -162,46 +212,158 @@ h3 { font-size: 1.08rem; }
   align-items: start;
 }
 
-.checklist-card {
+.checklist-operativa {
   border: 1px solid var(--stroke);
-  border-radius: 14px;
-  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  padding: 1rem;
   background: #101928;
+  display: grid;
+  gap: .75rem;
+}
+
+.card-check {
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: .9rem;
+  background: #121f32;
+}
+
+.check-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
 }
 
 .checklist-title { margin: 0; font-weight: 700; }
-.checklist-card li {
+
+.card-check ul {
+  margin: .7rem 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.card-check li {
   display: flex;
   gap: .55rem;
   align-items: flex-start;
+  color: var(--text-soft);
+  border-top: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent);
+  padding-top: .5rem;
+  margin-top: .5rem;
 }
-.checklist-card span {
+
+.card-check li:first-child {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.card-check span {
   color: var(--ok);
   font-weight: 700;
   margin-top: .1rem;
 }
 
-.plans-wrap {
+.card-proof {
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  background: #0f1a2a;
+  padding: .9rem 1rem;
+}
+
+.proof-label {
+  margin: 0 0 .35rem;
+  color: var(--blue);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.card-proof p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.plan-system {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.card-plan {
   border: 1px solid var(--stroke);
   border-radius: 14px;
-  overflow-x: auto;
-  margin-top: 1.2rem;
+  padding: 1rem;
+  background: #111b2c;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: .8rem;
 }
 
-.plans-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 720px;
+.card-plan.featured {
+  border-color: color-mix(in srgb, var(--teal) 45%, var(--stroke));
+  background: linear-gradient(180deg, #132739, #111b2c 34%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--teal) 40%, transparent);
 }
 
-.plans-table th,
-.plans-table td {
-  border-bottom: 1px solid var(--stroke);
-  padding: .8rem;
-  text-align: left;
+.plan-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
 }
-.plans-table th { color: var(--teal); }
-.plans-table td:first-child { color: var(--text-soft); width: 28%; }
+
+.plan-tier {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.plan-badge {
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--teal);
+  border: 1px solid color-mix(in srgb, var(--teal) 45%, var(--stroke));
+  border-radius: 999px;
+  padding: .2rem .55rem;
+}
+
+.plan-price {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  font-family: 'Manrope', sans-serif;
+}
+
+.plan-metrics {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-metrics li {
+  display: flex;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .55rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--stroke) 72%, transparent);
+}
+
+.plan-metrics li:first-child { border-top: 0; }
+
+.plan-metrics span {
+  color: var(--text-soft);
+  font-size: .9rem;
+}
+
+.proof-compare {
+  margin-top: .95rem;
+}
 
 .scope-grid,
 .demo-grid,
@@ -294,6 +456,6 @@ h3 { font-size: 1.08rem; }
 
 @media (max-width: 980px) {
   .main-nav { display: none; }
-  .hero-grid, .two-col, .scope-grid, .demo-grid, .process-grid { grid-template-columns: 1fr; }
+  .hero-grid, .two-col, .scope-grid, .demo-grid, .process-grid, .plan-system { grid-template-columns: 1fr; }
   .section { padding: 4rem 0; }
 }
