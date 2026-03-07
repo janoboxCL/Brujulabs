@@ -149,10 +149,21 @@ h3 { font-size: 1.08rem; }
 }
 
 .hero-panel {
-  border: 1px solid #2b3a53;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 16px;
   padding: 1.25rem;
-  background: #101a2a;
+  background: rgba(17, 26, 42, 0.78);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(48, 200, 184, 0.10);
+}
+
+.hero-panel::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(48, 200, 184, 0.45), transparent);
+  margin: -1.25rem -1.25rem 1rem;
 }
 
 .hero-panel img {
@@ -324,10 +335,16 @@ h3 { font-size: 1.08rem; }
   margin-top: 0;
 }
 
-.card-check span {
+.card-check li > span {
   color: var(--ok);
-  font-weight: 700;
-  margin-top: .1rem;
+  font-weight: 800;
+  margin-top: .12rem;
+}
+
+.card-check .state-ok {
+  color: #0d1420;
+  background: var(--ok);
+  font-weight: 800;
 }
 
 .card-proof {
