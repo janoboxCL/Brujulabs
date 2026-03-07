@@ -182,61 +182,247 @@
     </section>
 
     <section class="section" id="planes">
-      <div class="container">
+  <div class="container">
+    <div class="pricing-head">
+      <div>
         <p class="eyebrow">Planes y comparación</p>
-        <h2>Tres niveles para elegir por estructura, no por promesas.</h2>
-        <div class="plan-system" role="list" aria-label="Comparación de planes">
-          <article class="card-plan" role="listitem">
-            <div class="plan-head">
-              <p class="plan-tier">Base</p>
-              <span class="plan-badge">Arranque</span>
-            </div>
-            <p class="plan-price">$230.000 CLP</p>
-            <ul class="plan-metrics">
-              <li><span>Estructura</span><strong>1 home</strong></li>
-              <li><span>Máx. secciones</span><strong>6</strong></li>
-              <li><span>Revisiones</span><strong>2</strong></li>
-              <li><span>Despegue</span><strong>30 días</strong></li>
-            </ul>
-            <a class="btn btn-plan" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Base%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
-          </article>
+        <h2>Elige por estructura y ventana de despegue.</h2>
+        <p class="section-intro">
+          Todos los planes dejan tu sitio publicado y operativo. La diferencia real está en la estructura (páginas/secciones),
+          revisiones incluidas y el período de despegue.
+        </p>
+      </div>
 
-          <article class="card-plan featured" role="listitem">
-            <div class="plan-head">
-              <p class="plan-tier">Pro</p>
-              <span class="plan-badge">Más elegido</span>
-            </div>
-            <p class="plan-price">$350.000 CLP</p>
-            <ul class="plan-metrics">
-              <li><span>Estructura</span><strong>Home + 1 landing</strong></li>
-              <li><span>Máx. secciones</span><strong>10</strong></li>
-              <li><span>Revisiones</span><strong>4</strong></li>
-              <li><span>Despegue</span><strong>45 días</strong></li>
-            </ul>
-            <a class="btn btn-primary" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Pro%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
-          </article>
+      <div class="pricing-actions">
+        <a class="btn btn-primary" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Quiero%20entender%20qu%C3%A9%20plan%20me%20conviene%20para%20implementar%20mi%20sitio.">
+          Quiero evaluar mi web
+        </a>
+        <a class="btn btn-ghost" href="#comparar-planes">Comparar planes</a>
+      </div>
+    </div>
 
-          <article class="card-plan" role="listitem">
-            <div class="plan-head">
-              <p class="plan-tier">Premium</p>
-              <span class="plan-badge">Escala</span>
-            </div>
-            <p class="plan-price">$490.000 CLP</p>
-            <ul class="plan-metrics">
-              <li><span>Estructura</span><strong>Home + 2 landings</strong></li>
-              <li><span>Máx. secciones</span><strong>14</strong></li>
-              <li><span>Revisiones</span><strong>6</strong></li>
-              <li><span>Despegue</span><strong>60 días</strong></li>
-            </ul>
-            <a class="btn btn-plan" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Premium%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
-          </article>
-        </div>
-        <div class="card-proof proof-compare">
-          <p class="proof-label">Comparación operativa</p>
-          <p>Todos los planes incluyen publicación + SEO mínimo + hosting/correo por 24 meses. La diferencia real está en estructura, revisiones y ventana de despegue.</p>
+    <!-- “Todos incluyen” (ancla visual, no dashboard falso) -->
+    <div class="pricing-includes-strip" aria-label="Incluido en todos los planes">
+      <div class="inc">
+        <span class="inc-ico" aria-hidden="true">
+          <!-- icon: publish -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 7l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 14v5h14v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Publicación</strong>
+          <span>Dominio + SSL + contacto funcionando</span>
         </div>
       </div>
-    </section>
+
+      <div class="inc">
+        <span class="inc-ico" aria-hidden="true">
+          <!-- icon: checklist -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M9 6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3.5 6l1.5 1.5L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.5 12l1.5 1.5L7.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.5 18l1.5 1.5L7.5 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Checklist</strong>
+          <span>Validación punto por punto</span>
+        </div>
+      </div>
+
+      <div class="inc">
+        <span class="inc-ico" aria-hidden="true">
+          <!-- icon: search -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div>
+          <strong>SEO mínimo</strong>
+          <span>Titles, metas, H1-H3, sitemap, Search Console</span>
+        </div>
+      </div>
+
+      <div class="inc">
+        <span class="inc-ico" aria-hidden="true">
+          <!-- icon: pulse -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path d="M3 12h4l2-5 4 10 2-5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Monitoreo básico</strong>
+          <span>Visibilidad y tráfico (sin analítica avanzada)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="plan-system plan-system-v2" role="list" aria-label="Planes Brujulabs">
+      <!-- BASE -->
+      <article class="card-plan plan-v2" role="listitem">
+        <div class="plan-head">
+          <div>
+            <p class="plan-tier">Base</p>
+            <p class="plan-kicker">Arranque claro</p>
+          </div>
+          <span class="plan-badge">Arranque</span>
+        </div>
+
+        <div class="plan-price-row">
+          <p class="plan-price">$230.000 <span>CLP</span></p>
+          <p class="plan-note">Pago único · incluye despegue</p>
+        </div>
+
+        <p class="plan-ideal"><strong>Ideal si:</strong> necesitas una home tipo landing para ordenar servicios y contacto.</p>
+
+        <ul class="plan-metrics">
+          <li><span>Estructura</span><strong>1 home</strong></li>
+          <li><span>Máx. secciones</span><strong>6</strong></li>
+          <li><span>Revisiones</span><strong>2</strong></li>
+          <li><span>Despegue</span><strong>30 días</strong></li>
+        </ul>
+
+        <div class="plan-ctas">
+          <a class="btn btn-plan" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Base%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
+          <a class="btn btn-ghost" href="#alcance">Ver alcance</a>
+        </div>
+      </article>
+
+      <!-- PRO (featured) -->
+      <article class="card-plan featured plan-v2" role="listitem" aria-label="Plan Pro (más elegido)">
+        <div class="plan-head">
+          <div>
+            <p class="plan-tier">Pro</p>
+            <p class="plan-kicker">Estructura + foco</p>
+          </div>
+          <span class="plan-badge badge-strong">Más elegido</span>
+        </div>
+
+        <div class="plan-price-row">
+          <p class="plan-price">$350.000 <span>CLP</span></p>
+          <p class="plan-note">Pago único · incluye despegue</p>
+        </div>
+
+        <p class="plan-ideal"><strong>Ideal si:</strong> necesitas separar un servicio o línea principal con una landing adicional.</p>
+
+        <ul class="plan-metrics">
+          <li><span>Estructura</span><strong>Home + 1 landing</strong></li>
+          <li><span>Máx. secciones</span><strong>10</strong></li>
+          <li><span>Revisiones</span><strong>4</strong></li>
+          <li><span>Despegue</span><strong>45 días</strong></li>
+        </ul>
+
+        <div class="plan-ctas">
+          <a class="btn btn-primary" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Pro%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
+          <a class="btn btn-ghost" href="#comparar-planes">Comparar</a>
+        </div>
+      </article>
+
+      <!-- PREMIUM -->
+      <article class="card-plan plan-v2" role="listitem">
+        <div class="plan-head">
+          <div>
+            <p class="plan-tier">Premium</p>
+            <p class="plan-kicker">Más estructura</p>
+          </div>
+          <span class="plan-badge">Escala</span>
+        </div>
+
+        <div class="plan-price-row">
+          <p class="plan-price">$490.000 <span>CLP</span></p>
+          <p class="plan-note">Pago único · incluye despegue</p>
+        </div>
+
+        <p class="plan-ideal"><strong>Ideal si:</strong> tienes varias líneas, públicos o necesitas más de una landing.</p>
+
+        <ul class="plan-metrics">
+          <li><span>Estructura</span><strong>Home + 2 landings</strong></li>
+          <li><span>Máx. secciones</span><strong>14</strong></li>
+          <li><span>Revisiones</span><strong>6</strong></li>
+          <li><span>Despegue</span><strong>60 días</strong></li>
+        </ul>
+
+        <div class="plan-ctas">
+          <a class="btn btn-plan" href="https://wa.me/TUNUMERO?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Brujulabs.%20Estoy%20revisando%20el%20plan%20Premium%20y%20quiero%20confirmar%20si%20encaja%20con%20lo%20que%20necesito.">Quiero este plan</a>
+          <a class="btn btn-ghost" href="#alcance">Ver alcance</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Comparación (sin JS) -->
+    <details class="plan-compare" id="comparar-planes">
+      <summary>Ver comparación operativa</summary>
+      <div class="compare-inner">
+        <table class="compare-table" aria-label="Tabla comparativa de planes">
+          <thead>
+            <tr>
+              <th>Detalle</th>
+              <th>Base</th>
+              <th class="col-pro">Pro</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Estructura</td>
+              <td>1 home</td>
+              <td class="col-pro">Home + 1 landing</td>
+              <td>Home + 2 landings</td>
+            </tr>
+            <tr>
+              <td>Máx. secciones</td>
+              <td>6</td>
+              <td class="col-pro">10</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>Revisiones</td>
+              <td>2</td>
+              <td class="col-pro">4</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Despegue</td>
+              <td>30 días</td>
+              <td class="col-pro">45 días</td>
+              <td>60 días</td>
+            </tr>
+            <tr>
+              <td>Incluye publicación + checklist</td>
+              <td>✓</td>
+              <td class="col-pro">✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>SEO mínimo + Search Console</td>
+              <td>✓</td>
+              <td class="col-pro">✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Monitoreo básico</td>
+              <td>✓</td>
+              <td class="col-pro">✓</td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="compare-note">
+          <strong>Nota:</strong> La tabla no reemplaza el alcance. “Cambio” (estructura/alcance) es distinto a “revisión” (ajuste sobre contenido aprobado).
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
 
     <section class="section section-soft" id="alcance">
       <div class="container">
