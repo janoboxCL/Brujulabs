@@ -1000,3 +1000,67 @@ h3 { font-size: 1.08rem; }
   flex: 0 0 16px;
   opacity: .8;
 }
+
+/* =========================
+   HEADER + HERO REFINEMENTS
+   ========================= */
+
+/* HEADER: CTA outlined fuerte */
+.btn-whatsapp{
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 800;
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.28),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.btn-whatsapp:hover{
+  background: rgba(255,255,255,0.09);
+  border-color: color-mix(in srgb, var(--teal) 55%, rgba(255,255,255,0.18));
+}
+
+/* NAV: hover más visible (sin activo) */
+.main-nav{
+  border-color: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+}
+
+.main-nav a{
+  color: rgba(244,247,251,0.84);
+  font-weight: 600;
+}
+
+.main-nav a:hover{
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* HERO PANEL: tarjeta premium (borde + sombra + highlight) */
+.hero-panel{
+  background: rgba(17,26,42,0.84);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.48),
+    inset 0 0 0 1px rgba(48,200,184,0.10);
+}
+
+/* highlight superior sutil */
+.hero-panel::before{
+  content:"";
+  display:block;
+  height:1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(48,200,184,0.55),
+    transparent
+  );
+  margin: -1.25rem -1.25rem 1rem;
+  opacity: .75;
+}
+
+/* texto del panel un pelín más legible */
+.hero-panel ul{
+  color: rgba(244,247,251,0.82);
+}
