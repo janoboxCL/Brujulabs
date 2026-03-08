@@ -1143,3 +1143,74 @@ h3 { font-size: 1.08rem; }
 .hero-panel img{
   margin-top: 8px;
 }
+
+/* ===== RUTA: sistema + nodos + resultados ===== */
+/* Badge paso: icono + número */
+.step-index{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--teal) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--teal) 22%, var(--stroke));
+  color: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  line-height: 0;
+}
+
+.step-index .ico{
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.step-index .step-num{
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--navy-dark) 80%, var(--teal-dark));
+}
+
+/* Conector: más visible + nodo alineado */
+.card-step{
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent);
+  box-shadow: 0 10px 22px rgba(13,20,32,0.06);
+}
+
+.card-step::after{
+  left: 22px;
+  width: 2px;
+  height: 1.05rem;
+  background: color-mix(in srgb, var(--teal) 22%, var(--stroke));
+  opacity: .9;
+}
+
+.card-step::before{
+  content:"";
+  position:absolute;
+  left: 20px;
+  top: 22px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 12%, #fff);
+}
+
+/* Resultado por paso */
+.step-result{
+  margin: .55rem 0 0;
+  font-size: .92rem;
+  color: var(--text-soft);
+}
+
+.step-result strong{
+  color: var(--teal-dark);
+  font-weight: 800;
+}
