@@ -1226,30 +1226,52 @@ h3 { font-size: 1.08rem; }
   left: 22px;
   width: 2px;
   height: 1.1rem;
-  background: color-mix(in srgb, var(--teal) 28%, var(--stroke));
-  opacity: .95;
+  background: color-mix(in srgb, var(--teal) 22%, var(--stroke));
+  opacity: .75;
+}
+
+/* 2.1) Compactación suave + ancho de lectura */
+#ruta .card-step{
+  padding: .95rem 1rem;
+}
+
+#ruta .card-step p{
+  margin-top: .25rem;
+}
+
+#ruta .card-step > div{
+  max-width: 72ch;
 }
 
 /* 3) Resultado sobrio (etiqueta suave + texto legible) */
 #ruta .step-result{
   margin-top: .55rem;
   font-size: .92rem;
-  color: rgba(167,179,199,0.95);
+  color: rgba(167,179,199,0.92);
 }
 
 #ruta .step-result strong{
   color: color-mix(in srgb, var(--teal-dark) 70%, var(--text-soft));
   font-weight: 800;
+  opacity: .85;
+  letter-spacing: .02em;
 }
 
 /* 4) Destacar SOLO paso 04 */
 #ruta .card-step.is-focus{
   border-color: color-mix(in srgb, var(--teal) 28%, var(--stroke));
-  background: color-mix(in srgb, var(--teal) 6%, #fff);
+  background:
+    linear-gradient(90deg, transparent, rgba(48,200,184,0.65), transparent) top / 100% 2px no-repeat,
+    color-mix(in srgb, var(--teal) 6%, #fff);
   box-shadow: 0 12px 28px rgba(13,20,32,0.08);
 }
 
 #ruta .card-step.is-focus .step-index{
   border-color: color-mix(in srgb, var(--teal) 35%, var(--stroke));
   background: color-mix(in srgb, var(--teal) 14%, #fff);
+}
+
+/* 5) CTA final más sistema */
+#ruta .section-actions .btn{
+  box-shadow: 0 10px 22px rgba(13,20,32,0.10);
 }
