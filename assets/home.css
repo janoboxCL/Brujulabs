@@ -1214,3 +1214,42 @@ h3 { font-size: 1.08rem; }
   color: var(--teal-dark);
   font-weight: 800;
 }
+
+/* ===== RUTA micro-pulido: menos ruido + más sistema ===== */
+/* 1) Quitar micro-nodo (puntito) si existe */
+#ruta .card-step::before{
+  display: none !important;
+}
+
+/* 2) Conector vertical más presente (sin exagerar) */
+#ruta .card-step::after{
+  left: 22px;
+  width: 2px;
+  height: 1.1rem;
+  background: color-mix(in srgb, var(--teal) 28%, var(--stroke));
+  opacity: .95;
+}
+
+/* 3) Resultado sobrio (etiqueta suave + texto legible) */
+#ruta .step-result{
+  margin-top: .55rem;
+  font-size: .92rem;
+  color: rgba(167,179,199,0.95);
+}
+
+#ruta .step-result strong{
+  color: color-mix(in srgb, var(--teal-dark) 70%, var(--text-soft));
+  font-weight: 800;
+}
+
+/* 4) Destacar SOLO paso 04 */
+#ruta .card-step.is-focus{
+  border-color: color-mix(in srgb, var(--teal) 28%, var(--stroke));
+  background: color-mix(in srgb, var(--teal) 6%, #fff);
+  box-shadow: 0 12px 28px rgba(13,20,32,0.08);
+}
+
+#ruta .card-step.is-focus .step-index{
+  border-color: color-mix(in srgb, var(--teal) 35%, var(--stroke));
+  background: color-mix(in srgb, var(--teal) 14%, #fff);
+}
