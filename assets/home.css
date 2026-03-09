@@ -1929,3 +1929,62 @@ h3 { font-size: 1.08rem; }
   font-size: .78rem;
   margin-left: .1rem;
 }
+
+/* ===== DEMOS: acento por rubro (icono grande + header) ===== */
+.demo-card{
+  --demo-accent: var(--teal-dark);
+}
+
+.demo-pro{
+  --demo-accent: var(--teal-dark);
+}
+
+.demo-cons{
+  --demo-accent: var(--blue);
+}
+
+.demo-club{
+  --demo-accent: var(--teal);
+}
+
+.demo-head{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: .7rem;
+}
+
+.demo-headcopy{
+  min-width: 0;
+}
+
+.demo-headcopy h3{
+  margin-bottom: 0;
+}
+
+.demo-ico{
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--demo-accent) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--demo-accent) 22%, var(--stroke));
+  color: var(--demo-accent);
+  display: grid;
+  place-items: center;
+}
+
+.demo-ico svg{
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.demo-kicker{
+  color: var(--demo-accent);
+}
+
+.demo-card:hover{
+  border-color: color-mix(in srgb, var(--demo-accent) 20%, var(--stroke));
+  box-shadow: 0 14px 32px rgba(13,20,32,0.075);
+}
