@@ -41,7 +41,7 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Implementación web estructurada para negocios de servicios</p>
-          <h1>Tu sitio web publicado y funcionando.<br>Sin depender solo de Instagram o WhatsApp.</h1>
+          <h1>Tu sitio web <span class="hero-highlight">publicado y funcionando</span>.<br>Sin depender solo de Instagram o WhatsApp.</h1>
           <p class="lead">Brujulabs ordena tu contenido, define la estructura y conecta la base técnica para que tu presencia digital quede clara, operativa y con alcance controlado.</p>
           <p class="hero-proof">Dominio activo · SSL operativo · contacto funcionando · SEO mínimo conectado.</p>
           <div class="hero-actions">
@@ -885,6 +885,16 @@
 
       cards.forEach((card) => observer.observe(card));
       setActiveDemo(cards[0].id);
+
+      const siteHeader = document.querySelector('.site-header');
+      if (siteHeader) {
+        const toggleScrolledHeader = () => {
+          siteHeader.classList.toggle('is-scrolled', window.scrollY > 32);
+        };
+
+        toggleScrolledHeader();
+        window.addEventListener('scroll', toggleScrolledHeader, { passive: true });
+      }
     })();
   </script>
 </body>
