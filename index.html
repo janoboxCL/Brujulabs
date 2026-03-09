@@ -649,15 +649,16 @@
           </div>
           <div class="demo-jump">
             <span>Ir a:</span>
-            <a href="#demo-profesionales">Profesionales</a>
-            <span class="sep">·</span>
-            <a href="#demo-consultores">Consultores</a>
-            <span class="sep">·</span>
-            <a href="#demo-clubes">Clubes</a>
+            <a class="demo-jump-chip" href="#demo-profesionales" data-demo-target="demo-profesionales">Profesionales</a>
+            <a class="demo-jump-chip" href="#demo-consultores" data-demo-target="demo-consultores">Consultores</a>
+            <a class="demo-jump-chip" href="#demo-clubes" data-demo-target="demo-clubes">Clubes</a>
+          </div>
+          <div class="demo-preview" aria-live="polite">
+            <img id="demo-preview-image" src="assets/img/hero1.jpg" alt="Vista previa de demo por rubro" loading="lazy" />
           </div>
         </div>
         <div class="demo-stack">
-          <article class="demo-card demo-pro" id="demo-profesionales">
+          <article class="demo-card demo-pro" id="demo-profesionales" data-demo-image="assets/img/hero1.jpg">
             <div class="demo-head">
               <span class="demo-ico" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M9 12h.01"/><path d="M15 12h.01"/></svg>
@@ -687,7 +688,7 @@
               Ver demo de este rubro →
             </a>
           </article>
-          <article class="demo-card demo-cons featured" id="demo-consultores">
+          <article class="demo-card demo-cons featured" id="demo-consultores" data-demo-image="assets/img/hero2.jpg">
             <div class="demo-head">
               <span class="demo-ico" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -718,7 +719,7 @@
               Ver demo de este rubro →
             </a>
           </article>
-          <article class="demo-card demo-club" id="demo-clubes">
+          <article class="demo-card demo-club" id="demo-clubes" data-demo-image="assets/img/hero3.jpg">
             <div class="demo-head">
               <span class="demo-ico" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h12l-1 11H7L6 9Z"/><path d="M8 9V4h8v5"/><path d="M12 12v5"/><path d="m10 14 2-2 2 2"/></svg>
@@ -812,5 +813,58 @@
       </div>
     </section>
   </main>
+  <script>
+    (() => {
+      const previewImage = document.getElementById('demo-preview-image');
+      const cards = Array.from(document.querySelectorAll('.demo-card[data-demo-image]'));
+      const chips = Array.from(document.querySelectorAll('.demo-jump-chip[data-demo-target]'));
+
+      if (!previewImage || !cards.length || !chips.length) return;
+
+      const cardById = new Map(cards.map((card) => [card.id, card]));
+
+      const setActiveDemo = (demoId) => {
+        const activeCard = cardById.get(demoId);
+        if (!activeCard) return;
+
+        const imagePath = activeCard.dataset.demoImage;
+        if (imagePath) {
+          previewImage.src = imagePath;
+          previewImage.alt = `Vista previa de ${activeCard.querySelector('.demo-kicker')?.textContent?.trim() || 'demo por rubro'}`;
+        }
+
+        chips.forEach((chip) => {
+          chip.classList.toggle('is-active', chip.dataset.demoTarget === demoId);
+        });
+      };
+
+      chips.forEach((chip) => {
+        const demoId = chip.dataset.demoTarget;
+        chip.addEventListener('mouseenter', () => setActiveDemo(demoId));
+        chip.addEventListener('focus', () => setActiveDemo(demoId));
+      });
+
+      cards.forEach((card) => {
+        card.addEventListener('mouseenter', () => setActiveDemo(card.id));
+        card.addEventListener('focusin', () => setActiveDemo(card.id));
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible?.target?.id) {
+            setActiveDemo(visible.target.id);
+          }
+        },
+        { rootMargin: '-30% 0px -45% 0px', threshold: [0.35, 0.6, 0.85] }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+      setActiveDemo(cards[0].id);
+    })();
+  </script>
 </body>
 </html>

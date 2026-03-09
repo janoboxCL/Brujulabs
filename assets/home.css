@@ -499,6 +499,11 @@ h3 { font-size: 1.08rem; }
   align-items: start;
 }
 
+.demos-copy {
+  position: sticky;
+  top: 88px;
+}
+
 .demo-stack {
   margin-top: 1.2rem;
   display: grid;
@@ -741,6 +746,15 @@ h3 { font-size: 1.08rem; }
   .header-inner { grid-template-columns: 1fr auto; }
   .hero-grid, .two-col, .scope-grid, .demos-layout, .ops-grid, .plan-system { grid-template-columns: 1fr; }
   .section { padding: 4rem 0; }
+
+  .demos-copy {
+    position: static;
+    top: auto;
+  }
+
+  .demo-preview {
+    width: 100%;
+  }
 }
 
 
@@ -1873,34 +1887,61 @@ h3 { font-size: 1.08rem; }
   margin-top: .85rem;
   display: flex;
   flex-wrap: wrap;
-  gap: .45rem;
+  gap: .55rem;
   align-items: center;
   color: var(--text-soft);
   font-size: .92rem;
 }
 
-.demo-jump a{
-  color: var(--teal-dark);
+.demo-jump-chip{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .36rem .82rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #F4F4F4;
+  color: var(--text-soft);
   font-weight: 800;
   text-decoration: none;
-  border-bottom: 1px solid rgba(48,200,184,0.35);
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
-.demo-jump a:hover{
-  border-bottom-color: rgba(48,200,184,0.8);
+.demo-jump-chip:hover,
+.demo-jump-chip:focus-visible,
+.demo-jump-chip.is-active{
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  color: #fff;
 }
 
-.demo-jump .sep{
-  opacity: .55;
+.demo-preview{
+  margin-top: 1rem;
+  width: min(100%, 500px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--stroke) 75%, transparent);
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(13,20,32,0.08);
+}
+
+.demo-preview img{
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
 }
 
 /* CTA local en cada card */
 .demo-cta{
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: .35rem;
   margin-top: .9rem;
-  font-weight: 900;
+  width: 100%;
+  text-align: right;
+  font-weight: 600;
   color: var(--teal-dark);
   text-decoration: none;
 }
@@ -1966,9 +2007,9 @@ h3 { font-size: 1.08rem; }
   width: 56px;
   height: 56px;
   flex: 0 0 56px;
-  border-radius: 16px;
+  border-radius: 999px;
   background: color-mix(in srgb, var(--demo-accent) 10%, #fff);
-  border: 1px solid color-mix(in srgb, var(--demo-accent) 22%, var(--stroke));
+  border: 1px solid color-mix(in srgb, var(--demo-accent) 18%, var(--stroke));
   color: var(--demo-accent);
   display: grid;
   place-items: center;
@@ -1987,4 +2028,5 @@ h3 { font-size: 1.08rem; }
 .demo-card:hover{
   border-color: color-mix(in srgb, var(--demo-accent) 20%, var(--stroke));
   box-shadow: 0 14px 32px rgba(13,20,32,0.075);
+  transform: scale(1.02);
 }
