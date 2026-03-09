@@ -624,6 +624,11 @@ h3 { font-size: 1.08rem; }
   border: 1px solid var(--stroke);
   border-radius: 16px;
   padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .ops-panel.accent {
@@ -632,11 +637,27 @@ h3 { font-size: 1.08rem; }
 
 .ops-kicker {
   margin: 0 0 .35rem;
-  color: var(--blue);
+}
+
+.ops-kicker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .36rem;
+  padding: .28rem .6rem;
+  border-radius: 999px;
+  background: #f4f6f8;
+  color: var(--navy-dark);
   font-size: .76rem;
   font-weight: 700;
   letter-spacing: .05em;
   text-transform: uppercase;
+}
+
+.ops-kicker-pill svg {
+  width: .86rem;
+  height: .86rem;
+  color: #47b8a2;
+  flex-shrink: 0;
 }
 
 .ops-panel h3 {
@@ -646,6 +667,25 @@ h3 { font-size: 1.08rem; }
 .ops-panel p {
   margin: 0;
   color: var(--text-soft);
+}
+
+.ops-highlight {
+  font-weight: 500;
+  color: var(--navy-dark);
+}
+
+.ops-sla-panel {
+  padding-right: 4.8rem;
+}
+
+.ops-robot {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: min(80px, 28%);
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.14));
+  pointer-events: none;
 }
 
 .faq-wrap details {
