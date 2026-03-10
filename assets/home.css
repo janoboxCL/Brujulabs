@@ -2106,7 +2106,7 @@ h3 { font-size: 1.08rem; }
   display: flex;
   flex-direction: column;
   overflow: visible;
-  width: calc(100% - 36px);
+  /*width: calc(100% - 36px);*/
   margin-right: auto;
 
   /* reserva real para el robot + respiración */
