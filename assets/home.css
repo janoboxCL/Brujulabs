@@ -2101,16 +2101,14 @@ h3 { font-size: 1.08rem; }
    ========================= */
 
 /* Panel como columna para poder "anclar" el cierre abajo */
-.hero-panel{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: visible;
-  /*width: calc(100% - 36px);*/
-  margin-right: auto;
-
-  /* reserva real para el robot + respiración */
-  padding-bottom: 200px;
+.hero-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: calc(120% - 36px);
+    margin-right: auto;
+    padding-bottom: 160px;
 }
 
 /* Lista: deja escena al robot (65–70%) */
